@@ -8,6 +8,12 @@ const ProductSchema = new mongoose.Schema({
         type: String, 
         required: [true, 'Product Name is required']
     },
+    imgUrlHead: {
+        type: String
+    },
+    imgUrl: {
+        type: String
+    },
     description: {
         type: String, 
     },

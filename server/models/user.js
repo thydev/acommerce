@@ -23,6 +23,7 @@ const UserSchema = new mongoose.Schema({
         minlength: 2
     },
     password: {
+        //Without hash for now. WILL Add it later
         type: String, 
         required: [false, '']
     },

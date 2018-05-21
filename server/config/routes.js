@@ -1,39 +1,52 @@
 const path = require('path');
+const users = require('../controllers/users.js');
+const sellers = require('../controllers/sellers.js');
 
 module.exports = (app) => {
     const baseUrl = '/api/';
-    app.get(baseUrl, (req, res) => {
-        // players.retrieveAll(req, res);
-    })
 
-    app.get(baseUrl + ':id', (req, res) => {
-        // players.retrieveById(req, res);
+    app.get(baseUrl + 'users', (req, res) => {
+        users.getAll(req, res);
     });
 
-    app.post(baseUrl, (req, res) => {
-        // players.create(req, res);
+    app.get(baseUrl + 'users/:id', (req, res) => {
+        users.getById(req, res);
     });
 
-    app.put(baseUrl + ':id', (req, res) => {
-        // players.updateById(req, res);
+    app.post(baseUrl + 'users', (req, res) => {
+        users.create(req, res);
     });
 
-    app.delete(baseUrl + ':id', (req, res)=> {
-        // players.removeById(req, res);
+    app.put(baseUrl + 'users/:id', (req, res) => {
+        users.updateById(req, res);
     });
 
-    // app.post(baseUrl + 'quotes/:id', (req, res) => {
-    //     players.createQuote(req, res);
-    // });
+    app.delete(baseUrl + 'users/:id', (req, res)=> {
+        users.removeById(req, res);
+    });
 
-    // app.post(baseUrl + 'quotes/vote/:id', (req, res) => {
-    //     players.voteQuote(req, res);
-    // });
+    // Seller
+    app.get(baseUrl + 'sellers', (req, res) => {
+        sellers.getAll(req, res);
+    });
 
-    // app.delete(baseUrl + 'quotes/:id/:quote_id', (req, res) => {
-    //     players.deleteQuote(req, res);
-    // });
-    // this route will be triggered if any of the routes above did not match
+    app.get(baseUrl + 'sellers/:id', (req, res) => {
+        sellers.getById(req, res);
+    });
+
+    app.post(baseUrl + 'sellers', (req, res) => {
+        sellers.createUser(req, res);
+    });
+
+    app.put(baseUrl + 'sellers/:id', (req, res) => {
+        sellers.updateUserById(req, res);
+    });
+
+    app.delete(baseUrl + 'sellers/:id', (req, res)=> {
+        sellers.removeUserById(req, res);
+    });
+
+    
     app.all("*", (req,res,next) => {
         res.sendFile(path.resolve("./client/dist/client/index.html"))
     });
