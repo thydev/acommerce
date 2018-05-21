@@ -20,11 +20,13 @@ import { HttpService } from './http.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MessagesComponent } from './messages/messages.component';
+import { GoogleloginComponent } from './googlelogin/googlelogin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MessagesComponent
+    MessagesComponent,
+    GoogleloginComponent
   ],
   imports: [
     BrowserModule,
