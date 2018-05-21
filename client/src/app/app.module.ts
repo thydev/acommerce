@@ -11,7 +11,8 @@ import {
     MatInputModule,
     MatSnackBarModule,
     MatToolbarModule,
-    MatGridListModule
+    MatGridListModule,
+    MatIconModule
   } from '@angular/material';
 
 // App compoents and services
@@ -37,7 +38,8 @@ import { MessagesComponent } from './messages/messages.component';
     MatInputModule,
     MatSnackBarModule,
     MatToolbarModule,
-    MatGridListModule
+    MatGridListModule,
+    MatIconModule
   ],
 
   providers: [HttpService],
