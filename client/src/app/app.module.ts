@@ -1,50 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 
-// Material Components
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-    MatButtonModule,
-    MatCheckboxModule,
-    MatCardModule,
-    MatInputModule,
-    MatSnackBarModule,
-    MatToolbarModule,
-    MatGridListModule,
-    MatIconModule
-  } from '@angular/material';
-
-// App compoents and services
-import { HttpService } from './http.service';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MessagesComponent } from './messages/messages.component';
-import { GoogleloginComponent } from './googlelogin/googlelogin.component';
+import { HomeComponent } from './home/home.component';
+
+import { ROUTES } from './app.routes';
+
+import { AuthService } from './auth/auth.service';
+import { CallbackComponent } from './callback/callback.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MessagesComponent,
-    GoogleloginComponent
+    HomeComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
-
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatCardModule,
-    MatInputModule,
-    MatSnackBarModule,
-    MatToolbarModule,
-    MatGridListModule,
-    MatIconModule
+    FormsModule,
+    HttpModule,
+    RouterModule.forRoot(ROUTES)
   ],
-
-  providers: [HttpService],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
