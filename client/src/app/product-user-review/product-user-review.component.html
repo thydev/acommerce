@@ -1,0 +1,26 @@
+<mat-grid-list cols="4" rowHeight="50px">
+    <mat-grid-tile [colspan]=4>
+      <h4>Want to Review This Product?</h4>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]=4>
+      <!-- Disappear Sign In if logged in true -->
+      <h5>Sign-In</h5>
+      <!-- Pop up the login comp button to log in -->
+    </mat-grid-tile>
+    <!-- Add ngIf to form for if user logged-in true to display div -->
+    <div>
+    <mat-grid-tile [colspan]=4>
+      <strong style="font-size: 1.5em">Rating:</strong>
+      <ngb-rating style="font-size: 3em" name="rating" [(rate)]="rating" max=5></ngb-rating>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]=4 [rowspan]=3>
+      <mat-form-field style="width: 60%">
+        <textarea matInput type="text" placeholder="Review" name="review.review" [(ngModel)]="review.review" rows=5></textarea>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]=4>
+      <button mat-raised-button color="primary" type="submit" (click)="createRating()">Submit Review</button>
+    </mat-grid-tile>
+  </div>
+</mat-grid-list>
+<mat-divider></mat-divider>
