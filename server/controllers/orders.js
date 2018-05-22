@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const Cart = mongoose.model('Cart');
 const Order = mongoose.model('Order');
+const stripe = require('stripe')('sk_test_Wxs7CHRBXDKIMh3qpxNrhiIq');
 
 module.exports = {
 
@@ -92,4 +93,24 @@ module.exports = {
                 }
             });
     },
+
+    createPayment: (req, res) => {
+        const token = req.body.token;
+        stripe.charges.create({
+            amount: 2000,
+            currency: "usd",
+            source: token, // obtained with Stripe.js
+            description: "Charge for olivia.jones@example.com"
+          }, function(err, charge) {
+            // asynchronously called
+            if(err){
+                console.log(err);
+                res.json({'message':'failed', err});
+            }
+            else{
+                console.log(charge);
+                res.json({'message':'Success', charge});
+            }
+        });
+    }
 }
