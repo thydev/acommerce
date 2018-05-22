@@ -15,23 +15,23 @@ const messages = [{ product: 'some test', owner: 'thy' }, { product: 'product2',
 
 app.use(cors());
 
-var jwtCheck = jwt({
-    secret: jwks.expressJwtSecret({
-        cache: true,
-        rateLimit: true,
-        jwksRequestsPerMinute: 5,
-        jwksUri: "https://acommerce.auth0.com/.well-known/jwks.json"
-    }),
-    audience: 'www.wanderlust.com',
-    issuer: "https://acommerce.auth0.com/",
-    algorithms: ['RS256']
-});
+// var jwtCheck = jwt({
+//     secret: jwks.expressJwtSecret({
+//         cache: true,
+//         rateLimit: true,
+//         jwksRequestsPerMinute: 5,
+//         jwksUri: "https://acommerce.auth0.com/.well-known/jwks.json"
+//     }),
+//     audience: 'www.wanderlust.com',
+//     issuer: "https://acommerce.auth0.com/",
+//     algorithms: ['RS256']
+// });
 
-app.use(jwtCheck);
+// app.use(jwtCheck);
 
-app.get('/authorized', function (req, res) {
-    res.send('Secured Resource');
-});
+// app.get('/authorized', function (req, res) {
+//     res.send('Secured Resource');
+// });
 
 // app.listen(port);
 // const checkScopes = jwtAuthz(['read:courses']);
@@ -51,7 +51,6 @@ app.use((req, res, next) => {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-
 
 app.get(baseUrl + 'messages', (req, res) => {
     res.json(messages);
