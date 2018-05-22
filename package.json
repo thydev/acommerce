@@ -10,10 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "auth0-js": "^9.5.1",
     "@angular/cdk": "^6.0.2",
+    "@angular/flex-layout": "^6.0.0-beta.15",
     "@angular/material": "^6.0.2",
     "@ng-bootstrap/ng-bootstrap": "^2.0.0",
+    "auth0-js": "^9.5.1",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "express": "^4.16.3",

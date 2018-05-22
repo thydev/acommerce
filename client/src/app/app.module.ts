@@ -8,6 +8,8 @@ import { AuthService } from './auth/auth.service';
 import { CallbackComponent } from './callback/callback.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+//Angular Flex
+import {FlexLayoutModule} from "@angular/flex-layout";
 // Angular Bootstrap:
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // Material Components
@@ -23,7 +25,9 @@ import {
     MatInputModule,
     MatSnackBarModule,
     MatToolbarModule,
-    MatGridListModule
+    MatGridListModule,
+    MatIconModule, 
+    MatSelectModule,
   } from '@angular/material';
 
 // App compoents and services
@@ -33,6 +37,10 @@ import { ProductReviewDetailsComponent } from './product-review-details/product-
 import { ProductUserReviewComponent } from './product-user-review/product-user-review.component';
 import { ProductReviewListingComponent } from './product-review-listing/product-review-listing.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { ProductMainComponent } from './product-main/product-main.component';
+import { LocationSearchComponent } from './location-search/location-search.component';
+import { PriceSearchComponent } from './price-search/price-search.component';
+import { WeatherSearchComponent } from './weather-search/weather-search.component';
 
 
 @NgModule({
@@ -44,6 +52,10 @@ import { AppRoutingModule } from './/app-routing.module';
     ProductReviewDetailsComponent,
     ProductUserReviewComponent,
     ProductReviewListingComponent,
+    ProductMainComponent,
+    LocationSearchComponent,
+    PriceSearchComponent,
+    WeatherSearchComponent,
 
   ],
   imports: [
@@ -65,7 +77,11 @@ import { AppRoutingModule } from './/app-routing.module';
     MatGridListModule,
     MatDividerModule,
     MatListModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FlexLayoutModule,
+    MatSelectModule,
+    MatDividerModule,
+    MatSliderModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
