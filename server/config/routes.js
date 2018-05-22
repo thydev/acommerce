@@ -1,7 +1,8 @@
 const path = require('path');
-const users = require('../controllers/users.js');
-const sellers = require('../controllers/sellers.js');
-const products = require('../controllers/products.js');
+const users = require('../controllers/users');
+const sellers = require('../controllers/sellers');
+const products = require('../controllers/products');
+const orders = require('../controllers/orders');
 
 module.exports = (app) => {
     const baseUrl = '/api/';
@@ -38,6 +39,13 @@ module.exports = (app) => {
         products.removeById(req, res);
     });
 
+    // Order Routes
+    app.get(baseUrl + 'orders', (req, res) => { orders.getAll(req, res); });
+    app.get(baseUrl + 'orders/:id', (req, res) => { orders.getById(req, res); });
+    app.post(baseUrl + 'orders', (req, res) => { orders.create(req, res); });
+    app.put(baseUrl + 'orders/:id', (req, res) => { orders.updateById(req, res); });
+    app.delete(baseUrl + 'orders/:id', (req, res) => { orders.removeById(req, res); });
+    
 
 
     // Go to client route when the above routes didnot match
