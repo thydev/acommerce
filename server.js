@@ -1,4 +1,4 @@
-// const port = 5000;
+const port = process.env.PORT || 5000;
 const baseUrl = '/api/';
 const express = require('express');
 const jwt = require('express-jwt');
@@ -14,7 +14,6 @@ const app = express();
 const messages = [{ product: 'some test', owner: 'thy' }, { product: 'product2', owner: 'toto' }];
 
 app.use(cors());
-var port = process.env.PORT || 8080;
 
 var jwtCheck = jwt({
     secret: jwks.expressJwtSecret({
@@ -40,8 +39,6 @@ app.get('/authorized', function (req, res) {
 // Model Section
 require('./server/config/mongoose');
 // End of Model Section
-
-const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
