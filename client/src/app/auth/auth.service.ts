@@ -2,9 +2,15 @@ import { Injectable } from '@angular/core';
 import { AUTH_CONFIG } from './auth0-variables';
 import { Router } from '@angular/router';
 import * as auth0 from 'auth0-js';
+import { Observable, Observer } from 'rxjs';
+// ...
+
 
 @Injectable()
 export class AuthService {
+
+  private observer: Observer<string>;
+  // userImageChange$: Observable<string> = new Observable(obs => this.observer = obs);
 
   auth0 = new auth0.WebAuth({
     clientID: AUTH_CONFIG.clientID,
@@ -12,10 +18,10 @@ export class AuthService {
     responseType: 'token id_token',
     audience: `https://${AUTH_CONFIG.domain}/userinfo`,
     redirectUri: AUTH_CONFIG.callbackURL,
-    scope: 'openid'
+    scope: 'openid profile'
   });
-
-  constructor(public router: Router) {}
+  userProfile: any;
+  constructor(public router: Router) { }
 
   public login(): void {
     this.auth0.authorize();
@@ -23,13 +29,30 @@ export class AuthService {
 
   public handleAuthentication(): void {
     this.auth0.parseHash((err, authResult) => {
+      console.log(authResult, "this is the auth Result")
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
+        this.getProfile();
         this.router.navigate(['/home']);
       } else if (err) {
         this.router.navigate(['/home']);
         console.log(err);
         alert(`Error: ${err.error}. Check the console for further details.`);
+      }
+    });
+  }
+
+
+  public getProfile(): void {
+    const accessToken = localStorage.getItem('access_token');
+    if (!accessToken) {
+      throw new Error('Access token must exist to fetch profile');
+    }
+    const self = this;
+    this.auth0.client.userInfo(accessToken, (err, profile) => {
+      if (profile) {
+        self.userProfile = profile;
+        console.log("this is self.userProfile", self.userProfile)
       }
     });
   }

@@ -7,9 +7,7 @@ const jwks = require('jwks-rsa');
 const jwtAuthz = require('express-jwt-authz');
 
 const bodyParser = require('body-parser');
-
 const app = express();
-
 
 const messages = [{ product: 'some test', owner: 'thy' }, { product: 'product2', owner: 'toto' }];
 
@@ -34,14 +32,11 @@ app.get('/authorized', function (req, res) {
     res.send('Secured Resource');
 });
 
-// app.listen(port);
-// const checkScopes = jwtAuthz(['read:courses']);
 
 // Model Section
 require('./server/config/mongoose');
 // End of Model Section
 
-const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -54,7 +49,6 @@ app.use((req, res, next) => {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-
 
 app.get(baseUrl + 'messages', (req, res) => {
     res.json(messages);
