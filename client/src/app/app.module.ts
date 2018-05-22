@@ -8,6 +8,8 @@ import { AuthService } from './auth/auth.service';
 import { CallbackComponent } from './callback/callback.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+//Angular Flex
+import {FlexLayoutModule} from "@angular/flex-layout";
 // Angular Bootstrap:
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // Material Components
@@ -23,7 +25,9 @@ import {
     MatInputModule,
     MatSnackBarModule,
     MatToolbarModule,
-    MatGridListModule
+    MatGridListModule,
+    MatIconModule, 
+    MatSelectModule,
   } from '@angular/material';
 
 // App compoents and services
@@ -34,6 +38,10 @@ import { ProductUserReviewComponent } from './product-user-review/product-user-r
 import { ProductReviewListingComponent } from './product-review-listing/product-review-listing.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { ProductCartComponent } from './product-cart/product-cart.component';
+import { ProductMainComponent } from './product-main/product-main.component';
+import { LocationSearchComponent } from './location-search/location-search.component';
+import { PriceSearchComponent } from './price-search/price-search.component';
+import { WeatherSearchComponent } from './weather-search/weather-search.component';
 
 
 @NgModule({
@@ -45,7 +53,14 @@ import { ProductCartComponent } from './product-cart/product-cart.component';
     ProductReviewDetailsComponent,
     ProductUserReviewComponent,
     ProductReviewListingComponent,
+<<<<<<< HEAD
     ProductCartComponent,
+=======
+    ProductMainComponent,
+    LocationSearchComponent,
+    PriceSearchComponent,
+    WeatherSearchComponent,
+>>>>>>> 11311bd2b059195422c664b27eb568e3647dcc49
 
   ],
   imports: [
@@ -67,7 +82,11 @@ import { ProductCartComponent } from './product-cart/product-cart.component';
     MatGridListModule,
     MatDividerModule,
     MatListModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FlexLayoutModule,
+    MatSelectModule,
+    MatDividerModule,
+    MatSliderModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

@@ -1,0 +1,21 @@
+<mat-form-field>
+  <mat-select placeholder="Country">
+    <mat-option>None</mat-option>
+    <mat-option *ngFor="let country of countries" [value]="country">{{cuntry}}</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-divider></mat-divider>
+<mat-form-field>
+  <mat-select placeholder="City">
+    <mat-option>None</mat-option>
+    <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-divider></mat-divider>
+<mat-form-field>
+  <mat-select placeholder="Activity">
+    <mat-option>None</mat-option>
+    <mat-option *ngFor="let activity of activities" [value]="activity">{{activity}}</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-divider></mat-divider>
