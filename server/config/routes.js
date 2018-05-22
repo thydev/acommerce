@@ -46,7 +46,8 @@ module.exports = (app) => {
     app.put(baseUrl + 'orders/:id', (req, res) => { orders.updateById(req, res); });
     app.delete(baseUrl + 'orders/:id', (req, res) => { orders.removeById(req, res); });
     
-
+    //Payment Route
+    app.post(baseUrl + 'orders/payment', (req, res) => {orders.createPayment(req, res); });
 
     // Go to client route when the above routes didnot match
     app.all("*", (req,res,next) => {

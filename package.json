@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@angular/cdk": "^6.0.2",
+    "@angular/flex-layout": "^6.0.0-beta.15",
     "@angular/material": "^6.0.2",
     "@ng-bootstrap/ng-bootstrap": "^2.0.0",
     "auth0-js": "^9.5.1",
@@ -24,7 +25,8 @@
     "jwks-rsa": "^1.2.1",
     "mongoose": "^5.1.1",
     "mongoose-unique-validator": "^2.0.1",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "stripe": "^6.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
