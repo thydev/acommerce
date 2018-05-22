@@ -32,6 +32,7 @@ import { ProductReviewComponent } from './product-review/product-review.componen
 import { ProductReviewDetailsComponent } from './product-review-details/product-review-details.component';
 import { ProductUserReviewComponent } from './product-user-review/product-user-review.component';
 import { ProductReviewListingComponent } from './product-review-listing/product-review-listing.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { ProductReviewListingComponent } from './product-review-listing/product-
     MatToolbarModule,
     MatGridListModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    AppRoutingModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
