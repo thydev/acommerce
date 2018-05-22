@@ -10,10 +10,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "auth0-js": "^9.5.1",
     "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
     "express": "^4.16.3",
+    "express-jwt": "^5.3.1",
+    "express-jwt-authz": "^1.0.0",
+    "jsonwebtoken": "^8.2.1",
+    "jwks-rsa": "^1.2.1",
     "mongoose": "^5.1.1",
     "mongoose-unique-validator": "^2.0.1",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1"
   }
 }
