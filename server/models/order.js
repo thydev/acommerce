@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const OderDetailSchema = require('./orderDetail').schema;
 
-const CartSchema = new mongoose.Schema({
+const OrderSchema = new mongoose.Schema({
     _id : Schema.Types.ObjectId,
     user: {type: Schema.Types.ObjectId, ref: "User"},
     status: { 

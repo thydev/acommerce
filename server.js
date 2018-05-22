@@ -3,16 +3,11 @@ const baseUrl = '/api/';
 const express = require('express');
 const app = express();
 
-const messages = [{product: 'some test', owner: 'thy'}, {product: 'product2', owner: 'toto'}];
-
-;
-
 // Model Section
-// require('./server/config/mongoose');
+require('./server/config/mongoose');
 // End of Model Section
 
-
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
 const path = require('path');
@@ -24,9 +19,12 @@ app.use((req, res, next) => {
     next();
 });
 
+//Testing Section
+const messages = [{product: 'some test', owner: 'thy'}, {product: 'product2', owner: 'toto'}];
 app.get(baseUrl + 'messages', (req, res) => {
     res.json(messages);
-})
+});
+// End of Testing Section
 
 require('./server/config/routes')(app);
 
