@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { ROUTES } from './app.routes';
 import { AuthService } from './auth/auth.service';
 import { CallbackComponent } from './callback/callback.component';
+<<<<<<< HEAD
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 // Angular Bootstrap:
@@ -33,6 +34,10 @@ import { ProductReviewDetailsComponent } from './product-review-details/product-
 import { ProductUserReviewComponent } from './product-user-review/product-user-review.component';
 import { ProductReviewListingComponent } from './product-review-listing/product-review-listing.component';
 import { AppRoutingModule } from './/app-routing.module';
+=======
+import { ProfileComponent } from './profile/profile.component';
+
+>>>>>>> userSaving
 
 
 @NgModule({
@@ -40,11 +45,15 @@ import { AppRoutingModule } from './/app-routing.module';
     AppComponent,
     HomeComponent,
     CallbackComponent,
+<<<<<<< HEAD
     ProductReviewComponent,
     ProductReviewDetailsComponent,
     ProductUserReviewComponent,
     ProductReviewListingComponent,
 
+=======
+    ProfileComponent
+>>>>>>> userSaving
   ],
   imports: [
     NgbModule.forRoot(),
