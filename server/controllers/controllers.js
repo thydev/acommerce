@@ -3,7 +3,7 @@ const mongoose = require('mongoose'),
 
 module.exports = {
 
-    retrieveAll : (req, res) => {
+    getUsers : (req, res) => {
         User.find({}, (err, items) => {
             if (!err) {
                 res.json({message: "Success", data: items});
@@ -14,7 +14,7 @@ module.exports = {
         }).sort({ name: 1 });
     },
 
-    retrieveById: (req, res) => {
+    getUserById: (req, res) => {
         const ObjectId = mongoose.Types.ObjectId; 
         User.find({_id: new ObjectId(req.params.id)})
             .exec((err, item)=>{
@@ -27,7 +27,7 @@ module.exports = {
             });
     },
     
-    create: (req, res) => {
+    createUser: (req, res) => {
         let item = new User(req.body);
         item._id = new mongoose.Types.ObjectId();
         // item.name = req.body.name;
@@ -41,7 +41,7 @@ module.exports = {
         });
     }, 
 
-    updateById: (req, res) => {
+    updateUserById: (req, res) => {
         const ObjectId = mongoose.Types.ObjectId; 
         // User.where({_id: new ObjectId(req.params.id)})
         //     .update({$set: {
@@ -68,7 +68,7 @@ module.exports = {
         });
     },
 
-    removeById: (req, res) => {
+    removeUserById: (req, res) => {
         const ObjectId = mongoose.Types.ObjectId; 
         User.remove({_id: new ObjectId(req.params.id)})
             .exec((err, item)=>{

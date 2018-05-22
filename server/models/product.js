@@ -6,7 +6,13 @@ const ProductSchema = new mongoose.Schema({
     _id : Schema.Types.ObjectId,
     name: {
         type: String, 
-        required: [true, 'Product Name is required']
+        required: [true, 'Product name is required']
+    },
+    imgUrlHead: {
+        type: String
+    },
+    imgUrl: {
+        type: String
     },
     description: {
         type: String, 
@@ -16,7 +22,8 @@ const ProductSchema = new mongoose.Schema({
         // Probably add more schema (coutry, city, and category)
         type: String, 
     },
-    seller: SellerSchema,
+    // seller: SellerSchema,
+    seller: {type: Schema.Types.ObjectId, ref: "Seller"},
 }, {timestamps: true});
 
 module.exports = mongoose.model('Product', ProductSchema);

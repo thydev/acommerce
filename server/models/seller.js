@@ -1,7 +1,7 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
+const uniqueValidator = require('mongoose-unique-validator');
 
 const SellerSchema = new mongoose.Schema({
     _id : Schema.Types.ObjectId,
@@ -27,5 +27,5 @@ const SellerSchema = new mongoose.Schema({
     },
 
 }, {timestamps: true});
-
+SellerSchema.plugin(uniqueValidator, { message: 'The {PATH} {VALUE} already exists.' });
 module.exports = mongoose.model('Seller', SellerSchema);
