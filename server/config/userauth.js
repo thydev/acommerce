@@ -1,6 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 const app = express.Router();
+var path = require("path");
 const env = {
     AUTH0_CLIENT_ID: 'qKlgm4ZUGYtYVEAjyRlnIggFPPy74vSN',
     AUTH0_DOMAIN: 'acommerce.auth0.com',
@@ -46,5 +47,8 @@ module.exports = (app) => {
             res.redirect(req.session.returnTo || '/user');
         }
     );
+    app.all("*", (req,res,next)=>{
+        res.sendFile(path.resolve("./client/dist/index.html"))
+    })
 
 }

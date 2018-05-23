@@ -5,6 +5,7 @@ const router = express.Router();
 const users = require('../controllers/users');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
+var path = require("path");
 
 const env = {
   AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
@@ -14,7 +15,7 @@ const env = {
 };
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.get('/userlogin', function (req, res, next) {
   res.render('index');
 });
 
@@ -86,5 +87,8 @@ router.get('/failure', function (req, res) {
     error_description: error_description[0],
   });
 });
+router.all("*", (req,res,next)=>{
+  res.sendFile(path.resolve("./client/dist/index.html"))
+})
 
 module.exports = router;

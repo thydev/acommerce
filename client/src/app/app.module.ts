@@ -13,6 +13,8 @@ import { HttpService } from './http.service';
 // Material Components
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
+    MatSelectModule,
+    MatOptionModule,
     MatMenuModule,
     MatListModule,
     MatDividerModule,
@@ -80,7 +82,9 @@ import { OrderComponent } from './order/order.component';
     MatGridListModule,
     MatDividerModule,
     MatListModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatOptionModule,
+    MatSelectModule,
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]

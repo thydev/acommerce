@@ -5,6 +5,7 @@ const products = require('../controllers/products');
 const orders = require('../controllers/orders');
 
 
+
 module.exports = (app) => {
     const baseUrl = '/api/';
     // User Routes
@@ -54,6 +55,6 @@ module.exports = (app) => {
 
     // Go to client route when the above routes didnot match
     app.all("*", (req,res,next) => {
-        res.sendFile(path.resolve('./client/dist/client/index.html'));
+        res.sendFile(path.resolve('./client/dist/index.html'));
     });
 }
