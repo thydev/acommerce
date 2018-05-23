@@ -15,7 +15,7 @@ export class AppComponent {
   @ViewChild('sidenav') sidenav: MatSidenav;
   reason = '';
   constructor(private _httpService: HttpService,
-    private _router: Router,) {
+    private _router: Router) {
     
   }
 
