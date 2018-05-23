@@ -5,7 +5,7 @@ const uniqueValidator = require('mongoose-unique-validator');
 const CartSchema = require('./cart').schema;
 
 const UserSchema = new mongoose.Schema({
-    _id: Schema.Types.ObjectId,
+    // _id: Schema.Types.ObjectId,
     // firstname: {
     //     type: String, 
     //     required: [true, 'First Name is required'], 
@@ -16,15 +16,19 @@ const UserSchema = new mongoose.Schema({
     //     required: [true, 'Last Name is required'], 
     //     minlength: [3, 'Last name must be greater than 3 characters']
     // },
+    user_id:{
+        type: String,
+        // required: [true],
+    },
     nickname: {
         type: String,
         required: [true, 'Last Name is required'],
         minlength: [3, 'Last name must be greater than 3 characters']
     },
-    email: {
+    name: {
         type: String,
-        unique: true, // Use 'mongoose-unique-validator'
-        required: [true, 'Input your email'],
+        // unique: true, // Use 'mongoose-unique-validator'
+        required: [true, 'Input your name'],
         minlength: 2
     },
     // password: {
@@ -35,6 +39,6 @@ const UserSchema = new mongoose.Schema({
     cartProducts: [CartSchema],
 }, { timestamps: true });
 
-UserSchema.plugin(uniqueValidator, { message: 'The {PATH} {VALUE} already exists.' });
+// UserSchema.plugin(uniqueValidator, { message: 'The {PATH} {VALUE} already exists.' });
 
 module.exports = mongoose.model('User', UserSchema);

@@ -4,11 +4,14 @@ const sellers = require('../controllers/sellers');
 const products = require('../controllers/products');
 const orders = require('../controllers/orders');
 
+
 module.exports = (app) => {
     const baseUrl = '/api/';
     // User Routes
     app.get(baseUrl + 'users', (req, res) => { users.getAll(req, res); });
-    app.get(baseUrl + 'users/:id', (req, res) => { users.getById(req, res); });
+    // app.get(baseUrl + 'users/:id', (req, res) => { users.getById(req, res); });
+    app.get(baseUrl + 'user/:email', (req, res) => { users.getByEmail(req, res); });
+
     app.post(baseUrl + 'users', (req, res) => { users.create(req, res); });
     app.put(baseUrl + 'users/:id', (req, res) => { users.updateById(req, res); });
     app.delete(baseUrl + 'users/:id', (req, res) => { users.removeById(req, res); });
