@@ -25,8 +25,12 @@ import {
     MatInputModule,
     MatSnackBarModule,
     MatToolbarModule,
-    MatGridListModule
+    MatGridListModule,
+    MatIconModule, 
+    MatSidenavModule,
+    MatBadgeModule
   } from '@angular/material';
+ 
 
 // App compoents and services
 import { AppComponent } from './app.component';
@@ -62,6 +66,7 @@ import { LandingComponent } from './landing/landing.component';
     WeatherSearchComponent,
     OrderComponent,
     LandingComponent
+
   ],
   imports: [
     NgbModule.forRoot(),
@@ -85,6 +90,11 @@ import { LandingComponent } from './landing/landing.component';
     AppRoutingModule,
     MatOptionModule,
     MatSelectModule,
+    MatDividerModule,
+    MatSliderModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatBadgeModule
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]
