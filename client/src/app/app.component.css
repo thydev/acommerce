@@ -1,9 +1,7 @@
 
   .slides {
     position: initial;
-
   }
-
 
   .slide-container{
       width: 350px;
@@ -68,3 +66,4 @@
     outline: none !important;
     border: 0 !important;
 }
+
