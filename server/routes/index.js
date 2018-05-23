@@ -1,9 +1,10 @@
 const express = require('express');
 const passport = require('passport');
 const router = express.Router();
-const User = require('../models/user');
+// const User = require('../models/user');
 const users = require('../controllers/users');
-
+const mongoose = require('mongoose');
+const User = mongoose.model('User');
 
 const env = {
   AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
@@ -39,15 +40,26 @@ router.get('/callback',
     failureRedirect: '/failure'
   }),
   function (req, res) {
-    let user = req.user._json.name;
+    let user = req.user._id;
     console.log("authenticated?????", req.user._json)
     console.log(req.user.id)
+    
     let newUser = new User({
       user_id: req.user.id,
       name: req.user._json.name,
       nickname: req.user._json.nickname,
     });
-    // newUser.save(function(err)
+    newUser.save(function (err) {
+          console.log("saving?")
+          if (err) {
+            console.log("We have an error!", err);
+            for (var key in err.errors) {
+              req.flash('registration', err.errors[key].message);
+            }
+      
+            // return res.redirect(req.session.returnTo || '/user');
+          }
+        })
     console.log("creating users???")
     return res.redirect(req.session.returnTo || '/user');
   }

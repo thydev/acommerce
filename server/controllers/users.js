@@ -15,10 +15,9 @@ module.exports = {
         }).sort({ name: 1 });
     },
 
-    getByEmail: (req, res) => {
+    getByUserId: (req, res) => {
         const ObjectId = mongoose.Types.ObjectId; 
-        console.log(req.params.email , "email printing")
-        User.find({email: req.params.email})
+        User.find({user_id: req.params.user_id})
             .exec((err, item)=>{
                 if (!err) {
                     res.json({message: "Success", data: item});
