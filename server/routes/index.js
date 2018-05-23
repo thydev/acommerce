@@ -56,8 +56,6 @@ router.get('/callback',
             for (var key in err.errors) {
               req.flash('registration', err.errors[key].message);
             }
-      
-            // return res.redirect(req.session.returnTo || '/user');
           }
         })
     console.log("creating users???")
