@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './../auth/auth.service';
 import { ActivatedRoute, Params, Router } from '@angular/router'; 
 import {MatSidenav} from '@angular/material/sidenav'; 
@@ -11,8 +11,7 @@ import {MatSidenav} from '@angular/material/sidenav';
 })
 export class ProductCartComponent implements OnInit {
 
-  @ViewChild('sidenav') sidenav: MatSidenav;
-  reason = '';
+
   handler: any;
 
   constructor(
@@ -42,10 +41,6 @@ export class ProductCartComponent implements OnInit {
     });
   }
 
-  close(reason: string) {
-    this.reason = reason;
-    this.sidenav.close();
-  }
 
   openCheckout() {
     this.handler.open({

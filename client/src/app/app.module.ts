@@ -28,7 +28,10 @@ import {
     MatGridListModule,
     MatIconModule, 
     MatSelectModule,
+    MatSidenavModule,
+    MatBadgeModule
   } from '@angular/material';
+ 
 
 // App compoents and services
 import { AppComponent } from './app.component';
@@ -53,14 +56,11 @@ import { WeatherSearchComponent } from './weather-search/weather-search.componen
     ProductReviewDetailsComponent,
     ProductUserReviewComponent,
     ProductReviewListingComponent,
-<<<<<<< HEAD
     ProductCartComponent,
-=======
     ProductMainComponent,
     LocationSearchComponent,
     PriceSearchComponent,
     WeatherSearchComponent,
->>>>>>> 11311bd2b059195422c664b27eb568e3647dcc49
 
   ],
   imports: [
@@ -86,7 +86,10 @@ import { WeatherSearchComponent } from './weather-search/weather-search.componen
     FlexLayoutModule,
     MatSelectModule,
     MatDividerModule,
-    MatSliderModule
+    MatSliderModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatBadgeModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
