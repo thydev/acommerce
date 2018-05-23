@@ -1,28 +1,6 @@
-<script>
-  const spotlight = document.querySelector(".spotlight");
 
-let spotlightSize = "transparent 160px, rgba(0, 0, 0, 0.85) 200px)";
-
-window.addEventListener("mousemove", e => {
-    updateSpotlight(e);
-});
-
-window.addEventListener("mousedown", e => {
-    if (e.which === 1) {
-        spotlightSize = "transparent 130px, rgba(0, 0, 0, 0.95) 150px)";
-        updateSpotlight(e);        
-    }    
-});
-
-window.addEventListener("mouseup", e => {
-    spotlightSize = "transparent 160px, rgba(0, 0, 0, 0.85) 200px)";
-    updateSpotlight(e);
-});
-
-function updateSpotlight(e) {
-    spotlight.style.backgroundImage = `radial-gradient(circle at ${e.pageX / window.innerWidth * 100}% ${e.pageY / window.innerHeight * 100}%, ${spotlightSize}`;
-}
-</script>
-<h1>Hold left click to focus</h1>
-
-<div class="spotlight"></div>
+<div class="box">
+    <h1>Deal of the Day</h1>
+    <div class="spotlight"></div>
+</div>
+<app-mainmenu></app-mainmenu>

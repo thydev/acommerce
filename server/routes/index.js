@@ -60,6 +60,7 @@ router.get('/callback',
       }
     })
     console.log("creating users???")
+    
     return res.redirect(req.session.returnTo || '/user');
   }
 );
