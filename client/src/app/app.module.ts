@@ -41,8 +41,7 @@ import { LocationSearchComponent } from './location-search/location-search.compo
 import { PriceSearchComponent } from './price-search/price-search.component';
 import { WeatherSearchComponent } from './weather-search/weather-search.component';
 import { OrderComponent } from './order/order.component';
-
-
+import { LandingComponent } from './landing/landing.component';
 
 
 @NgModule({
@@ -59,7 +58,8 @@ import { OrderComponent } from './order/order.component';
     LocationSearchComponent,
     PriceSearchComponent,
     WeatherSearchComponent,
-    OrderComponent
+    OrderComponent,
+    LandingComponent
   ],
   imports: [
     NgbModule.forRoot(),
