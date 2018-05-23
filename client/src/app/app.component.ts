@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from './http.service';
+import { ActivatedRoute, Params, Router } from '@angular/router'
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,16 @@ import { HttpService } from './http.service';
 export class AppComponent implements OnInit{
 
   token;
-  constructor(private _httpService: HttpService) {
-  }
+  constructor(private _httpService: HttpService,
+    private _router: Router,
+  ) {}
 
   ngOnInit(): void {
-    
+
+  }
+  Login(){
+    console.log("LOGIN!!!");
+    this._router.navigate(['userlogin'])
   }
 
 }
