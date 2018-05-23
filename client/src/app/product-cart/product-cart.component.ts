@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AuthService } from './../auth/auth.service';
 import { ActivatedRoute, Params, Router } from '@angular/router'; 
 import {MatSidenav} from '@angular/material/sidenav'; 
 

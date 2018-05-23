@@ -15,9 +15,10 @@ module.exports = {
         }).sort({ name: 1 });
     },
 
-    getById: (req, res) => {
+    getByEmail: (req, res) => {
         const ObjectId = mongoose.Types.ObjectId; 
-        User.find({_id: new ObjectId(req.params.id)})
+        console.log(req.params.email , "email printing")
+        User.find({email: req.params.email})
             .exec((err, item)=>{
                 if (!err) {
                     res.json({message: "Success", data: item});
@@ -27,6 +28,18 @@ module.exports = {
                 }
             });
     },
+    // getById: (req, res) => {
+    //     const ObjectId = mongoose.Types.ObjectId; 
+    //     User.find({_id: new ObjectId(req.params.id)})
+    //         .exec((err, item)=>{
+    //             if (!err) {
+    //                 res.json({message: "Success", data: item});
+    //             } else {
+    //                 console.log(err);
+    //                 res.json({message: "Error", error: err})
+    //             }
+    //         });
+    // },
     
     create: (req, res) => {
         let item = new User(req.body);
