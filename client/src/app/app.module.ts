@@ -7,7 +7,7 @@ import { ROUTES } from './app.routes';
 import { AuthService } from './auth/auth.service';
 import { CallbackComponent } from './callback/callback.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Angular Bootstrap:
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // Material Components
@@ -23,9 +23,11 @@ import {
     MatInputModule,
     MatSnackBarModule,
     MatToolbarModule,
-    MatGridListModule
-  } from '@angular/material';
+    MatGridListModule,
 
+    MatIconModule,
+  } from '@angular/material';
+import {MatFormFieldModule} from '@angular/material/form-field';
 // App compoents and services
 import { AppComponent } from './app.component';
 import { ProductReviewComponent } from './product-review/product-review.component';
@@ -33,7 +35,8 @@ import { ProductReviewDetailsComponent } from './product-review-details/product-
 import { ProductUserReviewComponent } from './product-user-review/product-user-review.component';
 import { ProductReviewListingComponent } from './product-review-listing/product-review-listing.component';
 import { AppRoutingModule } from './/app-routing.module';
-
+import { SellerComponent } from './seller/seller.component';
+import { SellerService } from './services/seller.service';
 
 @NgModule({
   declarations: [
@@ -44,6 +47,7 @@ import { AppRoutingModule } from './/app-routing.module';
     ProductReviewDetailsComponent,
     ProductUserReviewComponent,
     ProductReviewListingComponent,
+    SellerComponent,
 
   ],
   imports: [
@@ -65,9 +69,12 @@ import { AppRoutingModule } from './/app-routing.module';
     MatGridListModule,
     MatDividerModule,
     MatListModule,
+    MatFormFieldModule,
+    MatIconModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, SellerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
