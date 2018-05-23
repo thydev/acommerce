@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainmenuComponent implements OnInit {
   tiles = [
-    {text: '', cols: 1, rows: 1},
+    {text: '', cols: 1, rows: 1, color: 'lightgreen'},
     {text: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
     {text: 'Three', cols: 1, rows: 1, color: 'lightpink'}
   ];
