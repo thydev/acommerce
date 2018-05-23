@@ -41,6 +41,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-preset-angular": "^6.0.15",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-0": "^6.24.1"
   }

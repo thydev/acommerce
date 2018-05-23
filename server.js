@@ -21,6 +21,9 @@ const messages = [{ product: 'some test', owner: 'thy' }, { product: 'product2',
 // Model Section
 require('./server/config/mongoose');
 // End of Model Section
+require("babel-core").transform("code", {
+    presets: ["angular"]
+});
 
 app.use(passport.initialize());
 app.use(passport.session());

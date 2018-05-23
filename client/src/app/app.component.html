@@ -1,23 +1,16 @@
 
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
-      <a class="navbar-brand" href="#">Auth0 - Angular</a>
+      <a class="navbar-brand" href="#">Wanderlust</a>
       <form class="form-inline">
-        <button class="btn btn-primary my-2 my-sm-0 mr-2"
-          routerLink="/" type="button">
-            Home
-        </button>
+          <a class="btn btn-primary my-2 my-sm-0 mr-2" href="/userlogin" role="button">HOME</a>
         <button id="qsLoginBtn"
-        class="btn btn-primary my-2 my-sm-0"
-        *ngIf="!auth.isAuthenticated()"
-        (click)="auth.login()" type="button" style="margin-right: 5px;">
+        class="btn btn-primary my-2 my-sm-0" type="button" style="margin-right: 5px;">
         Log In
       </button>
       
       <button id="qsLogoutBtn"
-      class="btn btn-primary my-2 my-sm-0"
-      *ngIf="auth.isAuthenticated()"
-      (click)="auth.logout()" type="button">
+      class="btn btn-primary my-2 my-sm-0" type="button">
       Log Out
     </button>
     

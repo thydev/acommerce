@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 /* GET user profile. */
-router.get('/', ensureLoggedIn, function(req, res, next) {
+router.get('/', ensureLoggedIn, function (req, res, next) {
   console.log(req.user)
   res.render('user', {
     user: req.user
