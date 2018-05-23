@@ -1,11 +1,12 @@
-<mat-grid-list cols="12" rowHeight=4:3>
+<mat-grid-list cols="12" rowHeight="50px">
   <mat-grid-tile [colspan]=12>
     <h4>All Reviews</h4>
   </mat-grid-tile>
 </mat-grid-list>
 <mat-list *ngFor="let r of reviews">
-  <mat-list-item>Name: {{r.name}}</mat-list-item>
-  <mat-list-item>Created On: {{r.created_at}}</mat-list-item>
-  <mat-list-item>Rating: <ngb-rating style="font-size: 3em" name="r.rating" [(rate)]="r.rating" max=5></ngb-rating></mat-list-item>
-  <mat-list-item>Review: {{r.review}}</mat-list-item>
+  <mat-list-item><u>Name: </u> {{r.name}}</mat-list-item>
+  <mat-list-item><u>Created On: </u> {{r.created_at}}</mat-list-item>
+  <mat-list-item><u>Rating: </u> <ngb-rating style="font-size: 3em" name="r.rating" [(rate)]="r.rating" [readonly]="true" max=5></ngb-rating></mat-list-item>
+  <mat-list-item><u>Review: </u> {{r.review}}</mat-list-item>
+  <mat-divider></mat-divider>
 </mat-list>

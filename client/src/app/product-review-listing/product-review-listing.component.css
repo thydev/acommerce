@@ -1,0 +1,41 @@
+u{
+  margin-right: 10px;
+}
+
+@media only screen and (min-width: 501px){
+  .sm-1{
+    display: none;
+  }
+  strong{
+    font-size: 1.5rem;
+  }
+  .star {
+    position: relative;
+    display: inline-block;
+    font-size: 3rem;
+    color: #d3d3d3;
+  }
+  .review{
+    width: 65%;
+  }
+}
+@media only screen and (max-width: 500px){
+  .sm-1{
+    display: block
+  }
+  .star {
+    position: relative;
+    display: inline-block;
+    font-size: 1.75rem;
+    color: #d3d3d3;
+  }
+  strong{
+    font-size: 1rem;
+  }
+  .med-1{
+    display: none;
+  }
+  .review{
+    width: 90%;
+  }
+}

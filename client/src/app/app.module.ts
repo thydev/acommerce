@@ -6,7 +6,6 @@ import { HomeComponent } from './home/home.component';
 import { ROUTES } from './app.routes';
 import { AuthService } from './auth/auth.service';
 import { CallbackComponent } from './callback/callback.component';
-<<<<<<< HEAD
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 //Angular Flex
@@ -27,7 +26,7 @@ import {
     MatSnackBarModule,
     MatToolbarModule,
     MatGridListModule,
-    MatIconModule, 
+    MatIconModule,
     MatSelectModule,
   } from '@angular/material';
 
@@ -38,18 +37,16 @@ import { ProductReviewDetailsComponent } from './product-review-details/product-
 import { ProductUserReviewComponent } from './product-user-review/product-user-review.component';
 import { ProductReviewListingComponent } from './product-review-listing/product-review-listing.component';
 import { AppRoutingModule } from './/app-routing.module';
-<<<<<<< HEAD
-=======
 import { ProfileComponent } from './profile/profile.component';
 
->>>>>>> userSaving
-=======
+
 import { ProductCartComponent } from './product-cart/product-cart.component';
 import { ProductMainComponent } from './product-main/product-main.component';
 import { LocationSearchComponent } from './location-search/location-search.component';
 import { PriceSearchComponent } from './price-search/price-search.component';
 import { WeatherSearchComponent } from './weather-search/weather-search.component';
->>>>>>> 3f5a9e38dc3df1b14ae3ae5f84beca5e85348601
+import { OrderComponent } from './order/order.component';
+
 
 
 @NgModule({
@@ -57,23 +54,19 @@ import { WeatherSearchComponent } from './weather-search/weather-search.componen
     AppComponent,
     HomeComponent,
     CallbackComponent,
-<<<<<<< HEAD
     ProductReviewComponent,
     ProductReviewDetailsComponent,
     ProductUserReviewComponent,
     ProductReviewListingComponent,
-<<<<<<< HEAD
+
     ProductCartComponent,
-=======
+
     ProductMainComponent,
     LocationSearchComponent,
     PriceSearchComponent,
     WeatherSearchComponent,
->>>>>>> 11311bd2b059195422c664b27eb568e3647dcc49
-
-=======
-    ProfileComponent
->>>>>>> userSaving
+    ProfileComponent,
+    OrderComponent
   ],
   imports: [
     NgbModule.forRoot(),

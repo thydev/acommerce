@@ -27,7 +27,6 @@ export class ProductReviewDetailsComponent implements OnInit {
     var totalratings = 0;
     this.reviews = this.product.reviews.length;
     for(let x = 0; x<this.product.reviews.length; x++){
-      console.log(x['rating']);
       totalratings += this.product.reviews[x]['rating'];
     }
     this.avgrating = (totalratings/this.reviews).toFixed(2);

@@ -1,9 +1,4 @@
-.star {
-  position: relative;
-  display: inline-block;
-  font-size: 3rem;
-  color: #d3d3d3;
-}
+
 .full {
   color: goldenrod;
 }
@@ -12,4 +7,53 @@
   display: inline-block;
   overflow: hidden;
   color: goldenrod;
+}
+@media only screen and (max-width: 770px){
+  .lg-0{
+    display: none;
+  }
+  .sm-1{
+    display: none;
+  }
+  .star {
+    position: relative;
+    display: inline-block;
+    font-size: 2rem;
+    color: #d3d3d3;
+  }
+  h5{
+    margin: 0;
+  }
+
+}
+@media only screen and (min-width: 771px){
+  .med-1{
+    display: none;
+  }
+  .sm-1{
+    display: none;
+  }
+  .star {
+    position: relative;
+    display: inline-block;
+    font-size: 3rem;
+    color: #d3d3d3;
+  }
+}
+@media only screen and (max-width: 500px){
+  .sm-1{
+    display: block
+  }
+  .star {
+    position: relative;
+    display: inline-block;
+    font-size: 1.75rem;
+    color: #d3d3d3;
+  }
+  .med-1{
+    display: none;
+  }
+  h6{
+    margin:0;
+  }
 }

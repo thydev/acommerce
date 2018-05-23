@@ -1,4 +1,4 @@
-<mat-grid-list cols="12" rowHeight=4:3>
+<mat-grid-list class="lg-0" cols="12" rowHeight="50px">
   <mat-grid-tile [colspan]=4 [rowspan]=4>
     <img [src]="product.image" alt="product.name" style="height: 80%; width:60%">
   </mat-grid-tile>
@@ -41,7 +41,7 @@
       <h4>Avg Rating:</h4>
     </div>
   </mat-grid-tile>
-  <mat-grid-tile [colspan]=3>
+  <mat-grid-tile [colspan]=5>
     <div style="width: 100%">
         <ng-template #t let-fill="fill">
             <span class="star" [class.full]="fill === 100">
@@ -50,6 +50,115 @@
           </ng-template>
       <ngb-rating name="avgrating" [(rate)]="avgrating" max=5 [starTemplate]="t" [readonly]="true"></ngb-rating>
     </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-grid-list class="med-1" cols="12" rowHeight=50px>
+  <mat-grid-tile [colspan]=4 [rowspan]=4>
+    <img [src]="product.image" alt="product.name" style="height: 80%; width:80%">
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]=3 style="justify-content: start">
+    <div style="width: 100%">
+        <h5>Name:</h5>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]=3 style="justify-content: start">
+    <div style="width: 100%">
+      <h5>{{product.name}}</h5>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile style="justify-content: start" [colspan]=3 [rowspan]=1>
+      <div style="width: 100%">
+        <h5>Description:</h5>
+      </div>
+  </mat-grid-tile>
+  <mat-grid-tile style="justify-content: start" [colspan]=5 [rowspan]=1>
+    <div style="width: 100%">
+      <h5>{{product.description}}</h5>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]=3 [rowspan]=1>
+    <div style="width: 100%">
+      <h5>Reviews:</h5>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]=3>
+    <div style="width: 100%">
+      <h5>{{reviews}}</h5>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]=3 [rowspan]=1>
+    <div style="width: 100%">
+      <h5>Avg Rating:</h5>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]=5>
+    <div style="width: 100%">
+        <ng-template #t let-fill="fill">
+            <span class="star" [class.full]="fill === 100">
+              <span class="half" [style.width.%]="fill">&#9733;
+            </span>&#9733;</span>
+          </ng-template>
+      <ngb-rating name="avgrating" [(rate)]="avgrating" max=5 [starTemplate]="t" [readonly]="true"></ngb-rating>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]=4></mat-grid-tile>
+  <mat-grid-tile [colspan]=5 [rowspan]=1>
+    <button color="primary" mat-raised-button  (click)="addProductToCart()"><strong>Add To Cart</strong></button>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-grid-list class="sm-1" cols="12" rowHeight=30px>
+  <mat-grid-tile [colspan]=4 [rowspan]=4>
+    <img [src]="product.image" alt="product.name" style="height: 70%; width:80%">
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]=4 style="justify-content: start">
+    <div style="width: 100%">
+        <h6><u>Name:</u></h6>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]=4 style="justify-content: start">
+    <div style="width: 100%">
+      <h6>{{product.name}}</h6>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]=4 [rowspan]=1>
+    <div style="width: 100%">
+      <h6><u>Reviews:</u></h6>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]=4>
+    <div style="width: 100%">
+      <h6>{{reviews}}</h6>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]=4 [rowspan]=1>
+    <div style="width: 100%">
+      <h6><u>Avg Rating:</u></h6>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]=5>
+    <div style="width: 100%">
+        <ng-template #t let-fill="fill">
+            <span class="star" [class.full]="fill === 100">
+              <span class="half" [style.width.%]="fill">&#9733;
+            </span>&#9733;</span>
+          </ng-template>
+      <ngb-rating name="avgrating" [(rate)]="avgrating" max=5 [starTemplate]="t" [readonly]="true"></ngb-rating>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile style="justify-content: start" [colspan]=12 [rowspan]=1>
+      <div style="width: 100%">
+        <h6><u>Description:</u></h6>
+      </div>
+  </mat-grid-tile>
+  <mat-grid-tile style="justify-content: start" [colspan]=7 [rowspan]=2>
+    <div style="width: 100%">
+      <p>{{product.description}}</p>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]=5 [rowspan]=2>
+    <button color="primary" mat-raised-button  (click)="addProductToCart()"><strong>Add To Cart</strong></button>
   </mat-grid-tile>
 </mat-grid-list>
 <mat-divider></mat-divider>
