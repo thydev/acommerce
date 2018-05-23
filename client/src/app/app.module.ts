@@ -48,6 +48,7 @@ import { PriceSearchComponent } from './price-search/price-search.component';
 import { WeatherSearchComponent } from './weather-search/weather-search.component';
 import { OrderComponent } from './order/order.component';
 import { LandingComponent } from './landing/landing.component';
+import { MainmenuComponent } from './mainmenu/mainmenu.component';
 
 
 @NgModule({
@@ -65,8 +66,8 @@ import { LandingComponent } from './landing/landing.component';
     PriceSearchComponent,
     WeatherSearchComponent,
     OrderComponent,
-    LandingComponent
-
+    LandingComponent,
+    MainmenuComponent
   ],
   imports: [
     NgbModule.forRoot(),

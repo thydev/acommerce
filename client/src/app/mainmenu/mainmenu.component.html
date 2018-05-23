@@ -1,0 +1,20 @@
+<div class="row text-center">
+  <div class="col-md-12">
+    Search by
+  </div>
+</div>
+
+<mat-grid-list cols="3" rowHeight="250px" class="boxes">
+    <mat-grid-tile
+        *ngFor="let tile of tiles"
+        [colspan]="tile.cols"
+        [rowspan]="tile.rows"
+        [style.background]="tile.color">
+      {{tile.text}}
+    </mat-grid-tile>
+  </mat-grid-list>
+<!-- <div class="row text-center">
+  <div class="box">he</div>
+  <div class="box">sdf</div>
+  <div class="box">sdf</div>
+</div> -->
