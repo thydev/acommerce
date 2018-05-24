@@ -19,7 +19,6 @@ export class SellerService {
   getConfig() {
     this._configServie.getConfig().subscribe(((data: Config) => {
       this.config = data;
-      console.log(data);
     }));
   }
 

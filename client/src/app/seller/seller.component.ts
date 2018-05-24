@@ -1,11 +1,12 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 
 import { filter, map, switchMap } from 'rxjs/operators';
 import { Observable, of, pipe } from 'rxjs';
 
+import { MatDialog, MatDialogClose } from '@angular/material';
+
 import { SellerService } from '../services/seller.service';
+import { SellerNewComponent } from '../seller-new/seller-new.component';
 
 @Component({
   selector: 'app-seller',
@@ -13,17 +14,7 @@ import { SellerService } from '../services/seller.service';
   styleUrls: ['./seller.component.css']
 })
 export class SellerComponent implements OnInit {
-  email = new FormControl('', [Validators.required, Validators.email]);
-  hide = true;
-  // sellerForm: FormGroup;
-  sellerForm = new FormGroup ({
-    // 'name': new FormControl(this.hero.name, [
-    //   Validators.required,
-    //   Validators.minLength(4),
-    //   forbiddenNameValidator(/bob/i) // <-- Here's how you pass in the custom validator.
-    // ]),
-    'email': new FormControl('', [Validators.required, Validators.email])
-  });
+
 
   products = [
     {name: 'Mouse', price: 232, keyword: 'Hardware, computer, accessory'},
@@ -34,35 +25,22 @@ export class SellerComponent implements OnInit {
   results: any;
 
   constructor(
-    private fb: FormBuilder,
-    private _sellerService: SellerService
+    private _sellerService: SellerService,
+    public dialog: MatDialog
   ) {
-    this.createForm();
+
   }
 
   ngOnInit() {
   }
 
-  getErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-        this.email.hasError('email') ? 'Not a valid email' :
-            '';
-  }
+  newSeller() {
+    const dialogRef = this.dialog.open(SellerNewComponent, {
+      height: '350px'
+    });
 
-  onSubmit(event) {
-    console.log(event);
-    console.log(this.sellerForm);
-    console.log(this.sellerForm.value)
-    this.createSeller(this.sellerForm.value);
-  }
-
-  createForm() {
-    this.sellerForm = this.fb.group({
-      firstname: '',
-      lastname: '',
-      email: '',
-      password: '',
-      confirm_password: ''
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
     });
   }
 
@@ -103,9 +81,5 @@ export class SellerComponent implements OnInit {
       console.log(data);
     })
   }
-  createSeller(item: any) {
-    this._sellerService.createSeller(item).subscribe(data => {
-      console.log(data);
-    });
-  }
+
 }
