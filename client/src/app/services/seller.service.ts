@@ -32,4 +32,8 @@ export class SellerService {
     // by seller id
     // return this._http.get(this.config.baseUrl + this.config.productUrl + '/5b0341ce914da00957229ebb');
   }
+
+  createSeller(item: any) {
+    return this._http.post(this.config.baseUrl + this.config.sellerUrl, item);
+  }
 }

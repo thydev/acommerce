@@ -53,6 +53,7 @@ export class SellerComponent implements OnInit {
     console.log(event);
     console.log(this.sellerForm);
     console.log(this.sellerForm.value)
+    this.createSeller(this.sellerForm.value);
   }
 
   createForm() {
@@ -101,5 +102,10 @@ export class SellerComponent implements OnInit {
     this._sellerService.getSellerProducts().subscribe(data => {
       console.log(data);
     })
+  }
+  createSeller(item: any) {
+    this._sellerService.createSeller(item).subscribe(data => {
+      console.log(data);
+    });
   }
 }
