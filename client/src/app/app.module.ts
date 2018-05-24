@@ -75,6 +75,7 @@ import { SellerComponent } from './seller/seller.component';
 import { SellerService } from './services/seller.service';
 import { SellerProductComponent } from './seller-product/seller-product.component';
 import { SellerNewComponent } from './seller-new/seller-new.component';
+import { ProductNewComponent } from './product-new/product-new.component';
 
 
 @NgModule({
@@ -97,6 +98,7 @@ import { SellerNewComponent } from './seller-new/seller-new.component';
     SellerComponent,
     SellerProductComponent,
     SellerNewComponent,
+    ProductNewComponent,
 
   ],
   imports: [
@@ -148,7 +150,7 @@ import { SellerNewComponent } from './seller-new/seller-new.component';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  entryComponents: [SellerNewComponent],
+  entryComponents: [SellerNewComponent, ProductNewComponent],
   providers: [HttpService, SellerService],
   bootstrap: [AppComponent]
 })

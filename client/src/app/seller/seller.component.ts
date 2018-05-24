@@ -7,6 +7,7 @@ import { MatDialog, MatDialogClose } from '@angular/material';
 
 import { SellerService } from '../services/seller.service';
 import { SellerNewComponent } from '../seller-new/seller-new.component';
+import { ProductNewComponent } from '../product-new/product-new.component';
 
 @Component({
   selector: 'app-seller',
@@ -36,6 +37,16 @@ export class SellerComponent implements OnInit {
 
   newSeller() {
     const dialogRef = this.dialog.open(SellerNewComponent, {
+      height: '350px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  newProduct() {
+    const dialogRef = this.dialog.open(ProductNewComponent, {
       height: '350px'
     });
 

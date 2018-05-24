@@ -35,4 +35,10 @@ export class SellerService {
   createSeller(item: any) {
     return this._http.post(this.config.baseUrl + this.config.sellerUrl, item);
   }
+
+  // Temporarily add anonymouse seller
+  createProduct(item: any) {
+    return this._http.post(this.config.baseUrl + '5b0341ce914da00957229ebb/' + this.config.productUrl, item);
+  }
+
 }
