@@ -37,7 +37,7 @@ export class LocationSearchComponent implements OnInit {
     city: '',
     activity: '',
     lowprice: 0,
-    highprice:99990
+    highprice:0
   }
   //values for the country dropdown//
   countryArray =['USA', 'Korea', 'Ukraine', 'Cambodia', 'Mexico', 'Philippines'];
@@ -89,6 +89,18 @@ export class LocationSearchComponent implements OnInit {
   activityChange($event){
     console.log($event,"Event");
     this.keywords.activity = $event;
+    this.buildFilter();
+  }
+
+  onLowPriceChange($event){
+    console.log($event, "lowpriceevent");
+    this.keywords.lowprice = $event;
+    this.buildFilter();
+  }
+
+  onHighPriceChange($event){
+    console.log($event, "highpriceevent");
+    this.keywords.highprice = $event;
     this.buildFilter();
   }
 

@@ -2,8 +2,16 @@
   min-width: 150px;
   max-width: 500px;
   width: 100%;
+  color:rgb(51, 78, 105);
 }
 
 .example-full-width {
   width: 100%;
+  color:rgb(51, 78, 105);
+}
+
+.material-icons{
+  margin-top: 10%;
+  font-size: 50px;
+  color: #B99867;
 }
