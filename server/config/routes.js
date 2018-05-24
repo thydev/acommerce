@@ -60,7 +60,10 @@ module.exports = (app) => {
     app.post(baseUrl + 'orders/payment', (req, res) => { orders.createPayment(req, res); });
 
     // Go to client route when the above routes didnot match
+<<<<<<< HEAD
     // app.all("*", (req,res,next) => {
     //     res.sendFile(path.resolve('./client/dist/index.html'));
     // });
+=======
+>>>>>>> includebackend
 }

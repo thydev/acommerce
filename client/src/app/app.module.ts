@@ -98,6 +98,7 @@ import { ProductsearchComponent } from './productsearch/productsearch.component'
     LocationSearchComponent,
     WeatherSearchComponent,
     LandingComponent,
+<<<<<<< HEAD
     MainmenuComponent,
     SellerComponent,
     SellerProductComponent,
@@ -108,6 +109,9 @@ import { ProductsearchComponent } from './productsearch/productsearch.component'
     CountrysearchComponent,
     ActivitysearchComponent,
     ProductsearchComponent
+=======
+    MainmenuComponent
+>>>>>>> includebackend
   ],
   imports: [
     NgbModule.forRoot(),
@@ -157,7 +161,8 @@ import { ProductsearchComponent } from './productsearch/productsearch.component'
     MatOptionModule,
     CdkTableModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatAutocompleteModule
   ],
   entryComponents: [SellerNewComponent, ProductNewComponent, CountrysearchComponent, ActivitysearchComponent, ProductsearchComponent],
   providers: [HttpService, SellerService],
