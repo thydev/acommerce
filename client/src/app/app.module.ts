@@ -7,7 +7,7 @@ import { ROUTES } from './app.routes';
 import { AuthService } from './auth/auth.service';
 import { CallbackComponent } from './callback/callback.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormControl, ReactiveFormsModule} from '@angular/forms';
 //Angular Flex
 import {FlexLayoutModule} from "@angular/flex-layout";
 // Angular Bootstrap:
@@ -28,7 +28,13 @@ import {
     MatGridListModule,
     MatIconModule, 
     MatSelectModule,
+    MatIcon,
+    MatExpansionModule,
+    MatSidenavModule,
+    MatAutocompleteModule,
+    MatRadioModule
   } from '@angular/material';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 // App compoents and services
 import { AppComponent } from './app.component';
@@ -40,7 +46,6 @@ import { AppRoutingModule } from './/app-routing.module';
 import { ProductCartComponent } from './product-cart/product-cart.component';
 import { ProductMainComponent } from './product-main/product-main.component';
 import { LocationSearchComponent } from './location-search/location-search.component';
-import { PriceSearchComponent } from './price-search/price-search.component';
 import { WeatherSearchComponent } from './weather-search/weather-search.component';
 
 
@@ -53,15 +58,10 @@ import { WeatherSearchComponent } from './weather-search/weather-search.componen
     ProductReviewDetailsComponent,
     ProductUserReviewComponent,
     ProductReviewListingComponent,
-<<<<<<< HEAD
     ProductCartComponent,
-=======
     ProductMainComponent,
     LocationSearchComponent,
-    PriceSearchComponent,
     WeatherSearchComponent,
->>>>>>> 11311bd2b059195422c664b27eb568e3647dcc49
-
   ],
   imports: [
     NgbModule.forRoot(),
@@ -86,7 +86,14 @@ import { WeatherSearchComponent } from './weather-search/weather-search.componen
     FlexLayoutModule,
     MatSelectModule,
     MatDividerModule,
-    MatSliderModule
+    MatSliderModule,
+    MatIconModule,
+    NgxMatSelectSearchModule,
+    MatExpansionModule,
+    MatSidenavModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    MatRadioModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
