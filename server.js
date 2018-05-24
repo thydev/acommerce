@@ -48,9 +48,10 @@ require("babel-core").transform("code", {
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './client/dist')));
+
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -61,8 +62,6 @@ app.get(baseUrl + 'messages', (req, res) => {
     res.json(messages);
 });
 // End of Testing Section
-
-
 
 //oAuth
 dotenv.load();
@@ -119,8 +118,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(flash());
+// App routes
+require('./server/config/routes')(app);
 
+app.use(flash());
 
 // Handle auth failure error messages
 app.use(function (req, res, next) {
@@ -177,7 +178,7 @@ app.use(function (err, req, res, next) {
 });
 
 
-require('./server/config/routes')(app);
+
 require('./server/config/userauth')(app);
 
 app.listen(port, () => console.log(`Listening to port: ${port}`));

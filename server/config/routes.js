@@ -4,7 +4,8 @@ const sellers = require('../controllers/sellers');
 const products = require('../controllers/products');
 const orders = require('../controllers/orders');
 
-
+const passport = require('passport');
+const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 
 module.exports = (app) => {
     const baseUrl = '/api/';
@@ -49,7 +50,7 @@ module.exports = (app) => {
     });
 
     // Order Routes
-    app.get(baseUrl + 'orders', (req, res) => { orders.getAll(req, res); });
+    app.get(baseUrl + 'orders', ensureLoggedIn, (req, res) => { orders.getAll(req, res); });
     app.get(baseUrl + 'orders/:id', (req, res) => { orders.getById(req, res); });
     app.post(baseUrl + 'orders', (req, res) => { orders.create(req, res); });
     app.put(baseUrl + 'orders/:id', (req, res) => { orders.updateById(req, res); });

@@ -7,6 +7,10 @@ const stripe = require('stripe')('sk_test_Wxs7CHRBXDKIMh3qpxNrhiIq');
 module.exports = {
 
     getAll : (req, res) => {
+        console.log(req.user)
+        // res.render('user', {
+        //     user: req.user
+        // });
         Order.find({}, (err, items) => {
             if (!err) {
                 res.json({message: "Success", data: items});

@@ -5,7 +5,7 @@ var path = require("path");
 const env = {
     AUTH0_CLIENT_ID: 'qKlgm4ZUGYtYVEAjyRlnIggFPPy74vSN',
     AUTH0_DOMAIN: 'acommerce.auth0.com',
-    AUTH0_CALLBACK_URL: 'http://localhost:3000/callback'
+    AUTH0_CALLBACK_URL: 'http://localhost:5000/callback'
 };
 
 
