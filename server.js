@@ -177,8 +177,6 @@ app.use(function (err, req, res, next) {
     });
 });
 
-
-
 require('./server/config/userauth')(app);
 
 app.listen(port, () => console.log(`Listening to port: ${port}`));
