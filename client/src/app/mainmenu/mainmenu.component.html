@@ -1,10 +1,10 @@
 <div class="row text-center">
   <div class="col-md-12">
-    Search by
+    <h4>Search by</h4>
   </div>
 </div>
 
-<mat-grid-list cols="3" rowHeight="250px" class="boxes">
+<!-- <mat-grid-list cols="3" rowHeight="250px" class="boxes">
     <mat-grid-tile
         *ngFor="let tile of tiles"
         [colspan]="tile.cols"
@@ -12,9 +12,30 @@
         [style.background]="tile.color">
       {{tile.text}}
     </mat-grid-tile>
-  </mat-grid-list>
+  </mat-grid-list> -->
+<mat-grid-list cols="3" rowHeight="250px" class="boxes  text-center">
+  <mat-grid-tile>
+    <img src="https://www.telegraph.co.uk/content/dam/video_previews/v/2/v2exl2nje6lsczqgxklf2mh1qjkhmfu-xlarge.jpg">
+    <div class="box" (click)="byCountry()">By Country</div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <img src="https://static1.squarespace.com/static/58352289197aeac1e8c8ce6d/t/59fde6bcf9619a4291805ef7/1509811905873/hiking-gear-checklist">
+    <div class="box" (click)="byActivity()">By Activity</div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <div class="box searchbox">
+      <i class="material-icons" (click)="search()">
+    
+    search
+    </i></div>
+  </mat-grid-tile>
+</mat-grid-list>
 <!-- <div class="row text-center">
-  <div class="box">he</div>
-  <div class="box">sdf</div>
-  <div class="box">sdf</div>
+  <div class="box ">
+  </div>
+  <div class="box">
+  </div>
+  <div class="box">
+
+  </div>
 </div> -->
