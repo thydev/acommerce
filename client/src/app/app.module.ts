@@ -5,52 +5,53 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, FormControl, ReactiveFormsModule} from '@angular/forms';
-//Angular Flex
-import {FlexLayoutModule} from "@angular/flex-layout";
+// Angular Flex
+import {FlexLayoutModule} from '@angular/flex-layout';
 // Angular Bootstrap:
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpService } from './http.service';
 
 
 // Material Components
+import {CdkTableModule} from '@angular/cdk/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-    MatOptionModule,
-    MatAutocompleteModule,
-    MatBadgeModule,
-    MatBottomSheetModule,
-    MatButtonModule,
-    MatButtonToggleModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatChipsModule,
-    MatDatepickerModule,
-    MatDialogModule,
-    MatDividerModule,
-    MatExpansionModule,
-    MatGridListModule,
-    MatIconModule,
-    MatInputModule,
-    MatListModule,
-    MatMenuModule,
-    MatNativeDateModule,
-    MatPaginatorModule,
-    MatProgressBarModule,
-    MatProgressSpinnerModule,
-    MatRadioModule,
-    MatRippleModule,
-    MatSelectModule,
-    MatSidenavModule,
-    MatSliderModule,
-    MatSlideToggleModule,
-    MatSnackBarModule,
-    MatSortModule,
-    MatStepperModule,
-    MatTableModule,
-    MatTabsModule,
-    MatToolbarModule,
-    MatTooltipModule,
-    MatTreeModule,
+  MatAutocompleteModule,
+  MatBadgeModule,
+  MatBottomSheetModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatTreeModule,
+  MatOptionModule,
   } from '@angular/material';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
@@ -74,6 +75,9 @@ import { MainmenuComponent } from './mainmenu/mainmenu.component';
 
 import { SellerComponent } from './seller/seller.component';
 import { SellerService } from './services/seller.service';
+import { SellerProductComponent } from './seller-product/seller-product.component';
+import { SellerNewComponent } from './seller-new/seller-new.component';
+import { ProductNewComponent } from './product-new/product-new.component';
 
 
 @NgModule({
@@ -90,7 +94,12 @@ import { SellerService } from './services/seller.service';
     LocationSearchComponent,
     WeatherSearchComponent,
     LandingComponent,
-    MainmenuComponent
+    MainmenuComponent,
+    SellerComponent,
+    SellerProductComponent,
+    SellerNewComponent,
+    ProductNewComponent,
+
   ],
   imports: [
     NgbModule.forRoot(),
@@ -137,9 +146,12 @@ import { SellerService } from './services/seller.service';
     MatTooltipModule,
     MatTreeModule,
 
+    MatOptionModule,
+    CdkTableModule,
     ReactiveFormsModule,
     AppRoutingModule
   ],
+  entryComponents: [SellerNewComponent, ProductNewComponent],
   providers: [HttpService, SellerService],
   bootstrap: [AppComponent]
 })
