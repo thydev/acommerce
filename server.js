@@ -15,7 +15,28 @@ const flash = require('connect-flash');
 const router = express.Router();
 const app = express();
 
+// app.use(cors());
 
+// var jwtCheck = jwt({
+//     secret: jwks.expressJwtSecret({
+//         cache: true,
+//         rateLimit: true,
+//         jwksRequestsPerMinute: 5,
+//         jwksUri: "https://acommerce.auth0.com/.well-known/jwks.json"
+//     }),
+//     audience: 'www.wanderlust.com',
+//     issuer: "https://acommerce.auth0.com/",
+//     algorithms: ['RS256']
+// });
+
+// app.use(jwtCheck);
+
+// app.get('/authorized', function (req, res) {
+//     res.send('Secured Resource');
+// });
+
+// app.listen(port);
+// const checkScopes = jwtAuthz(['read:courses']);
 
 const messages = [{ product: 'some test', owner: 'thy' }, { product: 'product2', owner: 'toto' }];
 // Model Section

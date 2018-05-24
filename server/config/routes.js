@@ -29,18 +29,23 @@ module.exports = (app) => {
     // Product Routes
     app.get(baseUrl + 'products', (req, res) => { products.getAll(req, res); });
     app.get(baseUrl + 'products/:id', (req, res) => { products.getById(req, res); });
-    //Need a permission to create a product
-    //Use the params sellerid for testing now
+    // Need a permission to create a product
+    // Use the params sellerid for testing now
     app.post(baseUrl + ':sellerid/products', (req, res) => {
         products.create(req, res);
     });
-    //Auth must be detected
+    // Auth must be detected
     app.put(baseUrl + ':sellerid/products/:id', (req, res) => {
         products.updateById(req, res);
     });
-    //Auth must be detected
+    // Auth must be detected
     app.delete(baseUrl + ':sellerid/products/:id', (req, res) => {
         products.removeById(req, res);
+    });
+    // Create a review
+    app.post(baseUrl + 'products/reviews/:id', (req, res) => {
+        console.log(req);
+        products.createReview(req, res);
     });
 
     // Order Routes

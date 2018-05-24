@@ -4,7 +4,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Angular Bootstrap:
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpService } from './http.service';
@@ -26,12 +26,12 @@ import {
     MatSnackBarModule,
     MatToolbarModule,
     MatGridListModule,
-    MatIconModule, 
+    MatIconModule,
     MatSidenavModule,
     MatBadgeModule
   } from '@angular/material';
- 
 
+import { MatFormFieldModule } from '@angular/material/form-field';
 // App compoents and services
 import { AppComponent } from './app.component';
 import { ProductCartComponent } from './product-cart/product-cart.component';
@@ -50,6 +50,9 @@ import { OrderComponent } from './order/order.component';
 import { LandingComponent } from './landing/landing.component';
 import { MainmenuComponent } from './mainmenu/mainmenu.component';
 
+import { SellerComponent } from './seller/seller.component';
+import { SellerService } from './services/seller.service';
+
 
 @NgModule({
   declarations: [
@@ -67,7 +70,9 @@ import { MainmenuComponent } from './mainmenu/mainmenu.component';
     WeatherSearchComponent,
     OrderComponent,
     LandingComponent,
-    MainmenuComponent
+    MainmenuComponent,
+    SellerComponent,
+
   ],
   imports: [
     NgbModule.forRoot(),
@@ -95,9 +100,13 @@ import { MainmenuComponent } from './mainmenu/mainmenu.component';
     MatSliderModule,
     MatSidenavModule,
     MatIconModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatFormFieldModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
-  providers: [HttpService],
+  providers: [HttpService, SellerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
