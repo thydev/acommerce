@@ -1,8 +1,8 @@
 .box {
     background-image: url('https://images.unsplash.com/photo-1519677100203-a0e668c92439');
     background-size: cover;
-    height: 300px;
-    margin-top: -15px;
+    height: 350px;
+    margin: -60px -100px 0 -100px;
     /* height: 100; */
     cursor: none;
     overflow: hidden
@@ -26,8 +26,8 @@ h1 {
 }
 .spotlight {
     position: absolute;
-    height: 300px;
-    width: 92%;
+    height: 350px;
+    width:110%;
     background-image: radial-gradient(
         circle,
         transparent 100px,

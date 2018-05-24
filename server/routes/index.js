@@ -41,7 +41,7 @@ router.get('/callback',
     failureRedirect: '/failure'
   }),
   function (req, res) {
-    let user = req.user._id;
+    let user = req.user.id;
     console.log("authenticated?????")
     console.log(req.user.id)
 
@@ -60,8 +60,7 @@ router.get('/callback',
       }
     })
     console.log("creating users???")
-    
-    return res.redirect(req.session.returnTo || '/user');
+    return res.redirect(req.session.returnTo || '/landing/' + user);
   }
 );
 
