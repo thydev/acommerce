@@ -72,6 +72,8 @@ import { SellerService } from './services/seller.service';
     ProductMainComponent,
     LocationSearchComponent,
     WeatherSearchComponent,
+    LandingComponent,
+    MainmenuComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -101,7 +103,8 @@ import { SellerService } from './services/seller.service';
     MatBadgeModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatAutocompleteModule
   ],
   providers: [HttpService, SellerService],
   bootstrap: [AppComponent]

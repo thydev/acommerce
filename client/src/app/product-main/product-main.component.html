@@ -33,7 +33,7 @@
                         <p>${{p.sellprice}}.00</p>
                     </mat-card-content>
                     <mat-card-actions>
-                        <button mat-button>Add</button>
+                        <button mat-button (click)="onClick(p._id, p.sellprice)">Add</button>
                         <button mat-button>Order</button>
                     </mat-card-actions>
                 </mat-card>

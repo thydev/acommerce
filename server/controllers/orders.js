@@ -76,27 +76,27 @@ module.exports = {
             });
     },
 
-    createCart: (req, res) => {
-        const ObjectId = mongoose.Types.ObjectId; 
-        Order.findOne({_id: new ObjectId(req.params.id)})
-            .exec((err, item)=>{
-                if (!err) {
-                    // if (item.cartProducts) {
-                    //     item.cartProducts = [];
-                    // }
-                    item.cartProducts = req.body.products;
-                    item.save((err2, item2) => {
-                        if (err2) {
-                            res.json({message: 'Error', error: err2});
-                        } else {
-                            res.json({message: "Success", data: item2});
-                        }
-                    });
-                } else {
-                    res.json({message: "Error", error: err})
-                }
-            });
-    },
+    // createCart: (req, res) => {
+    //     const ObjectId = mongoose.Types.ObjectId; 
+    //     Order.findOne({_id: new ObjectId(req.params.id)})
+    //         .exec((err, item)=>{
+    //             if (!err) {
+    //                 // if (item.cartProducts) {
+    //                 //     item.cartProducts = [];
+    //                 // }
+    //                 item.cartProducts = req.body.products;
+    //                 item.save((err2, item2) => {
+    //                     if (err2) {
+    //                         res.json({message: 'Error', error: err2});
+    //                     } else {
+    //                         res.json({message: "Success", data: item2});
+    //                     }
+    //                 });
+    //             } else {
+    //                 res.json({message: "Error", error: err})
+    //             }
+    //         });
+    // },
 
     createPayment: (req, res) => {
         const token = req.body.token;

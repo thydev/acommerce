@@ -8,10 +8,9 @@ import { ProductCartComponent } from './product-cart/product-cart.component';
 
 export const ROUTES: Routes = [
   { path: '', component: LandingComponent},
-  { path: 'landing/:id', component: LandingComponent},
+  // { path: 'landing/:id', component: LandingComponent},
   { path: 'products/:product', component: ProductReviewComponent },
-  { path: 'products', component: ProductMainComponent },
+  { path: 'productmain/main/main', component: ProductMainComponent },
   { path: 'products/order/product', component: ProductCartComponent},  //just for testing 
   { path: '**', redirectTo: '' }
-
 ];
