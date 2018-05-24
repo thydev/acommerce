@@ -1,1 +1,67 @@
-<button mat-button (click)="openCheckout()">Checkout</button>
+<div class="row">
+    <div class="col-md-9">
+        <h3>Shipping Address</h3>
+        <form>
+            <mat-form-field appearance="outline" class="long-input">
+                <mat-label >First Name</mat-label>
+                <input matInput placeholder="Placeholder">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="long-input">
+                <mat-label>Last Name</mat-label>
+                <input matInput placeholder="Placeholder">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="long-input">
+                <mat-label>Address</mat-label>
+                <input matInput placeholder="Placeholder">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="long-input">
+                <mat-label>Apartment, suite, etc.(optional)</mat-label>
+                <input matInput placeholder="Placeholder">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="short-input">
+                <mat-label>City</mat-label>
+                <input matInput placeholder="Placeholder">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="short-input">
+                <!-- <mat-label>State</mat-label> -->
+                <mat-select placeholder="Select">
+                    <mat-option value="option">State</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="short-input">
+                <mat-label>Zip code</mat-label>
+                <input matInput placeholder="Placeholder">
+            </mat-form-field>
+        </form>
+    </div>
+
+    <div class="col-md-3">
+        <div class="bg-light summary">
+        <h3 style="margin-bottom: 20px;">Order Summary</h3>
+        <div style="height: auto;">
+            <div>
+                <p><img class="product-image" src="https://store.storeimages.cdn-apple.com/4980/as-images.apple.com/is/image/AppleInc/aos/published/images/m/ac/macbook/select/macbook-select-rose-gold-201706?wid=539&hei=444&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1505775432023" >
+                <span style="margin-left: 5px;">Macbook</span> <span class="float-right" matBadge="4" matBadgeColor="warn" matBadgeSize="medium" matBadgeOverlap="false">$100</span>
+                </p>
+            </div>
+            <div>
+                <p><img class="product-image" src="https://www.historicalemporium.com/store/media/002684/002684_01.jpg" >
+                <span style="margin-left: 5px;">Goggles</span> <span class="float-right" matBadge="2" matBadgeColor="warn" matBadgeSize="medium" matBadgeOverlap="false">$30</span>
+                </p>
+            </div>
+        </div>
+        <div>
+            <p><span style="text-align: left;">Items(6)</span><span class="float-right">$460</span></p>
+            <p><span style="text-align: left;">Shipping</span><span class="float-right">$0.00</span></p>
+            <hr>
+            <h2><span style="text-align: left;">Total</span><span class="float-right">$500.00</span></h2>
+        </div>
+        <button class="btn btn-outline-secondary btn-lg btn-block" (click)="openCheckout()">Checkout</button>
+    </div>
+    </div>
+</div>

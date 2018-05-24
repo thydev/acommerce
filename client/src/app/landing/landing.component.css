@@ -27,7 +27,7 @@ h1 {
 .spotlight {
     position: absolute;
     height: 300px;
-    width: 92%;
+    width: 50%;
     background-image: radial-gradient(
         circle,
         transparent 100px,
