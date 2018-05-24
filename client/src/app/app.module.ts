@@ -78,6 +78,10 @@ import { SellerService } from './services/seller.service';
 import { SellerProductComponent } from './seller-product/seller-product.component';
 import { SellerNewComponent } from './seller-new/seller-new.component';
 import { ProductNewComponent } from './product-new/product-new.component';
+import { NewarrivalComponent } from './newarrival/newarrival.component';
+import { CountrysearchComponent } from './countrysearch/countrysearch.component';
+import { ActivitysearchComponent } from './activitysearch/activitysearch.component';
+import { ProductsearchComponent } from './productsearch/productsearch.component';
 
 
 @NgModule({
@@ -100,6 +104,10 @@ import { ProductNewComponent } from './product-new/product-new.component';
     SellerNewComponent,
     ProductNewComponent,
 
+    NewarrivalComponent,
+    CountrysearchComponent,
+    ActivitysearchComponent,
+    ProductsearchComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -151,7 +159,7 @@ import { ProductNewComponent } from './product-new/product-new.component';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  entryComponents: [SellerNewComponent, ProductNewComponent],
+  entryComponents: [SellerNewComponent, ProductNewComponent, CountrysearchComponent, ActivitysearchComponent, ProductsearchComponent],
   providers: [HttpService, SellerService],
   bootstrap: [AppComponent]
 })

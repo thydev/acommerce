@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router'
-
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { LocationSearchComponent } from '../location-search/location-search.component';
+import { CountrysearchComponent } from '../countrysearch/countrysearch.component';
+import { ActivitysearchComponent } from '../activitysearch/activitysearch.component';
+import { ProductsearchComponent } from '../productsearch/productsearch.component';
 
 @Component({
   selector: 'app-mainmenu',
@@ -9,15 +13,55 @@ import { ActivatedRoute, Params, Router } from '@angular/router'
 })
 export class MainmenuComponent implements OnInit {
   test: any = 3;
+  country: String;
+  city: String;
+  activity: String;
+  product: String;
 
   constructor(private _router: Router,
-    private _route: ActivatedRoute) { }
+    private _route: ActivatedRoute,
+    public dialog: MatDialog) { }
 
   ngOnInit() {
   }
 
-  byCountry(){
-    alert("you clicked")
+  byCountry(): void {
+    let dialogRef = this.dialog.open(CountrysearchComponent, {
+      width: '250px',
+      height: '300px',
+      data: {country: this.country, city: this.city}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+
+    });
+  }
+
+  byActivity():void{
+    let dialogRef = this.dialog.open(ActivitysearchComponent, {
+      width: '250px',
+      height: '300px',
+      data: {activity: this.activity}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.activity = result;
+      console.log(result)
+      this._router.navigate(['productmain']);
+    });
+  }
+  
+  byProduct():void{
+    let dialogRef = this.dialog.open(ProductsearchComponent, {
+      width: '250px',
+      height: '300px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   onResize(event) {

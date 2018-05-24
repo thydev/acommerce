@@ -7,6 +7,7 @@ import { SellerComponent } from './seller/seller.component';
 import { MainmenuComponent } from './mainmenu/mainmenu.component';
 import { ProductCartComponent } from './product-cart/product-cart.component';
 
+
 export const ROUTES: Routes = [
   { path: '', component: LandingComponent},
   { path: 'landing/:id', component: LandingComponent},
