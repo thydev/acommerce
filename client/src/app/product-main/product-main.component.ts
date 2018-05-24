@@ -19,6 +19,9 @@ import 'rxjs/add/operator/do';
 export class ProductMainComponent implements OnInit {
   panelOpenState: boolean = false;
   productsResult: any;
+  productCart =[];
+  newproductCart=[];
+
   products = [
     {
       "sellprice": 900,
@@ -47,7 +50,7 @@ export class ProductMainComponent implements OnInit {
   {
     "sellprice": 1200,
     "availableQuantity": 0,
-    "_id": "5b034d06540ca80bae3f3d23",
+    "_id": "5b034d06540ca80bae3f3d24",
     "name": "Canon Black EOS Rebel SL1",
     "imgUrlHead": "https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF",
     "imgUrl": "https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF",
@@ -71,7 +74,7 @@ export class ProductMainComponent implements OnInit {
 {
   "sellprice": 0,
   "availableQuantity": 0,
-  "_id": "5b034d06540ca80bae3f3d23",
+  "_id": "5b034d06540ca80bae3f3d25",
   "name": "Canon Black EOS Rebel SL1",
   "imgUrlHead": "https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF",
   "imgUrl": "https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF",
@@ -95,7 +98,7 @@ export class ProductMainComponent implements OnInit {
 {
   "sellprice": 0,
   "availableQuantity": 0,
-  "_id": "5b034d06540ca80bae3f3d23",
+  "_id": "5b034d06540ca80bae3f3d26",
   "name": "Canon Black EOS Rebel SL1",
   "imgUrlHead": "https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF",
   "imgUrl": "https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF",
@@ -123,6 +126,7 @@ export class ProductMainComponent implements OnInit {
   }
 
   ngOnInit() {
+      this.productCart
   }
 
   filterProducts(keywords: any): void {
