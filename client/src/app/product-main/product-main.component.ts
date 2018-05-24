@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgModel , FormControl, ReactiveFormsModule} from '@angular/forms';
+import {HttpService} from '../http.service'
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
@@ -10,6 +11,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/do';
+
 
 @Component({
   selector: 'app-product-main',
@@ -118,7 +120,8 @@ export class ProductMainComponent implements OnInit {
 },
   ];
 
-  constructor() {
+
+  constructor(private _httpservice: HttpService) {
     this.productsResult = this.products;
   }
 
@@ -137,4 +140,36 @@ export class ProductMainComponent implements OnInit {
       console.log(this.productsResult);
   }
 
+//   onClick(id:string, price:number){
+//     console.log(this._httpservice.addToCart(id, price), 'BEFORE BEFORE BEFORE');
+//     this._httpservice.addToCart(id, price);
+//     console.log(this._httpservice.addToCart(id, price), 'AFTER AFTER AFTFER');
+//   }
+
+    onClick(id: string, price: number) {
+        if (this._httpservice.cart.length === 0) {
+        console.log('empty array');
+        this._httpservice.cart.push({product: id, qty: 1, price: price});
+    } else {
+        let exist = false;
+        for (const i of this._httpservice.cart){
+            console.log('i', i);
+            console.log('i.product', i.product);
+            console.log('Id', id);
+            if (i.product === id) {
+                exist = true;
+                console.log(i.product);
+                i.qty += 1;
+                console.log('product is the same');
+                break;
+            }
+        }
+        if (!exist) {
+            this._httpservice.cart.push({product: id, qty: 1, price: price});
+            console.log('ELSE STATEMENT');
+        }
+    }
+    console.log(this._httpservice.cart, '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+    return this._httpservice.cart;
+    }
 }
