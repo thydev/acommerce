@@ -7,6 +7,7 @@ import { MainmenuComponent } from './mainmenu/mainmenu.component';
 
 export const ROUTES: Routes = [
   { path: '', component: LandingComponent},
+  { path: 'landing/:id', component: LandingComponent},
   { path: 'products/:product', component: ProductReviewComponent },
   { path: 'products', component: ProductMainComponent },
   { path: '**', redirectTo: '' }

@@ -1,73 +1,77 @@
-
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar ">
   <div class="container-fluid">
-      <a class="navbar-brand" href="#">Wanderlust</a>
-      <form class="form-inline">
-          <a class="btn btn-primary my-2 my-sm-0 mr-2" href="/userlogin" role="button">HOME</a>
-        <button id="qsLoginBtn"
-        class="btn btn-primary my-2 my-sm-0" type="button" style="margin-right: 5px;">
-        Log In
-      </button>
-      
-      <button id="qsLogoutBtn"
-      class="btn btn-primary my-2 my-sm-0" type="button">
-      Log Out
-    </button>
-    
-    <span matBadge="4" matBadgeColor="warn" matBadgeSize="medium"><button  mat-mini-fab	(click)="sidenav.open()" ><i class="material-icons">add_shopping_cart</i></button></span>
-  </form>
+    <a class="navbar-brand" href="#">Wanderlust</a>
+    <form class="form-inline">
+      <a class="my-2 my-sm-0 mr-2 menuletters" href="/">Home</a>
+      <a href="/login" class="my-2 my-sm-0 menuletters" style="margin-right: 5px;">Login</a>
+      <a href="/logout" class="my-2 my-sm-0 menuletters">Logout</a>
+      <span matBadge="4" matBadgeColor="warn" matBadgeSize="medium">
+        <button mat-mini-fab (click)="sidenav.open()">
+          <i class="material-icons">add_shopping_cart</i>
+        </button>
+      </span>
+    </form>
   </div>
 </nav>
 
-<mat-sidenav-container class="slides" (backdropClick)="close()">  
+
+
+<mat-sidenav-container class="slides" (backdropClick)="close()">
   <mat-sidenav class="slide-container" position="end" #sidenav (keydown.escape)="close('escape')" disableClose>
     <div id="cart">
       <h1 id="cart-word">Cart</h1>
-      <button mat-button (click)="close()"><i class="material-icons" id="go-back">arrow_forward_ios</i></button>
+      <button mat-button (click)="close()">
+        <i class="material-icons" id="go-back">arrow_forward_ios</i>
+      </button>
     </div>
 
     <div style="height: 450px; overflow: scroll;" class="scroll">
-    <mat-grid-list cols="1" rowHeight="10em" style="margin: 0 15px;">
-      <mat-grid-tile>
-        <mat-list>
-          <button mat-icon-button><i class="material-icons delete" >clear</i></button>
-          <mat-list-item>
-            <h4 mat-line>Product 1</h4>
-            <p mat-line> Qty:
-            <mat-form-field style="width: 41px;">
-              <input type="number" matInput min="1">
-            </mat-form-field>
-          </p>
-            <p mat-line> $200 </p>
-            <img class="product-image" src="https://store.storeimages.cdn-apple.com/4980/as-images.apple.com/is/image/AppleInc/aos/published/images/m/ac/macbook/select/macbook-select-rose-gold-201706?wid=539&hei=444&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1505775432023">
-          </mat-list-item>
-          <mat-divider></mat-divider>
-        </mat-list>
-      </mat-grid-tile>
-
-      <mat-grid-tile>
-        <mat-list>
-            <button mat-icon-button><i class="material-icons delete" >clear</i></button>
+      <mat-grid-list cols="1" rowHeight="10em" style="margin: 0 15px;">
+        <mat-grid-tile>
+          <mat-list>
+            <button mat-icon-button>
+              <i class="material-icons delete">clear</i>
+            </button>
             <mat-list-item>
-            <img class="product-image" src="https://store.storeimages.cdn-apple.com/4980/as-images.apple.com/is/image/AppleInc/aos/published/images/m/ac/macbook/select/macbook-select-rose-gold-201706?wid=539&hei=444&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1505775432023">
-            <h4 mat-line>Product 1</h4>
-            <p mat-line> Qty:
-              <mat-form-field style="width: 41px;">
-                <input type="number" matInput min="1">
-              </mat-form-field>
-            </p>
-            <p mat-line> $200 </p>
-          </mat-list-item>
-          <mat-divider></mat-divider>
-        </mat-list>
-      </mat-grid-tile>
-    </mat-grid-list>
-  </div>
+              <h4 mat-line>Product 1</h4>
+              <p mat-line> Qty:
+                <mat-form-field style="width: 41px;">
+                  <input type="number" matInput min="1">
+                </mat-form-field>
+              </p>
+              <p mat-line> $200 </p>
+              <img class="product-image" src="https://store.storeimages.cdn-apple.com/4980/as-images.apple.com/is/image/AppleInc/aos/published/images/m/ac/macbook/select/macbook-select-rose-gold-201706?wid=539&hei=444&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1505775432023">
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </mat-list>
+        </mat-grid-tile>
 
-  <div>
-    <h1 id="subtotal">Subtotal
-      <br>
-      $600.00</h1>
+
+        <mat-grid-tile>
+          <mat-list>
+            <button mat-icon-button>
+              <i class="material-icons delete">clear</i>
+            </button>
+            <mat-list-item>
+              <img class="product-image" src="https://store.storeimages.cdn-apple.com/4980/as-images.apple.com/is/image/AppleInc/aos/published/images/m/ac/macbook/select/macbook-select-rose-gold-201706?wid=539&hei=444&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1505775432023">
+              <h4 mat-line>Product 1</h4>
+              <p mat-line> Qty:
+                <mat-form-field style="width: 41px;">
+                  <input type="number" matInput min="1">
+                </mat-form-field>
+              </p>
+              <p mat-line> $200 </p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </mat-list>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+
+    <div>
+      <h1 id="subtotal">Subtotal
+        <br> $600.00
+      </h1>
       <button id="large-button">View Cart</button>
     </div>
 

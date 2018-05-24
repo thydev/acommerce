@@ -2,3 +2,29 @@
     margin-top: 20px;
     height: 350px;
 }
+
+img{
+    width: 85%;
+    height: 250px;
+}
+
+.box{
+    z-index: 2;
+    position: absolute;
+    width: 80%;
+    height: 220px;
+    background: rgba(253, 253, 253, 0.5);
+    display: none;
+}
+
+.boxes:hover div{
+    display: block;
+
+}
+
+.searchbox{
+    border: .8px solid grey;
+}
+h4{
+    margin-top: 50px;
+}

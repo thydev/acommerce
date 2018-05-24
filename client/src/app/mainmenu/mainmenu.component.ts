@@ -6,11 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mainmenu.component.css']
 })
 export class MainmenuComponent implements OnInit {
-  tiles = [
-    {text: '', cols: 1, rows: 1, color: 'lightgreen'},
-    {text: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'}
-  ];
+
 
   constructor() { }
 

@@ -1,4 +1,28 @@
+.navbar{
+  background: #ffffff;  
+  box-shadow:  
+  inset 0px 11px 8px -10px #CCC,
+  inset 0px -11px 8px -10px #CCC; 
+}
+  
+  nav{
+    z-index: 1;
+  }
 
+  .menuletters{
+    font-size: 0.8em;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  a{
+    text-decoration: none;
+    color: #6b7b8b;
+  }
+
+  a:hover{
+    color: #ff4081;
+  }
   .slides {
     position: initial;
   }
