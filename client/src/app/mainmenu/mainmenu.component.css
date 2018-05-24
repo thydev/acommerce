@@ -6,15 +6,30 @@
 img{
     width: 85%;
     height: 250px;
+    border-radius: 50%;
+    margin-bottom: 80px;
+    margin-top: 80px;
 }
 
-.box{
+.box1, .box2, .box3{
     z-index: 2;
     position: absolute;
-    width: 80%;
-    height: 220px;
+    width: 100%;
+    height: 250px;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
     background: rgba(253, 253, 253, 0.5);
     display: none;
+    
+}
+
+/* .menu1:hover div{
+    display: show;
+} */
+
+h5{
+    margin-top: 100px;
+
 }
 
 .boxes:hover div{
@@ -31,3 +46,4 @@ h4{
 h4{
     margin-top: 50px;
 }
+
