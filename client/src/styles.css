@@ -4,6 +4,12 @@ main {
   padding-top: 3.5rem;
 }
 
+body{
+  /* font-family: 'Dancing Script', cursive; */
+  /* font-family: 'Pacifico', cursive;
+  font-weight: bold; */
+}
+
 /* 
 .box {
   background: url('https://images.unsplash.com/photo-1519677100203-a0e668c92439') no-repeat center;

@@ -4,7 +4,7 @@ window.onload = () => {
     // var box = document.getElementsByClassName("box").style.backgroundImage ='url("https://images.unsplash.com/photo-1519677100203-a0e668c92439") no-repeat center;'
     // var box = document.getElementsByClassName("box").style.background ='red'
 
-    let spotlightSize = "transparent 100px, rgba(0, 0, 0, 0.85) 150px)";
+    let spotlightSize = "transparent 160px, rgba(0, 0, 0, 0.85) 200px)";
 
     window.addEventListener("mousemove", e => {
         updateSpotlight(e);
@@ -12,13 +12,13 @@ window.onload = () => {
 
     window.addEventListener("mousedown", e => {
         if (e.which === 1) {
-            spotlightSize = "transparent 80px, rgba(0, 0, 0, 0.95) 150px)";
+            spotlightSize = "transparent 130px, rgba(0, 0, 0, 0.95) 150px)";
             updateSpotlight(e);
         }
     });
 
     window.addEventListener("mouseup", e => {
-        spotlightSize = "transparent 100px, rgba(0, 0, 0, 0.85) 150px)";
+        spotlightSize = "transparent 160px, rgba(0, 0, 0, 0.85) 200px)";
         updateSpotlight(e);
     });
 
