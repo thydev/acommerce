@@ -37,6 +37,8 @@
     "path": "^0.12.7",
     "pug": "~2.0.0-beta11",
     "serve-favicon": "^2.5.0",
+    "rxjs": "^6.2.0",
+    "rxjs-compat": "^6.1.0",
     "stripe": "^6.0.0"
   },
   "devDependencies": {

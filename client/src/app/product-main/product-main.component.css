@@ -1,0 +1,27 @@
+.example-card{
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+.expansion-panel{
+    width: 100%;
+}
+.example-container {
+    width: 100%;
+    border: 1px solid #555;
+  }
+
+.example-margin {
+    width: 100%;
+  }
+.filter{
+    width: 70%;
+}
+.example-full-width{
+    width: 30%;
+}
+
+.material-icons{
+    font-size: 50px;
+    color: #0013A8;
+}

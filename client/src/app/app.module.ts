@@ -4,7 +4,9 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, FormControl, ReactiveFormsModule} from '@angular/forms';
+//Angular Flex
+import {FlexLayoutModule} from "@angular/flex-layout";
 // Angular Bootstrap:
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpService } from './http.service';
@@ -13,7 +15,6 @@ import { HttpService } from './http.service';
 // Material Components
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-    MatSelectModule,
     MatOptionModule,
     MatMenuModule,
     MatListModule,
@@ -26,10 +27,15 @@ import {
     MatSnackBarModule,
     MatToolbarModule,
     MatGridListModule,
-    MatIconModule,
+    MatBadgeModule,
+    MatSelectModule,
+    MatIcon,
+    MatExpansionModule,
     MatSidenavModule,
-    MatBadgeModule
+    MatAutocompleteModule,
+    MatRadioModule
   } from '@angular/material';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 // App compoents and services
@@ -44,7 +50,6 @@ import { ProductUserReviewComponent } from './product-user-review/product-user-r
 import { ProductReviewListingComponent } from './product-review-listing/product-review-listing.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LocationSearchComponent } from './location-search/location-search.component';
-import { PriceSearchComponent } from './price-search/price-search.component';
 import { WeatherSearchComponent } from './weather-search/weather-search.component';
 import { OrderComponent } from './order/order.component';
 import { LandingComponent } from './landing/landing.component';
@@ -66,13 +71,7 @@ import { SellerService } from './services/seller.service';
     ProductCartComponent,
     ProductMainComponent,
     LocationSearchComponent,
-    PriceSearchComponent,
     WeatherSearchComponent,
-    OrderComponent,
-    LandingComponent,
-    MainmenuComponent,
-    SellerComponent,
-
   ],
   imports: [
     NgbModule.forRoot(),
@@ -99,10 +98,8 @@ import { SellerService } from './services/seller.service';
     MatDividerModule,
     MatSliderModule,
     MatSidenavModule,
-    MatIconModule,
     MatBadgeModule,
     MatFormFieldModule,
-    MatIconModule,
     ReactiveFormsModule,
     AppRoutingModule
   ],
