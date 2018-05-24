@@ -55,12 +55,10 @@ module.exports = (app) => {
     app.post(baseUrl + 'orders', (req, res) => { orders.create(req, res); });
     app.put(baseUrl + 'orders/:id', (req, res) => { orders.updateById(req, res); });
     app.delete(baseUrl + 'orders/:id', (req, res) => { orders.removeById(req, res); });
-    
+
     //Payment Route
-    app.post(baseUrl + 'orders/payment', (req, res) => {orders.createPayment(req, res); });
+    app.post(baseUrl + 'orders/payment', (req, res) => { orders.createPayment(req, res); });
 
     // Go to client route when the above routes didnot match
-    app.all("*", (req,res,next) => {
-        res.sendFile(path.resolve('./client/dist/index.html'));
-    });
+
 }

@@ -22,6 +22,9 @@ img{
 
 }
 
+h4{
+   font-family: 'Dancing Script', cursive;
+}
 .searchbox{
     border: .8px solid grey;
 }
