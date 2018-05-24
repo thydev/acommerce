@@ -3,6 +3,7 @@
   box-shadow:  
   inset 0px 11px 8px -10px #CCC,
   inset 0px -11px 8px -10px #CCC; 
+  height: 100px;
 }
   
   nav{
@@ -12,6 +13,7 @@
   .navbar-brand{
     font-family: 'Dancing Script', cursive;
     font-weight: bold;
+    font-size: 2em;
   }
 
   .menuletters{
