@@ -1,3 +1,4 @@
+
 import { Component, OnInit, Output, EventEmitter, Inject } from '@angular/core';
 import { NgModel ,FormControl, ReactiveFormsModule} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -12,41 +13,32 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/do';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
-
 @Component({
-  selector: 'app-location-search',
-  templateUrl: './location-search.component.html',
-  styleUrls: ['./location-search.component.css']
+  selector: 'app-countrysearch',
+  templateUrl: './countrysearch.component.html',
+  styleUrls: ['./countrysearch.component.css']
 })
-
-export class LocationSearchComponent implements OnInit {
+export class CountrysearchComponent implements OnInit {
   @Output() filterChange = new EventEmitter();
 
   countryControl: FormControl = new FormControl();
   cityControl: FormControl = new FormControl();
-  activityControl: FormControl = new FormControl();
 
   countryOptions: Observable<string[]>;
   cityOption: Observable<string[]>;
-  activityOption: Observable<string[]>;
  
   cityOptions: string;
-  activityOptions: string;
   productresults: any;
   keywords = {
     country: '',
     city: '',
-    activity: '',
-    lowprice: 0,
-    highprice:0
   }
   //values for the country dropdown//
   countryArray =['USA', 'Korea', 'Ukraine', 'Cambodia', 'Mexico', 'Philippines'];
   cityArray =['Seattle', 'New York', 'Seoul'];
-  activeArray =['Hiking', 'Swimming', 'Camping'];
 
 constructor(
-    public dialogRef: MatDialogRef<LocationSearchComponent>,
+    public dialogRef: MatDialogRef<CountrysearchComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   onNoClick(): void {
@@ -61,10 +53,6 @@ constructor(
     this.cityOption = this.cityControl.valueChanges
     .pipe(startWith(''),
       map(cityval => this.cityfilter(cityval))); 
-    
-    this.activityOption = this.activityControl.valueChanges
-    .pipe(startWith(''),
-      map(actival => this.activefilter(actival))); 
   }
 
   filter(val: string): string[] {
@@ -74,10 +62,6 @@ constructor(
 
   cityfilter(cityval: string): string[] {
     return this.cityArray.filter(cities => cities.toLowerCase().includes(cityval.toLowerCase()));
-  }
-
-  activefilter(actival: string): string[] {
-    return this.activeArray.filter(activities => activities.toLowerCase().includes(actival.toLowerCase()));
   }
 
   countryChange($event){
@@ -91,25 +75,7 @@ constructor(
     this.keywords.city = $event;
     this.buildFilter();
   }
-
-  activityChange($event){
-    console.log($event,"Event");
-    this.keywords.activity = $event;
-    this.buildFilter();
-  }
-
-  onLowPriceChange($event){
-    console.log($event, "lowpriceevent");
-    this.keywords.lowprice = $event;
-    this.buildFilter();
-  }
-
-  onHighPriceChange($event){
-    console.log($event, "highpriceevent");
-    this.keywords.highprice = $event;
-    this.buildFilter();
-  }
-
+  
   buildFilter() {
     this.filterChange.emit(this.keywords);
   }

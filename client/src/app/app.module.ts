@@ -74,6 +74,10 @@ import { MainmenuComponent } from './mainmenu/mainmenu.component';
 
 import { SellerComponent } from './seller/seller.component';
 import { SellerService } from './services/seller.service';
+import { NewarrivalComponent } from './newarrival/newarrival.component';
+import { CountrysearchComponent } from './countrysearch/countrysearch.component';
+import { ActivitysearchComponent } from './activitysearch/activitysearch.component';
+import { ProductsearchComponent } from './productsearch/productsearch.component';
 
 
 @NgModule({
@@ -90,7 +94,11 @@ import { SellerService } from './services/seller.service';
     LocationSearchComponent,
     WeatherSearchComponent,
     LandingComponent,
-    MainmenuComponent
+    MainmenuComponent,
+    NewarrivalComponent,
+    CountrysearchComponent,
+    ActivitysearchComponent,
+    ProductsearchComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -140,6 +148,7 @@ import { SellerService } from './services/seller.service';
     ReactiveFormsModule,
     AppRoutingModule
   ],
+  entryComponents: [CountrysearchComponent, ActivitysearchComponent, ProductsearchComponent],
   providers: [HttpService, SellerService],
   bootstrap: [AppComponent]
 })

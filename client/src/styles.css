@@ -1,48 +1,34 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+html{
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
 main {
   padding-top: 3.5rem;
 }
-
-body{
-  /* font-family: 'Dancing Script', cursive; */
-  /* font-family: 'Pacifico', cursive;
-  font-weight: bold; */
+.social{
+  height: 100px;
+  background-color: #b99867;
 }
 
-/* 
-.box {
-  background: url('https://images.unsplash.com/photo-1519677100203-a0e668c92439') no-repeat center;
-  background-size: cover;
-  height: 100%;
-  cursor: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+i{
+  font-size: 2em;
+  color: white;
+  margin-top: 20px;
+  padding: 20px;
 }
 
-h1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  font-family: "Roboto", Arial, sans-serif;
-  font-size: calc(20px + 2vw);
-  font-weight: 700;
-  color: #fafafa;
-  text-shadow: 2px 2px 2px #000;
-  pointer-events: none;
-  user-select: none;
-  white-space: nowrap;
+.footer-copyright{
+  height: 300px;
+  background-color: #294057;
+
 }
-.spotlight {
-  position: absolute;
-  height: 50%;
-  width: 90%;
-  background-image: radial-gradient(
-      circle,
-      transparent 160px,
-      rgba(0, 0, 0, 0.85) 200px
-  );
-} */
