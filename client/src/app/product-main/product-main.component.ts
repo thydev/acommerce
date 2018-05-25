@@ -167,6 +167,7 @@ export class ProductMainComponent implements OnInit {
 //     console.log(this._httpService.addToCart(id, price), 'AFTER AFTER AFTFER');
 //   }
 
+<<<<<<< HEAD
     onClick(id: string, price: number) {
         if (this._httpService.cart.length === 0) {
             this._httpService.cart.push({product: id, qty: 1, price: price});
@@ -191,5 +192,29 @@ export class ProductMainComponent implements OnInit {
             }
         }
         return this._httpService.cart;
+=======
+    onClick(productObject: any, subtotal: Number) {
+    if (this._httpservice.cart.length === 0) {
+        productObject['qty'] = 1;
+        productObject['price'] = productObject.sellprice;
+        this._httpservice.cart.push(productObject);
+    } else {
+        let exist = false;
+        for (const i of this._httpservice.cart)
+        {
+            if (i._id === productObject._id) {
+                exist = true;
+                i.qty += 1;
+                break;
+            }
+        }
+        if (!exist) {
+            productObject['qty'] = 1;
+            productObject['price'] = productObject.sellprice;
+            this._httpservice.cart.push(productObject);
+        }
+    }
+    return this._httpservice.cart;
+>>>>>>> updatecart
     }
 }

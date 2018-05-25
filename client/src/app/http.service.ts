@@ -38,4 +38,13 @@ export class HttpService {
   getUserLoggedIn(){
     return this.currentUser;
   }
+
+
+
+  getAllProducts(){
+    return this._http.get('/products');
+  }
 }
+
+
+

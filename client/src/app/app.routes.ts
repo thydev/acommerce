@@ -14,7 +14,6 @@ export const ROUTES: Routes = [  { path: 'landing/:id', component: LandingCompon
   { path: 'facialrecogreg', component: FacialRecogComponent},
   { path: 'facialrecoglogin', component: FacialRecogLoginComponent},
   { path: 'products/:product', component: ProductReviewComponent },
-  { path: 'productmain', component: ProductMainComponent },
   { path: 'products/order/product', component: ProductCartComponent},  // just for testing
   { path: 'products', component: ProductMainComponent },
   { path: 'sellers', component: SellerComponent },
