@@ -16,7 +16,7 @@ export class LandingComponent implements OnInit {
   ngOnInit() {
   }
   productPage(){
-    this._router.navigate(['/products/1']);
+    this._router.navigate(['/productmain']);
 
   }
 }

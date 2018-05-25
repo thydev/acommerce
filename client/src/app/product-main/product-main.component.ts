@@ -21,6 +21,9 @@ import 'rxjs/add/operator/do';
 export class ProductMainComponent implements OnInit {
   panelOpenState = false;
   productsResult: any;
+  productCart =[];
+  newproductCart=[];
+
   products = [
     {
       'sellprice': 900,
@@ -47,19 +50,19 @@ export class ProductMainComponent implements OnInit {
       ]
   },
   {
-    'sellprice': 1200,
-    'availableQuantity': 0,
-    '_id': '5b034d06540ca80bae3f3d23',
-    'name': 'Canon Black EOS Rebel SL1',
-    'imgUrlHead': 'https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF',
-    'imgUrl': 'https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF',
-    'description': 'best place to visit',
-    'keywords': 'Swimming, rain, cloudy, cold, USA, washington, seattle',
-    'seller': '5b0341ce914da00957229ebb',
-    'createdAt': '2018-05-21T22:49:42.572Z',
-    'updatedAt': '2018-05-22T21:28:22.626Z',
-    '__v': 6,
-    'reviews': [
+    "sellprice": 1200,
+    "availableQuantity": 0,
+    "_id": "5b034d06540ca80bae3f3d24",
+    "name": "Canon Black EOS Rebel SL1",
+    "imgUrlHead": "https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF",
+    "imgUrl": "https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF",
+    "description": "best place to visit",
+    "keywords": "Swimming, rain, cloudy, cold, USA, washington, seattle",
+    "seller": "5b0341ce914da00957229ebb",
+    "createdAt": "2018-05-21T22:49:42.572Z",
+    "updatedAt": "2018-05-22T21:28:22.626Z",
+    "__v": 6,
+    "reviews": [
         {
             'rating': 4,
             '_id': '5b048b76d14ed6201923625d',
@@ -71,19 +74,19 @@ export class ProductMainComponent implements OnInit {
     ]
 },
 {
-  'sellprice': 0,
-  'availableQuantity': 0,
-  '_id': '5b034d06540ca80bae3f3d23',
-  'name': 'Canon Black EOS Rebel SL1',
-  'imgUrlHead': 'https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF',
-  'imgUrl': 'https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF',
-  'description': 'best place to visit',
-  'keywords': 'Hiking, rain, cloudy, cold, Cambodia, new york',
-  'seller': '5b0341ce914da00957229ebb',
-  'createdAt': '2018-05-21T22:49:42.572Z',
-  'updatedAt': '2018-05-22T21:28:22.626Z',
-  '__v': 6,
-  'reviews': [
+  "sellprice": 0,
+  "availableQuantity": 0,
+  "_id": "5b034d06540ca80bae3f3d25",
+  "name": "Canon Black EOS Rebel SL1",
+  "imgUrlHead": "https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF",
+  "imgUrl": "https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF",
+  "description": "best place to visit",
+  "keywords": "Hiking, rain, cloudy, cold, Cambodia, new york",
+  "seller": "5b0341ce914da00957229ebb",
+  "createdAt": "2018-05-21T22:49:42.572Z",
+  "updatedAt": "2018-05-22T21:28:22.626Z",
+  "__v": 6,
+  "reviews": [
       {
           'rating': 4,
           '_id': '5b048b76d14ed6201923625d',
@@ -95,19 +98,19 @@ export class ProductMainComponent implements OnInit {
   ]
 },
 {
-  'sellprice': 0,
-  'availableQuantity': 0,
-  '_id': '5b034d06540ca80bae3f3d23',
-  'name': 'Canon Black EOS Rebel SL1',
-  'imgUrlHead': 'https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF',
-  'imgUrl': 'https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF',
-  'description': 'best place to visit',
-  'keywords': 'landscape, rain, cloudy, cold, USA, seattle',
-  'seller': '5b0341ce914da00957229ebb',
-  'createdAt': '2018-05-21T22:49:42.572Z',
-  'updatedAt': '2018-05-22T21:28:22.626Z',
-  '__v': 6,
-  'reviews': [
+  "sellprice": 0,
+  "availableQuantity": 0,
+  "_id": "5b034d06540ca80bae3f3d26",
+  "name": "Canon Black EOS Rebel SL1",
+  "imgUrlHead": "https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF",
+  "imgUrl": "https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF",
+  "description": "best place to visit",
+  "keywords": "landscape, rain, cloudy, cold, USA, seattle",
+  "seller": "5b0341ce914da00957229ebb",
+  "createdAt": "2018-05-21T22:49:42.572Z",
+  "updatedAt": "2018-05-22T21:28:22.626Z",
+  "__v": 6,
+  "reviews": [
       {
           'rating': 4,
           '_id': '5b048b76d14ed6201923625d',
@@ -126,6 +129,7 @@ export class ProductMainComponent implements OnInit {
   }
 
   ngOnInit() {
+      this.productCart
   }
 
   filterProducts(keywords: any): void {
@@ -147,12 +151,12 @@ export class ProductMainComponent implements OnInit {
 //   }
 
     onClick(id: string, price: number) {
-        if (this._httpservice.cart.length === 0) {
-        console.log('empty array');
+    if (this._httpservice.cart.length === 0) {
         this._httpservice.cart.push({product: id, qty: 1, price: price});
     } else {
         let exist = false;
-        for (const i of this._httpservice.cart){
+        for (const i of this._httpservice.cart)
+        {
             console.log('i', i);
             console.log('i.product', i.product);
             console.log('Id', id);
@@ -169,7 +173,6 @@ export class ProductMainComponent implements OnInit {
             console.log('ELSE STATEMENT');
         }
     }
-    console.log(this._httpservice.cart, '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
     return this._httpservice.cart;
     }
 }
