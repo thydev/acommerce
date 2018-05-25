@@ -12,14 +12,11 @@ export const ROUTES: Routes = [
   { path: '', component: LandingComponent},
   // { path: 'landing/:id', component: LandingComponent},
   { path: 'products/:product', component: ProductReviewComponent },
-<<<<<<< HEAD
   { path: 'productmain', component: ProductMainComponent },
   { path: 'products/order/product', component: ProductCartComponent},  // just for testing
   { path: 'products', component: ProductMainComponent },
   { path: 'sellers', component: SellerComponent },
-=======
   { path: 'productmain/main/main', component: ProductMainComponent },
   { path: 'products/order/product', component: ProductCartComponent},  //just for testing 
->>>>>>> includebackend
   { path: '**', redirectTo: '' }
 ];

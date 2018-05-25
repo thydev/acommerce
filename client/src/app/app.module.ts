@@ -98,7 +98,6 @@ import { ProductsearchComponent } from './productsearch/productsearch.component'
     LocationSearchComponent,
     WeatherSearchComponent,
     LandingComponent,
-<<<<<<< HEAD
     MainmenuComponent,
     SellerComponent,
     SellerProductComponent,
@@ -108,10 +107,8 @@ import { ProductsearchComponent } from './productsearch/productsearch.component'
     NewarrivalComponent,
     CountrysearchComponent,
     ActivitysearchComponent,
-    ProductsearchComponent
-=======
+    ProductsearchComponent,
     MainmenuComponent
->>>>>>> includebackend
   ],
   imports: [
     NgbModule.forRoot(),
