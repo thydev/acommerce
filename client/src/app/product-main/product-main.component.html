@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-3">
         <div class="row filter">
             <h3>Shop By</h3>
             <br>
@@ -10,9 +10,9 @@
               </mat-card>
           </div>
       </div>
-      <div class="col-md-6">
-        <div class="row mr-5">
-            <div *ngFor="let p of productsResult" class="col-md-6 col-md-6 mt-5">
+      <div class="col-md-9">
+        <div class="row">
+            <div *ngFor="let p of productsResult" class="col-md-4 mt-5">
                 <mat-card class="example-card">
                     <img mat-card-image src={{p.imgUrl}} alt="Photo of a Shiba Inu">
                     <mat-card-content>
