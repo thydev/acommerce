@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http'
 export class HttpService {
   cart = [];
   constructor(private _http: HttpClient) { }
-  keyword = {
+  keywords = {
     country: '',
     city: '',
     activity: '',
