@@ -6,7 +6,7 @@
             <br>
             <mat-card class="expansion-panel" >
                  <mat-card-title><i class="material-icons">pin_drop</i></mat-card-title>
-                 <app-location-search (filterChange)="filterProducts($event)"></app-location-search><br>
+                 <app-location-search (filterChange) = "filterProducts($event)"></app-location-search><br>
               </mat-card>
           </div>
       </div>
@@ -24,6 +24,8 @@
                             <a mat-fab routerLink="." class="button-link">Add</a>
                             <a mat-fab routerLink="." class="button-link">Order</a>
                         </div>
+                        <button mat-button (click)="onClick(p._id, p.sellprice)">Add</button>
+                        <button mat-button>Order</button>
                     </mat-card-actions>
                 </mat-card>
             </div>
