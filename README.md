@@ -1,5 +1,5 @@
 # An E-Commerce App #
-=============
+
 # Contributors
 ### Alexandra Zadereiko: Stripe API, Cart page & Order page
 ###  Chanthy Ngin: Database, API Endpoint logics, Backend Configuration, Seller page
