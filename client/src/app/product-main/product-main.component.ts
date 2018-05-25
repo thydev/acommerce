@@ -21,8 +21,8 @@ import 'rxjs/add/operator/do';
 export class ProductMainComponent implements OnInit {
   panelOpenState = false;
   productsResult: any;
-  productCart =[];
-  newproductCart=[];
+  productCart = [];
+  newproductCart= [];
 
   products = [
     {
@@ -74,7 +74,7 @@ export class ProductMainComponent implements OnInit {
     ]
 },
 {
-  "sellprice": 0,
+  "sellprice": 20,
   "availableQuantity": 0,
   "_id": "5b034d06540ca80bae3f3d25",
   "name": "Canon Black EOS Rebel SL1",
@@ -98,7 +98,7 @@ export class ProductMainComponent implements OnInit {
   ]
 },
 {
-  "sellprice": 0,
+  "sellprice": 50,
   "availableQuantity": 0,
   "_id": "5b034d06540ca80bae3f3d26",
   "name": "Canon Black EOS Rebel SL1",
@@ -124,40 +124,55 @@ export class ProductMainComponent implements OnInit {
   ];
 
 
-  constructor(private _httpservice: HttpService) {
-    this.productsResult = this.products;
-    this.filterProducts();
+  constructor(private _httpService: HttpService) {
+    // this.filterProducts();
+
   }
 
   ngOnInit() {
-    //   this.productCart
+    this.filterProducts();
   }
 
-  filterProducts(): void {
-    // console.log(keywords, 'why is this inconsistent');
-    const keywords = this._httpservice.keywords;
-    this.productsResult =  this.products
-            .filter(option => option.keywords.toLowerCase().includes(keywords.country.toLowerCase()))
-            .filter(option => option.keywords.toLowerCase().includes(keywords.city.toLowerCase()))
-            .filter(option => option.keywords.toLowerCase().includes(keywords.activity.toLowerCase()))
-            .filter(option => option.sellprice >= keywords.lowprice)
-            .filter(option => option.sellprice <= keywords.highprice)
-            ;
-    console.log(this.productsResult);
-  }
+    filterProducts(): void {
+        console.log(this._httpService.keywords, 'why is this inconsistent');
+        const keywords = this._httpService.keywords;
+        // this._httpService.getKeywords().subscribe
+        this.productsResult =  this.products;
+        if (this._httpService.keywords.country) {
+            this.productsResult = this.productsResult
+                .filter(option => option.keywords.toLowerCase().includes(keywords.country.toString().toLowerCase()));
+        }
+        if (this._httpService.keywords.city) {
+            this.productsResult = this.productsResult
+                .filter(option => option.keywords.toLowerCase().includes(keywords.city.toString().toLowerCase()));
+        }
+        if (this._httpService.keywords.activity) {
+            this.productsResult = this.productsResult
+                .filter(option => option.keywords.toLowerCase().includes(keywords.activity.toString().toLowerCase()));
+        }
+
+        if (this._httpService.keywords.lowprice >= 0) {
+            this.productsResult = this.productsResult
+                .filter(option => option.sellprice >= keywords.lowprice);
+        }
+        if (keywords.highprice > 0 ) {
+            this.productsResult = this.productsResult.filter(x => x.sellprice <= keywords.highprice);
+        }
+        console.log(this.productsResult);
+    }
 
 //   onClick(id:string, price:number){
-//     console.log(this._httpservice.addToCart(id, price), 'BEFORE BEFORE BEFORE');
-//     this._httpservice.addToCart(id, price);
-//     console.log(this._httpservice.addToCart(id, price), 'AFTER AFTER AFTFER');
+//     console.log(this._httpService.addToCart(id, price), 'BEFORE BEFORE BEFORE');
+//     this._httpService.addToCart(id, price);
+//     console.log(this._httpService.addToCart(id, price), 'AFTER AFTER AFTFER');
 //   }
 
     onClick(id: string, price: number) {
-        if (this._httpservice.cart.length === 0) {
-            this._httpservice.cart.push({product: id, qty: 1, price: price});
+        if (this._httpService.cart.length === 0) {
+            this._httpService.cart.push({product: id, qty: 1, price: price});
         } else {
             let exist = false;
-            for (const i of this._httpservice.cart)
+            for (const i of this._httpService.cart)
             {
                 console.log('i', i);
                 console.log('i.product', i.product);
@@ -171,10 +186,10 @@ export class ProductMainComponent implements OnInit {
                 }
             }
             if (!exist) {
-                this._httpservice.cart.push({product: id, qty: 1, price: price});
+                this._httpService.cart.push({product: id, qty: 1, price: price});
                 console.log('ELSE STATEMENT');
             }
         }
-        return this._httpservice.cart;
+        return this._httpService.cart;
     }
 }

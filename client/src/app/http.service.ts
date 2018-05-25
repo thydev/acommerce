@@ -15,4 +15,8 @@ export class HttpService {
     highprice: 0
   }
   constructor (private _http: HttpClient) { }
+
+  getKeywords() {
+    return this.keywords;
+  }
 }

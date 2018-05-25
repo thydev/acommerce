@@ -34,14 +34,8 @@ export class LocationSearchComponent implements OnInit {
   cityOptions: string;
   activityOptions: string;
   productresults: any;
-  // keywords = {
-  //   country: '',
-  //   city: '',
-  //   activity: '',
-  //   lowprice: 0,
-  //   highprice: 0
-  // }
-  // values for the country dropdown//
+
+  // values for the country dropdown //
   countryArray = ['USA', 'Korea', 'Ukraine', 'Cambodia', 'Mexico', 'Philippines'];
   cityArray = ['Seattle', 'New York', 'Seoul'];
   activeArray = ['Hiking', 'Swimming', 'Camping'];
@@ -50,11 +44,11 @@ constructor(
     private _httpService: HttpService
 ) { }
 
-  // onNoClick(): void {
-  //   this.dialogRef.close();
-  // }
-
   ngOnInit() {
+    this.initOptionValues();
+  }
+
+  initOptionValues() {
     this.countryOptions = this.countryControl.valueChanges
       .pipe(startWith(''),
         map(val => this.filter(val)));
@@ -66,6 +60,16 @@ constructor(
     this.activityOption = this.activityControl.valueChanges
     .pipe(startWith(''),
       map(actival => this.activefilter(actival)));
+
+    if (this._httpService.keywords.country) {
+        this.countryControl.setValue(this._httpService.keywords.country);
+    }
+    if (this._httpService.keywords.city) {
+      this.cityControl.setValue(this._httpService.keywords.city);
+    }
+    if (this._httpService.keywords.activity) {
+      this.activityControl.setValue(this._httpService.keywords.activity);
+    }
   }
 
   filter(val: string): string[] {
@@ -100,15 +104,18 @@ constructor(
   }
 
   onLowPriceChange($event) {
-
-    this._httpService.keywords.lowprice = $event;
-    this.buildFilter();
+    if (!isNaN($event)) {
+      this._httpService.keywords.lowprice = $event;
+      this.buildFilter();
+    }
   }
 
   onHighPriceChange($event) {
 
-    this._httpService.keywords.highprice = $event;
-    this.buildFilter();
+    if (!isNaN($event)) {
+      this._httpService.keywords.highprice = $event;
+      this.buildFilter();
+    }
   }
 
   buildFilter() {
