@@ -1,12 +1,16 @@
 # An E-Commerce App 
 
 ## Contributors
-### Alexandra Zadereiko, Chanty Ngin, Javier Gonzalez, Rose Reyes, Sun Davey
+* Alexandra Zadereiko: Stripe API, Cart page & Order page
+* Chanthy Ngin: Database, API Endpoint logics, Backend Configuration, Seller page
+* Javier Gonzalez: Face recognition login, Bug fixes, Product Detail Page
+* Rose Reyes: rxjs logics, Product Main page & Cart page
+* Sun Davey: Auth0, Google Map API, Main Page, Design 
 
-## Technologies
+## Used
 MEAN Stack (Mongo, Express, Angular, Node.js)
 
-## APIs
+### APIs
 ##### Auth0: 3rd Party Authentication
 ##### Map: Google Map 
 ##### KAIRO: Face Recognition
@@ -17,10 +21,8 @@ MEAN Stack (Mongo, Express, Angular, Node.js)
 
 ##### Version Control: Git, Github
 
-## Roles 
-#### Stripe API, Cart page & Order page: Alexandra
-#### Database, API Endpoint logics, Backend Configuration, Seller page: Chanty
-#### Face recognition login, Bug fixes, Product Detail Page: Javier
-#### rxjs logics, Product Main page & Cart page: Rose
-#### Auth0, Google Map API, Main Page, Design: Sun 
+#### Trello
+
+#### Pair Programming
+
 
