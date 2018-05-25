@@ -5,6 +5,7 @@ import { LocationSearchComponent } from '../location-search/location-search.comp
 import { CountrysearchComponent } from '../countrysearch/countrysearch.component';
 import { ActivitysearchComponent } from '../activitysearch/activitysearch.component';
 import { ProductsearchComponent } from '../productsearch/productsearch.component';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-mainmenu',
@@ -20,7 +21,8 @@ export class MainmenuComponent implements OnInit {
 
   constructor(private _router: Router,
     private _route: ActivatedRoute,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private _httpService: HttpService) { }
 
   ngOnInit() {
   }
@@ -34,7 +36,9 @@ export class MainmenuComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-
+      this._httpService.keywords.country = result;
+      this._httpService.keywords.city = result;
+      this._router.navigate(['productmain']);
     });
   }
 
@@ -48,7 +52,7 @@ export class MainmenuComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.activity = result;
-      console.log(result)
+      this._httpService.keywords.activity = result;
       this._router.navigate(['productmain']);
     });
   }
@@ -60,7 +64,9 @@ export class MainmenuComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this._httpService.keywords.product = result;
       console.log('The dialog was closed');
+      this._router.navigate(['productmain']);
     });
   }
 
