@@ -3,7 +3,16 @@
     <a class="navbar-brand" href="#">Wanderlust</a>
     <form class="form-inline">
       <a class="my-2 my-sm-0 mr-2 menuletters" href="/">Home</a>
-      <a href="/login" class="my-2 my-sm-0 menuletters" style="margin-right: 5px;">Login</a>
+      <a style="margin-right: 5px;" class="my-2 my-sm-0 menuletters" [matMenuTriggerFor]="loginMenu">Login</a>
+      <mat-menu #loginMenu="matMenu">
+        <a href="/login" role="button" mat-menu-item>Google/Email Login</a>
+        <button mat-menu-item [matMenuTriggerFor]="facialrecog">Facial Recognition</button>
+      </mat-menu>
+      <mat-menu #facialrecog="matMenu">
+          <a href="/facialrecogreg" role="button" mat-menu-item>Register</a>
+          <a href="/facialrecoglogin" role="button" mat-menu-item>Login</a>
+      </mat-menu>
+      <!-- <a href="/login" class="my-2 my-sm-0 menuletters" style="margin-right: 5px;">Login</a> -->
       <a href="/logout" class="my-2 my-sm-0 menuletters">Logout</a>
       <span matBadge="4" matBadgeColor="warn" matBadgeSize="medium">
         <button mat-mini-fab (click)="sidenav.open()">

@@ -12,7 +12,7 @@ module.exports = (app) => {
     // User Routes
     app.get(baseUrl + 'users', (req, res) => { users.getAll(req, res); });
     // app.get(baseUrl + 'users/:id', (req, res) => { users.getById(req, res); });
-    app.get(baseUrl + 'user/:email', (req, res) => { users.getByEmail(req, res); });
+    app.get(baseUrl + 'users/:email', (req, res) => { users.getByEmail(req, res); });
 
     app.post(baseUrl + 'users', (req, res) => { users.create(req, res); });
     app.put(baseUrl + 'users/:id', (req, res) => { users.updateById(req, res); });

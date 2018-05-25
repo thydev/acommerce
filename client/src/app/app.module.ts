@@ -52,6 +52,8 @@ import { MainmenuComponent } from './mainmenu/mainmenu.component';
 
 import { SellerComponent } from './seller/seller.component';
 import { SellerService } from './services/seller.service';
+import { FacialRecogComponent } from './facial-recog/facial-recog.component';
+import { FacialRecogLoginComponent } from './facial-recog-login/facial-recog-login.component';
 
 
 @NgModule({
@@ -72,6 +74,8 @@ import { SellerService } from './services/seller.service';
     LandingComponent,
     MainmenuComponent,
     SellerComponent,
+    FacialRecogComponent,
+    FacialRecogLoginComponent,
 
   ],
   imports: [
