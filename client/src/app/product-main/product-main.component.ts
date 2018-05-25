@@ -167,40 +167,14 @@ export class ProductMainComponent implements OnInit {
 //     console.log(this._httpService.addToCart(id, price), 'AFTER AFTER AFTFER');
 //   }
 
-<<<<<<< HEAD
-    onClick(id: string, price: number) {
-        if (this._httpService.cart.length === 0) {
-            this._httpService.cart.push({product: id, qty: 1, price: price});
-        } else {
-            let exist = false;
-            for (const i of this._httpService.cart)
-            {
-                console.log('i', i);
-                console.log('i.product', i.product);
-                console.log('Id', id);
-                if (i.product === id) {
-                    exist = true;
-                    console.log(i.product);
-                    i.qty += 1;
-                    console.log('product is the same');
-                    break;
-                }
-            }
-            if (!exist) {
-                this._httpService.cart.push({product: id, qty: 1, price: price});
-                console.log('ELSE STATEMENT');
-            }
-        }
-        return this._httpService.cart;
-=======
     onClick(productObject: any, subtotal: Number) {
-    if (this._httpservice.cart.length === 0) {
+    if (this._httpService.cart.length === 0) {
         productObject['qty'] = 1;
         productObject['price'] = productObject.sellprice;
-        this._httpservice.cart.push(productObject);
+        this._httpService.cart.push(productObject);
     } else {
         let exist = false;
-        for (const i of this._httpservice.cart)
+        for (const i of this._httpService.cart)
         {
             if (i._id === productObject._id) {
                 exist = true;
@@ -211,10 +185,9 @@ export class ProductMainComponent implements OnInit {
         if (!exist) {
             productObject['qty'] = 1;
             productObject['price'] = productObject.sellprice;
-            this._httpservice.cart.push(productObject);
+            this._httpService.cart.push(productObject);
         }
     }
-    return this._httpservice.cart;
->>>>>>> updatecart
+    return this._httpService.cart;
     }
 }
