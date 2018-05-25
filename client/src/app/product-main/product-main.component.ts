@@ -1,10 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgModel , FormControl, ReactiveFormsModule} from '@angular/forms';
-import {HttpService} from '../http.service'
+import { HttpService } from '../http.service'
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
-import {map, startWith} from 'rxjs/operators';
+import { map, startWith } from 'rxjs/operators';
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
@@ -14,9 +14,9 @@ import 'rxjs/add/operator/do';
 
 
 @Component({
-  selector: 'app-product-main',
-  templateUrl: './product-main.component.html',
-  styleUrls: ['./product-main.component.css']
+    selector: 'app-product-main',
+    templateUrl: './product-main.component.html',
+    styleUrls: ['./product-main.component.css']
 })
 export class ProductMainComponent implements OnInit {
   panelOpenState = false;
@@ -126,22 +126,24 @@ export class ProductMainComponent implements OnInit {
 
   constructor(private _httpservice: HttpService) {
     this.productsResult = this.products;
+    this.filterProducts();
   }
 
   ngOnInit() {
-      this.productCart
+    //   this.productCart
   }
 
-  filterProducts(keywords: any): void {
-    console.log(keywords, 'why is this inconsistent');
+  filterProducts(): void {
+    // console.log(keywords, 'why is this inconsistent');
+    const keywords = this._httpservice.keywords;
     this.productsResult =  this.products
-         .filter(option => option.keywords.toLowerCase().includes(keywords.country.toLowerCase()))
-         .filter(option => option.keywords.toLowerCase().includes(keywords.city.toLowerCase()))
-         .filter(option => option.keywords.toLowerCase().includes(keywords.activity.toLowerCase()))
-         .filter(option => option.sellprice >= keywords.lowprice)
-         .filter(option => option.sellprice <= keywords.highprice)
-         ;
-      console.log(this.productsResult);
+            .filter(option => option.keywords.toLowerCase().includes(keywords.country.toLowerCase()))
+            .filter(option => option.keywords.toLowerCase().includes(keywords.city.toLowerCase()))
+            .filter(option => option.keywords.toLowerCase().includes(keywords.activity.toLowerCase()))
+            .filter(option => option.sellprice >= keywords.lowprice)
+            .filter(option => option.sellprice <= keywords.highprice)
+            ;
+    console.log(this.productsResult);
   }
 
 //   onClick(id:string, price:number){
@@ -151,28 +153,28 @@ export class ProductMainComponent implements OnInit {
 //   }
 
     onClick(id: string, price: number) {
-    if (this._httpservice.cart.length === 0) {
-        this._httpservice.cart.push({product: id, qty: 1, price: price});
-    } else {
-        let exist = false;
-        for (const i of this._httpservice.cart)
-        {
-            console.log('i', i);
-            console.log('i.product', i.product);
-            console.log('Id', id);
-            if (i.product === id) {
-                exist = true;
-                console.log(i.product);
-                i.qty += 1;
-                console.log('product is the same');
-                break;
+        if (this._httpservice.cart.length === 0) {
+            this._httpservice.cart.push({product: id, qty: 1, price: price});
+        } else {
+            let exist = false;
+            for (const i of this._httpservice.cart)
+            {
+                console.log('i', i);
+                console.log('i.product', i.product);
+                console.log('Id', id);
+                if (i.product === id) {
+                    exist = true;
+                    console.log(i.product);
+                    i.qty += 1;
+                    console.log('product is the same');
+                    break;
+                }
+            }
+            if (!exist) {
+                this._httpservice.cart.push({product: id, qty: 1, price: price});
+                console.log('ELSE STATEMENT');
             }
         }
-        if (!exist) {
-            this._httpservice.cart.push({product: id, qty: 1, price: price});
-            console.log('ELSE STATEMENT');
-        }
-    }
-    return this._httpservice.cart;
+        return this._httpservice.cart;
     }
 }

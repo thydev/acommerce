@@ -11,6 +11,7 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/do';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { HttpService } from '../http.service';
 
 
 @Component({
@@ -33,21 +34,20 @@ export class LocationSearchComponent implements OnInit {
   cityOptions: string;
   activityOptions: string;
   productresults: any;
-  keywords = {
-    country: '',
-    city: '',
-    activity: '',
-    lowprice: 0,
-    highprice: 0
-  }
+  // keywords = {
+  //   country: '',
+  //   city: '',
+  //   activity: '',
+  //   lowprice: 0,
+  //   highprice: 0
+  // }
   // values for the country dropdown//
   countryArray = ['USA', 'Korea', 'Ukraine', 'Cambodia', 'Mexico', 'Philippines'];
   cityArray = ['Seattle', 'New York', 'Seoul'];
   activeArray = ['Hiking', 'Swimming', 'Camping'];
 
 constructor(
-    // public dialogRef: MatDialogRef<LocationSearchComponent>,
-    // @Inject(MAT_DIALOG_DATA) public data: any
+    private _httpService: HttpService
 ) { }
 
   // onNoClick(): void {
@@ -82,37 +82,37 @@ constructor(
   }
 
   countryChange($event) {
-    console.log($event, 'Event');
-    this.keywords.country = $event;
+
+    this._httpService.keywords.country = $event;
     this.buildFilter();
   }
 
   cityChange($event) {
-    console.log($event, 'Event');
-    this.keywords.city = $event;
+
+    this._httpService.keywords.city = $event;
     this.buildFilter();
   }
 
   activityChange($event) {
-    console.log($event, 'Event');
-    this.keywords.activity = $event;
+
+    this._httpService.keywords.activity = $event;
     this.buildFilter();
   }
 
   onLowPriceChange($event) {
-    console.log($event, 'lowpriceevent');
-    this.keywords.lowprice = $event;
+
+    this._httpService.keywords.lowprice = $event;
     this.buildFilter();
   }
 
   onHighPriceChange($event) {
-    console.log($event, 'highpriceevent');
-    this.keywords.highprice = $event;
+
+    this._httpService.keywords.highprice = $event;
     this.buildFilter();
   }
 
   buildFilter() {
-    this.filterChange.emit(this.keywords);
+    this.filterChange.emit();
   }
 
 }
