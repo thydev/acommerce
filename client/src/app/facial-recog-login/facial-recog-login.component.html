@@ -1,3 +1,4 @@
+
 <h3>Facial Recognition Login</h3>
 <div>
   <form>
@@ -8,7 +9,7 @@
     <br><br>
     <button onclick="takepicture()" [disabled]="user.email.length < 6" mat-raised-button color="primary" id="startbutton" type="submit" (click)="checkUserCI()">Take photo</button>
   </form>
-  <h5 class="text-success" *ngIf="pictureTaken">Login Successful</h5>
+  <h5 class="text-success" *ngIf="pictureTaken">Login Successful Welcome {{user.name}}</h5>
 </div>
 <br>
 <div class="camera">

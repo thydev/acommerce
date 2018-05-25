@@ -9,7 +9,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router'
 })
 export class ProductReviewListingComponent implements OnInit {
   //sort reviews by newest
-  reviews = [{name: "Javier", rating: 2, review: "This product sucks", created_at: "4/20/2000"}, {name: "Jack", rating: 4, review: "This product is good", created_at: "4/20/2010"}, {name: "Shithead", rating: 3, review: "This product is okay", created_at: "4/20/2008"}]
+  reviews = [{name: "Alex", rating: 2, review: "This product sucks", created_at: "4/20/2000"}, {name: "Jack", rating: 4, review: "No complaints here, always a great time", created_at: "4/20/2010"}, {name: "Joe", rating: 3, review: "Good and bad memories", created_at: "4/20/2008"}]
   constructor(
     // private _httpService: HttpService,
     private _router: Router,
