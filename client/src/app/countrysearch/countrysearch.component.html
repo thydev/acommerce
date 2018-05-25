@@ -1,6 +1,7 @@
 <form class="example-form">
   <mat-form-field class="example-full-width">
-    <input type="text" placeholder="Country" matInput [formControl]="countryControl" [matAutocomplete]="auto" (ngModelChange)="countryChange($event)">
+    <input type="text" placeholder="Country" matInput [formControl]="countryControl" [matAutocomplete]="auto" (ngModelChange)="countryChange($event)"
+      [(ngModel)]="data.country">
     <mat-autocomplete #auto="matAutocomplete">
       <mat-option *ngFor="let option of countryOptions | async" [value]="option">
         {{ option }}
@@ -9,16 +10,15 @@
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <input type="text" placeholder="City" matInput [formControl]="cityControl" [matAutocomplete]="cityAuto" (ngModelChange)="cityChange($event)"
-      matTooltip="Check the weather to filter the CITY you want to go">
+      matTooltip="Check the weather to filter the CITY you want to go" [(ngModel)]="data.city">
     <mat-autocomplete #cityAuto="matAutocomplete">
       <mat-option *ngFor="let city of cityOption | async" [value]="city">
         {{ city }}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
-  <div class="row text-center">
-    <div class="col-md-12">
-      <button mat-raised-button color="primary" value ="Search" (click)="createRating()" class="searchB">Search</button>
-    </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Search</button>
   </div>
 </form>

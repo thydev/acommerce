@@ -16,9 +16,7 @@ export class NewarrivalComponent implements OnInit {
   ngOnInit() {
   }
 
-  byCountry(){
-    alert("you clicked")
-  }
+
 
   onResize(event) {
     const element = event.target.innerWidth;
