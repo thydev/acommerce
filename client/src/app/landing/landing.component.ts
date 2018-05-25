@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router'
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute, Params, Router, ParamMap } from '@angular/router'
+import { switchMap } from 'rxjs/operators';
+import { HttpService } from '../http.service';
 
 
 
@@ -9,14 +11,34 @@ import { ActivatedRoute, Params, Router } from '@angular/router'
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
+  @Output() UserLoggedIn = new EventEmitter();
+  loggedIn: boolean;
   user;
   constructor(private _router: Router,
-    private _route: ActivatedRoute) { }
+    private _route: ActivatedRoute,
+    private _httpService: HttpService
+  ) { }
 
   ngOnInit() {
+    this._route.params.subscribe((params: Params) => {
+      console.log(params['id'])
+      this.user = params['id'];
+      if(params['id'] != null){
+        this._httpService.setUserLoggedIn();
+      }
+    });   
+    this.getUserInfo();
   }
   productPage(){
     this._router.navigate(['/productmain']);
 
   }
+
+  getUserInfo(){
+    this.loggedIn = this._httpService.getUserLoggedIn();
+    if(this.loggedIn){
+      this.UserLoggedIn.emit(this.loggedIn);
+    }
+  }
+
 }

@@ -12,18 +12,19 @@ import {MatSidenav} from '@angular/material/sidenav';
 })
 
 export class AppComponent implements OnInit {
+  loggedIn: boolean;
   @ViewChild('sidenav') sidenav: MatSidenav;
   sumQty;
   cart = this.displayUserCart();
   constructor(private _httpService: HttpService,
     private _router: Router) {
       setInterval(()=> {this.displayUserCart();}, 1000);
+      this.getUserInfo(this.loggedIn);
   }
 
   ngOnInit() {
-
+    this.getUserInfo(this.loggedIn);
   }
-
   close(reason: string) {
     this.sidenav.close();
   }
@@ -35,6 +36,12 @@ export class AppComponent implements OnInit {
     }
     this.sumQty = sum;
     return this.sumQty;
+  }
+
+  getUserInfo(logged){
+    this.loggedIn = this._httpService.getUserLoggedIn();
+    console.log(logged);
+    console.log(this.loggedIn)
   }
 }
 

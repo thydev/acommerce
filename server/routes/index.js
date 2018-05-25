@@ -11,7 +11,7 @@ const env = {
   AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
   AUTH0_DOMAIN: process.env.AUTH0_DOMAIN,
   AUTH0_CALLBACK_URL:
-    process.env.AUTH0_CALLBACK_URL || 'http://localhost:1337/callback'
+    process.env.AUTH0_CALLBACK_URL || 'http://localhost:5000/callback'
 };
 
 /* GET home page. */
@@ -41,12 +41,12 @@ router.get('/callback',
     failureRedirect: '/failure'
   }),
   function (req, res) {
-    let user = req.user._id;
+    let user = req.user.id;
     console.log("authenticated?????")
     console.log("REQ.USER.ID", req.user.id);
     console.log("REQ.USER.JSON", req.user._json);
     console.log("REQ.USER", req.user);
-    if(req.user.id[0] == "g"){
+    if (req.user.id[0] == "g") {
       let gmail = "@gmail.com";
       let e = req.user._json.nickname;
       let email = e.concat(gmail);
@@ -58,7 +58,7 @@ router.get('/callback',
       });
       console.log(newUser);
     }
-    if(req.user.id[0] !== "g"){
+    if (req.user.id[0] !== "g") {
       var newUser = new User({
         user_id: req.user.id,
         name: req.user._json.nickname,
@@ -75,11 +75,11 @@ router.get('/callback',
           req.flash('registration', err.errors[key].message);
         }
       }
+      req.session.email = newUser.email;
+      console.log(req.session.email);
+      console.log("creating users???")
+      return res.redirect(req.session.returnTo || '/landing/' + user);
     })
-    req.session.email = newUser.email;
-    console.log(req.session.email);
-    console.log("creating users???")
-    return res.redirect(req.session.returnTo || '/user');
   }
 );
 
@@ -106,7 +106,7 @@ router.get('/failure', function (req, res) {
     error_description: error_description[0],
   });
 });
-router.all("*", (req,res,next)=>{
+router.all("*", (req, res, next) => {
   res.sendFile(path.resolve("./client/dist/index.html"))
 })
 

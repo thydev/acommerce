@@ -36,19 +36,16 @@ export class MainmenuComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-<<<<<<< HEAD
       // this._httpService.keywords.country = result;
       // this._httpService.keywords.city = result;
       console.log(this._httpService.keywords);
       console.log('go to product main');
       this._router.navigate(['productmain']);
-=======
       this._httpService.keywords.country = result;
       this._httpService.keywords.city = result;
       if(result != null){
         this._router.navigate(['productmain']);
       }
->>>>>>> footer
     });
   }
 

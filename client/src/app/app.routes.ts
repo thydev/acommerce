@@ -9,11 +9,10 @@ import { ProductCartComponent } from './product-cart/product-cart.component';
 import { FacialRecogComponent } from './facial-recog/facial-recog.component';
 import { FacialRecogLoginComponent } from './facial-recog-login/facial-recog-login.component';
 
-export const ROUTES: Routes = [
+export const ROUTES: Routes = [  { path: 'landing/:id', component: LandingComponent},
   { path: '', component: LandingComponent},
   { path: 'facialrecogreg', component: FacialRecogComponent},
   { path: 'facialrecoglogin', component: FacialRecogLoginComponent},
-  { path: 'landing/:id', component: LandingComponent},
   { path: 'products/:product', component: ProductReviewComponent },
   { path: 'productmain', component: ProductMainComponent },
   { path: 'products/order/product', component: ProductCartComponent},  // just for testing

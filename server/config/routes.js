@@ -14,47 +14,47 @@ module.exports = (app) => {
     // app.get(baseUrl + 'users/:id', (req, res) => { users.getById(req, res); });
     app.get(baseUrl + 'users/:email', (req, res) => { users.getByEmail(req, res); });
 
-    app.post(baseUrl + 'users', (req, res) => { users.create(req, res); });
-    app.put(baseUrl + 'users/:id', (req, res) => { users.updateById(req, res); });
-    app.delete(baseUrl + 'users/:id', (req, res) => { users.removeById(req, res); });
+    app.post(baseUrl + 'users', ensureLoggedIn,(req, res) => { users.create(req, res); });
+    app.put(baseUrl + 'users/:id', ensureLoggedIn,(req, res) => { users.updateById(req, res); });
+    app.delete(baseUrl + 'users/:id', ensureLoggedIn,(req, res) => { users.removeById(req, res); });
     // Create cart products
-    app.post(baseUrl + 'users/cart/:id', (req, res) => { users.createCart(req, res); });
+    app.post(baseUrl + 'users/cart/:id',ensureLoggedIn, (req, res) => { users.createCart(req, res); });
 
     // Seller Routes
-    app.get(baseUrl + 'sellers', (req, res) => { sellers.getAll(req, res); });
-    app.get(baseUrl + 'sellers/:id', (req, res) => { sellers.getById(req, res); });
-    app.post(baseUrl + 'sellers', (req, res) => { sellers.create(req, res); });
-    app.put(baseUrl + 'sellers/:id', (req, res) => { sellers.updateById(req, res); });
-    app.delete(baseUrl + 'sellers/:id', (req, res) => { sellers.removeById(req, res); });
+    app.get(baseUrl + 'sellers', ensureLoggedIn,(req, res) => { sellers.getAll(req, res); });
+    app.get(baseUrl + 'sellers/:id', ensureLoggedIn,(req, res) => { sellers.getById(req, res); });
+    app.post(baseUrl + 'sellers', ensureLoggedIn,(req, res) => { sellers.create(req, res); });
+    app.put(baseUrl + 'sellers/:id', ensureLoggedIn,(req, res) => { sellers.updateById(req, res); });
+    app.delete(baseUrl + 'sellers/:id', ensureLoggedIn,(req, res) => { sellers.removeById(req, res); });
 
     // Product Routes
     app.get(baseUrl + 'products', (req, res) => { products.getAll(req, res); });
     app.get(baseUrl + 'products/:id', (req, res) => { products.getById(req, res); });
     // Need a permission to create a product
     // Use the params sellerid for testing now
-    app.post(baseUrl + ':sellerid/products', (req, res) => {
+    app.post(baseUrl + ':sellerid/products', ensureLoggedIn,(req, res) => {
         products.create(req, res);
     });
     // Auth must be detected
-    app.put(baseUrl + ':sellerid/products/:id', (req, res) => {
+    app.put(baseUrl + ':sellerid/products/:id', ensureLoggedIn,(req, res) => {
         products.updateById(req, res);
     });
     // Auth must be detected
-    app.delete(baseUrl + ':sellerid/products/:id', (req, res) => {
+    app.delete(baseUrl + ':sellerid/products/:id', ensureLoggedIn,(req, res) => {
         products.removeById(req, res);
     });
     // Create a review
-    app.post(baseUrl + 'products/reviews/:id', (req, res) => {
+    app.post(baseUrl + 'products/reviews/:id',ensureLoggedIn, (req, res) => {
         console.log(req);
         products.createReview(req, res);
     });
 
     // Order Routes
     app.get(baseUrl + 'orders', ensureLoggedIn, (req, res) => { orders.getAll(req, res); });
-    app.get(baseUrl + 'orders/:id', (req, res) => { orders.getById(req, res); });
-    app.post(baseUrl + 'orders', (req, res) => { orders.create(req, res); });
-    app.put(baseUrl + 'orders/:id', (req, res) => { orders.updateById(req, res); });
-    app.delete(baseUrl + 'orders/:id', (req, res) => { orders.removeById(req, res); });
+    app.get(baseUrl + 'orders/:id', ensureLoggedIn, (req, res) => { orders.getById(req, res); });
+    app.post(baseUrl + 'orders', ensureLoggedIn, (req, res) => { orders.create(req, res); });
+    app.put(baseUrl + 'orders/:id', ensureLoggedIn, (req, res) => { orders.updateById(req, res); });
+    app.delete(baseUrl + 'orders/:id',ensureLoggedIn, (req, res) => { orders.removeById(req, res); });
 
     //Payment Route
     app.post(baseUrl + 'orders/payment', (req, res) => { orders.createPayment(req, res); });

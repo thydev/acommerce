@@ -14,6 +14,8 @@ export class HttpService {
     lowprice: 0,
     highprice: 0
   }
+
+  currentUser = false;
   constructor (private _http: HttpClient) { }
 
   getKeywords() {
@@ -27,5 +29,13 @@ export class HttpService {
   loginUser(user){
     console.log(user.email);
     return this._http.get('/api/users/'+ user.email)
+  }
+
+  setUserLoggedIn(){
+    this.currentUser = true;
+  }
+
+  getUserLoggedIn(){
+    return this.currentUser;
   }
 }

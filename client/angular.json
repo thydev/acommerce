@@ -25,7 +25,8 @@
               "src/styles.css"
             ],
             "scripts": [
-              "src/facialrecogreg.js"
+              "src/facialrecogreg.js",
+              "src/spotlight.js"
             ]
           },
           "configurations": {

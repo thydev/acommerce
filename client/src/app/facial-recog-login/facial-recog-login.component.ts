@@ -17,6 +17,7 @@ export class FacialRecogLoginComponent implements OnInit {
   emailNotRegistered = false;
   pictureTaken = false;
   invalid = false;
+  video: any;
   ngOnInit() {
   }
   checkUserCI(){
@@ -41,7 +42,7 @@ export class FacialRecogLoginComponent implements OnInit {
         }
         if(data['message']=="Success"){
           this.pictureTaken = true;
-          let stream = video['srcObject'];
+          let stream = this.video['srcObject'];
           let tracks = stream.getTracks();
           tracks.forEach((track)=>{
               console.log(track);
