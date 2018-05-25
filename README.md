@@ -1,4 +1,5 @@
-# An E-Commerce App 
+# An E-Commerce App #
+==================
 
 # Contributors
 ### Alexandra Zadereiko: Stripe API, Cart page & Order page
