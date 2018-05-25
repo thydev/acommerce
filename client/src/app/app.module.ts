@@ -82,6 +82,8 @@ import { NewarrivalComponent } from './newarrival/newarrival.component';
 import { CountrysearchComponent } from './countrysearch/countrysearch.component';
 import { ActivitysearchComponent } from './activitysearch/activitysearch.component';
 import { ProductsearchComponent } from './productsearch/productsearch.component';
+import { FacialRecogComponent } from './facial-recog/facial-recog.component';
+import { FacialRecogLoginComponent } from './facial-recog-login/facial-recog-login.component';
 
 
 @NgModule({
@@ -103,6 +105,8 @@ import { ProductsearchComponent } from './productsearch/productsearch.component'
     SellerProductComponent,
     SellerNewComponent,
     ProductNewComponent,
+    FacialRecogComponent,
+    FacialRecogLoginComponent,
 
     NewarrivalComponent,
     CountrysearchComponent,

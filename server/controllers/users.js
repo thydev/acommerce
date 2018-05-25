@@ -27,6 +27,21 @@ module.exports = {
                 }
             });
     },
+    getByEmail: (req, res) => {
+        console.log("HITTTTT Controller")
+        var useremail = req.params.email;
+        console.log(useremail);
+        User.findOne({email:  useremail})
+            .exec((err, item)=>{
+                if (!err) {
+                    console.log(item);
+                    res.json({message: "Success", data: item});
+                } else {
+                    console.log(err);
+                    res.json({message: "Error", error: err})
+                }
+            });
+    },
     // getById: (req, res) => {
     //     const ObjectId = mongoose.Types.ObjectId; 
     //     User.find({_id: new ObjectId(req.params.id)})

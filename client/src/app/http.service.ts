@@ -19,4 +19,13 @@ export class HttpService {
   getKeywords() {
     return this.keywords;
   }
+
+  createUser(user){
+    console.log(user);
+    return this._http.post('/api/users', user);
+  }
+  loginUser(user){
+    console.log(user.email);
+    return this._http.get('/api/users/'+ user.email)
+  }
 }

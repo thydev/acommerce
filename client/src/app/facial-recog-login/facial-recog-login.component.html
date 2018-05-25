@@ -1,0 +1,28 @@
+<h3>Facial Recognition Login</h3>
+<div>
+  <form>
+    <p>Enter Email: <span class="text-danger" *ngIf="user.email.length < 6">User Email is required</span><br><span id="emailNotRegistered" *ngIf="emailNotRegistered" class="text-danger">Email Not Registered</span><br><span class="text-danger" *ngIf="invalid">Invalid Login</span></p>
+    <mat-form-field>
+      <input matInput id="email" type="email" name="user.email" placeholder="Email.." value="" [(ngModel)]=user.email>
+    </mat-form-field>
+    <br><br>
+    <button onclick="takepicture()" [disabled]="user.email.length < 6" mat-raised-button color="primary" id="startbutton" type="submit" (click)="checkUserCI()">Take photo</button>
+  </form>
+  <h5 class="text-success" *ngIf="pictureTaken">Login Successful</h5>
+</div>
+<br>
+<div class="camera">
+  <video id="video">Video stream not available.</video>
+</div>
+
+<canvas id="canvas" style="display: none">
+</canvas>
+<div class="output">
+  <img id="photo" alt="The screen capture will appear in this box.">
+</div>
+<form>
+<mat-form-field>
+    <input matInput id="CI" type="number" step=".001" name="CL" [readonly]=true>
+</mat-form-field>
+</form>
+
