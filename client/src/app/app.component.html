@@ -5,7 +5,6 @@
         </i></a>
     <form class="form-inline">
       <a class="my-2 my-sm-0 mr-2 menuletters" [routerLink]="['/']">Home</a>
-      <a class="my-2 my-sm-0 mr-2 menuletters" href="/">Home</a>
       <a style="margin-right: 5px;" class="my-2 my-sm-0 menuletters" [matMenuTriggerFor]="loginMenu">Login</a>
       <mat-menu #loginMenu="matMenu">
         <a href="/login" role="button" mat-menu-item>Google/Email Login</a>
@@ -16,7 +15,11 @@
           <a href="/facialrecoglogin" role="button" mat-menu-item>Login</a>
       </mat-menu>
       <a [routerLink]="['/logout']" class="my-2 my-sm-0 menuletters">Logout</a>
-      <span matBadge="{{sumQty}}" matBadgeColor="warn" matBadgeSize="medium"></span>
+      <span matBadge="{{sumQty}}" matBadgeColor="warn" matBadgeSize="medium">
+        <button mat-mini-fab (click)="sidenav.open()">
+            <mat-icon>add_shopping_cart</mat-icon>
+          </button>
+      </span>
     </form>
   </div>
 </nav>
