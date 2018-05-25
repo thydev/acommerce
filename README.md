@@ -1,6 +1,6 @@
 # An E-Commerce App 
 
-## Contributors
+# Contributors
 ### Alexandra Zadereiko: Stripe API, Cart page & Order page
 ###  Chanthy Ngin: Database, API Endpoint logics, Backend Configuration, Seller page
 ###  Javier Gonzalez: Face recognition login, Bug fixes, Product Detail Page
