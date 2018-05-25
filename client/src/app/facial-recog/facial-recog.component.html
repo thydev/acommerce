@@ -12,7 +12,7 @@
     <br><br>
     <button *ngIf="!pictureTaken" onclick="ready()" [disabled]="newUser.email.length < 6 || newUser.name.length < 2" mat-raised-button color="primary" id="startbutton" type="submit" (click)="registerUser()">Take photo</button>
   </form>
-  <h5 class="text-success" *ngIf="pictureTaken">Registration Successful</h5>
+  <h5 class="text-success" *ngIf="pictureTaken">Registration Successful Welcome {{newUser.name}}</h5>
 </div>
 <br>
 <div class="camera">
