@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router'
+
+
 
 @Component({
   selector: 'app-landing',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
   user;
-  constructor() { }
+  constructor(private _router: Router,
+    private _route: ActivatedRoute) { }
 
   ngOnInit() {
   }
+  productPage(){
+    this._router.navigate(['/productmain']);
 
+  }
 }

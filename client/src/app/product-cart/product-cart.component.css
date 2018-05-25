@@ -1,0 +1,23 @@
+.long-input {
+    width: 78%;
+    margin-bottom: -20px;
+}
+
+.short-input{
+    width: 25%;
+    margin-right: 1.5%;
+}
+
+form{
+    width: 100%;
+}
+
+img{
+    width: 20%;
+    height: 20%;
+}
+
+.summary{
+    width: 150%;
+    padding: 20%;
+}

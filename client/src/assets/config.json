@@ -1,6 +1,6 @@
 {
-    "baseUrl": "http://localhost:5000/",
-    "sellerUrl": "api/sellers",
-    "productUrl": "api/products",
-    "userUrl": "api/users"
+    "baseUrl": "http://localhost:5000/api/",
+    "sellerUrl": "sellers",
+    "productUrl": "products",
+    "userUrl": "users"
 }

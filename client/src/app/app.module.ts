@@ -4,32 +4,56 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, FormControl, ReactiveFormsModule} from '@angular/forms';
+// Angular Flex
+import {FlexLayoutModule} from '@angular/flex-layout';
 // Angular Bootstrap:
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpService } from './http.service';
 
 
 // Material Components
+import {CdkTableModule} from '@angular/cdk/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-    MatSelectModule,
-    MatOptionModule,
-    MatMenuModule,
-    MatListModule,
-    MatDividerModule,
-    MatSliderModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatCardModule,
-    MatInputModule,
-    MatSnackBarModule,
-    MatToolbarModule,
-    MatGridListModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatBadgeModule
+  MatAutocompleteModule,
+  MatBadgeModule,
+  MatBottomSheetModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatTreeModule,
+  MatOptionModule,
   } from '@angular/material';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 // App compoents and services
@@ -44,7 +68,6 @@ import { ProductUserReviewComponent } from './product-user-review/product-user-r
 import { ProductReviewListingComponent } from './product-review-listing/product-review-listing.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LocationSearchComponent } from './location-search/location-search.component';
-import { PriceSearchComponent } from './price-search/price-search.component';
 import { WeatherSearchComponent } from './weather-search/weather-search.component';
 import { OrderComponent } from './order/order.component';
 import { LandingComponent } from './landing/landing.component';
@@ -52,6 +75,13 @@ import { MainmenuComponent } from './mainmenu/mainmenu.component';
 
 import { SellerComponent } from './seller/seller.component';
 import { SellerService } from './services/seller.service';
+import { SellerProductComponent } from './seller-product/seller-product.component';
+import { SellerNewComponent } from './seller-new/seller-new.component';
+import { ProductNewComponent } from './product-new/product-new.component';
+import { NewarrivalComponent } from './newarrival/newarrival.component';
+import { CountrysearchComponent } from './countrysearch/countrysearch.component';
+import { ActivitysearchComponent } from './activitysearch/activitysearch.component';
+import { ProductsearchComponent } from './productsearch/productsearch.component';
 
 
 @NgModule({
@@ -66,13 +96,19 @@ import { SellerService } from './services/seller.service';
     ProductCartComponent,
     ProductMainComponent,
     LocationSearchComponent,
-    PriceSearchComponent,
     WeatherSearchComponent,
-    OrderComponent,
     LandingComponent,
     MainmenuComponent,
     SellerComponent,
+    SellerProductComponent,
+    SellerNewComponent,
+    ProductNewComponent,
 
+    NewarrivalComponent,
+    CountrysearchComponent,
+    ActivitysearchComponent,
+    ProductsearchComponent,
+    MainmenuComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -80,32 +116,52 @@ import { SellerService } from './services/seller.service';
     FormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTES),
-    HttpClientModule,
-    MatMenuModule,
-    MatSliderModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatCardModule,
-    MatInputModule,
-    MatSnackBarModule,
-    MatToolbarModule,
-    MatGridListModule,
-    MatDividerModule,
-    MatListModule,
-    AppRoutingModule,
-    MatOptionModule,
-    MatSelectModule,
-    MatDividerModule,
-    MatSliderModule,
-    MatSidenavModule,
-    MatIconModule,
+    HttpClientModule,
+
+    MatAutocompleteModule,
     MatBadgeModule,
-    MatFormFieldModule,
+    MatBottomSheetModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
     MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatStepperModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatTreeModule,
+
+    MatOptionModule,
+    CdkTableModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatAutocompleteModule
   ],
+  entryComponents: [SellerNewComponent, ProductNewComponent, CountrysearchComponent, ActivitysearchComponent, ProductsearchComponent],
   providers: [HttpService, SellerService],
   bootstrap: [AppComponent]
 })

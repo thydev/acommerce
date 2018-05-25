@@ -1,12 +1,17 @@
 <nav class="navbar ">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Wanderlust</a>
+    <a class="navbar-brand" href="#">Wanderlust <i class="material-icons">
+        star
+        </i></a>
     <form class="form-inline">
-      <a class="my-2 my-sm-0 mr-2 menuletters" href="/">Home</a>
-      <a href="/login" class="my-2 my-sm-0 menuletters" style="margin-right: 5px;">Login</a>
-      <a href="/logout" class="my-2 my-sm-0 menuletters">Logout</a>
-      <span matBadge="4" matBadgeColor="warn" matBadgeSize="medium">
+      <a class="my-2 my-sm-0 mr-2 menuletters" [routerLink]="['/']">Home</a>
+      <a [routerLink]="['/login']" class="my-2 my-sm-0 menuletters" style="margin-right: 5px;">Login</a>
+      <a [routerLink]="['/logout']" class="my-2 my-sm-0 menuletters">Logout</a>
+      <span matBadge="{{sumQty}}" matBadgeColor="warn" matBadgeSize="medium">
         <button mat-mini-fab (click)="sidenav.open()">
+            <!-- <i class="fas fa-cart-plus"></i> -->
+
+
           <i class="material-icons">add_shopping_cart</i>
         </button>
       </span>
@@ -80,5 +85,7 @@
 
 
 <main class="container">
+  
   <router-outlet></router-outlet>
+  <app-seller></app-seller>
 </main>

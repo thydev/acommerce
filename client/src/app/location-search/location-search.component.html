@@ -1,21 +1,45 @@
-<mat-form-field>
-  <mat-select placeholder="Country">
-    <mat-option>None</mat-option>
-    <mat-option *ngFor="let country of countries" [value]="country">{{cuntry}}</mat-option>
-  </mat-select>
-</mat-form-field>
-<mat-divider></mat-divider>
-<mat-form-field>
-  <mat-select placeholder="City">
-    <mat-option>None</mat-option>
-    <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
-  </mat-select>
-</mat-form-field>
-<mat-divider></mat-divider>
-<mat-form-field>
-  <mat-select placeholder="Activity">
-    <mat-option>None</mat-option>
-    <mat-option *ngFor="let activity of activities" [value]="activity">{{activity}}</mat-option>
-  </mat-select>
-</mat-form-field>
-<mat-divider></mat-divider>
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input type="text" placeholder="Country" matInput [formControl]="countryControl" [matAutocomplete]="auto" (ngModelChange) ="countryChange($event)">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of countryOptions | async" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field> 
+    <mat-form-field class="example-full-width">
+        <input type="text" placeholder="City"  matInput [formControl]="cityControl" [matAutocomplete]="cityAuto" (ngModelChange) ="cityChange($event)" matTooltip="Check the weather to filter the CITY you want to go">
+        <mat-autocomplete #cityAuto="matAutocomplete">
+          <mat-option *ngFor="let city of cityOption | async" [value]="city">
+            {{ city }}
+          </mat-option>
+        </mat-autocomplete> 
+      </mat-form-field> 
+    <mat-form-field class="example-full-width">
+        <input type="text" placeholder="Activity"  matInput [formControl]="activityControl" [matAutocomplete]="activeAuto" (ngModelChange)="activityChange($event)">
+        <mat-autocomplete #activeAuto="matAutocomplete">
+          <mat-option *ngFor="let active of activityOption | async" [value]="active">
+            {{ active }}
+          </mat-option>
+        </mat-autocomplete> 
+     </mat-form-field> 
+     <mat-card-title ><i class="material-icons money">monetization_on</i></mat-card-title>
+     <div class="row">
+        <div class="col-md-6">
+            <mat-form-field class="example-full-width">
+                <input type="number" placeholder="$Min" matInput (keyup)="onLowPriceChange($event.target.value)">
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="example-full-width">
+              <input type="number" placeholder="$Max" matInput [formControl]="highprice" (keyup) ="onHighPriceChange($event.target.value)">
+          </mat-form-field>
+        </div>
+      </div>
+  </form>
+
+
+
+
+
+  

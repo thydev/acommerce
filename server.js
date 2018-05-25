@@ -15,36 +15,10 @@ const flash = require('connect-flash');
 const router = express.Router();
 const app = express();
 
-// app.use(cors());
-
-// var jwtCheck = jwt({
-//     secret: jwks.expressJwtSecret({
-//         cache: true,
-//         rateLimit: true,
-//         jwksRequestsPerMinute: 5,
-//         jwksUri: "https://acommerce.auth0.com/.well-known/jwks.json"
-//     }),
-//     audience: 'www.wanderlust.com',
-//     issuer: "https://acommerce.auth0.com/",
-//     algorithms: ['RS256']
-// });
-
-// app.use(jwtCheck);
-
-// app.get('/authorized', function (req, res) {
-//     res.send('Secured Resource');
-// });
-
-// app.listen(port);
-// const checkScopes = jwtAuthz(['read:courses']);
-
 const messages = [{ product: 'some test', owner: 'thy' }, { product: 'product2', owner: 'toto' }];
 // Model Section
 require('./server/config/mongoose');
 // End of Model Section
-require("babel-core").transform("code", {
-    presets: ["angular"]
-});
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -76,7 +50,7 @@ const strategy = new Auth0Strategy(
         clientID: process.env.AUTH0_CLIENT_ID,
         clientSecret: process.env.AUTH0_CLIENT_SECRET,
         callbackURL:
-            process.env.AUTH0_CALLBACK_URL || 'http://localhost:5000/callback'
+            process.env.AUTH0_CALLBACK_URL || 'http://localhost:1337/callback'
     },
     function (accessToken, refreshToken, extraParams, profile, done) {
         // accessToken is the token to call Auth0 API (not needed in the most cases)

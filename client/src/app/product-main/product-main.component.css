@@ -1,0 +1,51 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+   color:rgb(41, 64, 87);
+}
+.example-card{
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+.expansion-panel{
+    width: 100%;
+}
+.example-container {
+    width: 100%;
+    border: 1px solid #555;
+  }
+
+.example-margin {
+    width: 100%;
+  }
+.filter{
+    width: 100%;
+}
+.example-full-width{
+    width: 30%;
+}
+
+.material-icons{
+    font-size: 50px;
+    color: #B99867;
+}
+
+.button-link{
+    background-color:rgb(51, 78, 105);
+}
+
+.prod-name {
+ color:rgb(51, 78, 105);
+}
+
+.prod-price{
+    color: #B99867;
+
+}
+
+.button-row{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}

@@ -1,0 +1,16 @@
+.header{
+    margin: 20px 0;
+    font-family: 'Dancing Script', cursive;
+}
+
+.mt50{
+    margin-top: 50px;
+}
+
+img{ 
+    width: 200px;
+    height:200px;
+}
+h3{
+    font-family: 'Tajawal', sans-serif;
+}
