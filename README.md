@@ -6,7 +6,7 @@
 ## Technologies
 MEAN Stack (Mongo, Express, Angular, Node.js)
 
-#### APIs
+## APIs
 ##### Auth0: 3rd Party Authentication
 ##### Map: Google Map 
 ##### KAIRO: Face Recognition
@@ -18,9 +18,9 @@ MEAN Stack (Mongo, Express, Angular, Node.js)
 ##### Version Control: Git, Github
 
 ## Roles 
-### Stripe API, Cart page & Order page: Alexandra
-### Database, API Endpoint logics, Backend Configuration, Seller page: Chanty
-### Face recognition login, Bug fixes, Product Detail Page: Javier
-### rxjs logics, Product Main page & Cart page: Rose
-### Auth0, Google Map API, Main Page, Design: Sun 
+#### Stripe API, Cart page & Order page: Alexandra
+#### Database, API Endpoint logics, Backend Configuration, Seller page: Chanty
+#### Face recognition login, Bug fixes, Product Detail Page: Javier
+#### rxjs logics, Product Main page & Cart page: Rose
+#### Auth0, Google Map API, Main Page, Design: Sun 
 
