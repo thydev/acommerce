@@ -1,17 +1,17 @@
 # An E-Commerce App #
-
+- - - - 
 # Contributors
 ### Alexandra Zadereiko
 #### Stripe API, Cart page & Order page
 ###  Chanthy Ngin 
 #### Database, API Endpoint logics, Backend Configuration, Seller page
 ###  Javier Gonzalez
-#### Face recognition login, Bug fixes, Product Detail Page
+#### Face recognition login, Product Detail Page
 ###  Rose Reyes
 #### rxjs logics, Product Main page & Cart page
 ###  Sun Davey
 #### Auth0, Google Map API, Main Page, Design 
-
+- - - - 
 # Used
 MEAN Stack (Mongo, Express, Angular, Node.js)
 
