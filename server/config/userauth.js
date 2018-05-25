@@ -47,8 +47,8 @@ module.exports = (app) => {
             res.redirect(req.session.returnTo || '/user');
         }
     );
-    app.all("*", (req,res,next)=>{
-        res.sendFile(path.resolve("./client/dist/index.html"))
-    })
+    // app.all("*", (req,res,next)=>{
+    //     res.sendFile(path.resolve("./client/dist/index.html"))
+    // })
 
 }

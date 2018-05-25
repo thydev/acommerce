@@ -1,26 +1,36 @@
-<div class="row text-center">
-  <div class="col-md-12">
+<div class="row text-center header  mt50">
+  <div class="col-md-5">
+    <hr>
+  </div>
+  <div class="col-md-2">
     <h4>Search by</h4>
+  </div>
+  <div class="col-md-5">
+    <hr>
   </div>
 </div>
 <!-- rowHeight="250px" -->
-<mat-grid-list cols="{{test}}" rowHeight="1:1"  class="boxes  text-center" (window:resize)="onResize($event)">
-  <mat-grid-tile>
-    <img src="https://images.pexels.com/photos/346758/pexels-photo-346758.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260">
+<mat-grid-list cols="{{test}}" rowHeight="1:1" class="boxes  text-center" (window:resize)="onResize($event)">
+  <mat-grid-tile id="img1">
+    <img src="https://images.pexels.com/photos/346758/pexels-photo-346758.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" >
     <div class="box1" mat-raised-button (click)="byCountry()">
       <h5>By Country</h5>
     </div>
+
   </mat-grid-tile>
-  <mat-grid-tile>
+  <mat-grid-tile id="img2">
     <img src="https://images.pexels.com/photos/319930/pexels-photo-319930.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260">
     <div class="box2" mat-raised-button (click)="byActivity()">
       <h5>By Activity</h5>
     </div>
+
   </mat-grid-tile>
-  <mat-grid-tile>
+  <mat-grid-tile id="img3">
     <img src="https://images.pexels.com/photos/2371/person-looking-searching-clean.jpg?auto=compress&cs=tinysrgb&h=750&w=1260">
-    <div class="box3" (click)="search()">
+    <div class="box3" (click)="byProduct()">
       <h5>Search</h5>
     </div>
+
+
   </mat-grid-tile>
 </mat-grid-list>
