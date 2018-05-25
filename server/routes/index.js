@@ -41,26 +41,45 @@ router.get('/callback',
     failureRedirect: '/failure'
   }),
   function (req, res) {
-    let user = req.user.id;
+    let user = req.user._id;
     console.log("authenticated?????")
-    console.log(req.user.id)
-
-    let newUser = new User({
-      user_id: req.user.id,
-      name: req.user._json.name,
-      nickname: req.user._json.nickname,
-    });
+    console.log("REQ.USER.ID", req.user.id);
+    console.log("REQ.USER.JSON", req.user._json);
+    console.log("REQ.USER", req.user);
+    if(req.user.id[0] == "g"){
+      let gmail = "@gmail.com";
+      let e = req.user._json.nickname;
+      let email = e.concat(gmail);
+      console.log(email);
+      var newUser = new User({
+        user_id: req.user.id,
+        name: req.user._json.name,
+        email: email
+      });
+      console.log(newUser);
+    }
+    if(req.user.id[0] !== "g"){
+      var newUser = new User({
+        user_id: req.user.id,
+        name: req.user._json.nickname,
+        email: req.user._json.name
+      });
+      console.log(newUser);
+    }
     newUser.save(function (err) {
-      console.log("saving?")
       if (err) {
-        console.log("We have an error!", err);
+        console.log("ERROR FROM CREATE USER!!!")
+        console.log("USER EMAIL!!!!", newUser.email);
+        // User.findOne({email: newUser.email} )
         for (var key in err.errors) {
           req.flash('registration', err.errors[key].message);
         }
       }
     })
+    req.session.email = newUser.email;
+    console.log(req.session.email);
     console.log("creating users???")
-    return res.redirect(req.session.returnTo || '/landing/' + user);
+    return res.redirect(req.session.returnTo || '/user');
   }
 );
 

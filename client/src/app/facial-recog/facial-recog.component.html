@@ -1,0 +1,26 @@
+<h3>Facial Recognition Registration</h3>
+<div>
+  <form>
+    <p>Enter Name: <span class="text-danger" *ngIf="newUser.name.length < 2">User Name is Required at least 2 characters</span></p>
+    <mat-form-field>
+      <input matInput id="name" type="text" name="user.name" placeholder="Name.." value="" [(ngModel)]=newUser.name>
+    </mat-form-field>
+    <p>Enter Email: <span class="text-danger" *ngIf="newUser.email.length < 6">User Email is required</span><span id="emailUsed" *ngIf="emailUsed" class="text-danger">Email is already used</span></p>
+    <mat-form-field>
+      <input matInput id="email" type="email" name="newUser.email" placeholder="Email.." value="" [(ngModel)]=newUser.email>
+    </mat-form-field>
+    <br><br>
+    <button *ngIf="!pictureTaken" onclick="ready()" [disabled]="newUser.email.length < 6 || newUser.name.length < 2" mat-raised-button color="primary" id="startbutton" type="submit" (click)="registerUser()">Take photo</button>
+  </form>
+  <h5 class="text-success" *ngIf="pictureTaken">Registration Successful</h5>
+</div>
+<br>
+<div class="camera">
+  <video id="video">Video stream not available.</video>
+</div>
+
+<canvas id="canvas" style="display: none">
+</canvas>
+<div class="output">
+  <img id="photo" alt="The screen capture will appear in this box.">
+</div>
