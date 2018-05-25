@@ -16,18 +16,17 @@
 MEAN Stack (Mongo, Express, Angular, Node.js)
 
 ### APIs
-##### Auth0: 3rd Party Authentication
-##### Map: Google Map 
-##### KAIRO: Face Recognition
-##### Stripe: Card Transaction 
-##### rxjs: For real time search query 
+Auth0: 3rd Party Authentication
+Map: Google Map 
+KAIRO: Face Recognition
+Stripe: Card Transaction 
+rxjs: For real time search query 
+Styling: Google Material Design, Angular material, Bootstrap4  
 
-##### Styling: Google Material Design, Angular material, Bootstrap4  
+Version Control: Git, Github
 
-##### Version Control: Git, Github
+Trello
 
-##### Trello
-
-##### Pair Programming
+Pair Programming
 
 
