@@ -1,9 +1,8 @@
 <nav class="navbar ">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Wanderlust <i class="material-icons">
-        star
-        </i></a>
+    <a class="navbar-brand" [routerLink]="['/']">Wanderlust <mat-icon>star</mat-icon></a>
     <form class="form-inline">
+<<<<<<< HEAD
       <a class="my-2 my-sm-0 mr-2 menuletters" [routerLink]="['/']">Home</a>
       <a style="margin-right: 5px;" class="my-2 my-sm-0 menuletters" [matMenuTriggerFor]="loginMenu">Login</a>
       <mat-menu #loginMenu="matMenu">
@@ -14,11 +13,22 @@
           <a href="/facialrecogreg" role="button" mat-menu-item>Register</a>
           <a href="/facialrecoglogin" role="button" mat-menu-item>Login</a>
       </mat-menu>
+=======
+      <a [routerLink]="['/']" class="my-2 my-sm-0 mr-2 menuletters" >Home</a>
+      <a [routerLink]="['/login']" class="my-2 my-sm-0 menuletters" style="margin-right: 5px;">Login</a>
+>>>>>>> footer
       <a [routerLink]="['/logout']" class="my-2 my-sm-0 menuletters">Logout</a>
+      <a [routerLink]="['/sellers']"  class="my-2 my-sm-0 menuletters">Seller?</a>
       <span matBadge="{{sumQty}}" matBadgeColor="warn" matBadgeSize="medium">
+<<<<<<< HEAD
         <button mat-mini-fab (click)="sidenav.open()">
             <mat-icon>add_shopping_cart</mat-icon>
           </button>
+=======
+        <button mat-mini-fab (click)="sidenav.open()" class="cart">
+          <mat-icon>add_shopping_cart</mat-icon>
+        </button>
+>>>>>>> footer
       </span>
     </form>
   </div>

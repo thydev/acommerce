@@ -98,3 +98,12 @@
     border: 0 !important;
 }
 
+
+.form-inline a{
+  font-family: 'Tajawal', sans-serif;
+  font-size: 1.2em;
+}
+
+.cart{
+  font-size: 3em;
+}

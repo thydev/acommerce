@@ -1,17 +1,23 @@
-<div *ngFor="let p of products">
+<!-- <div *ngFor="let p of products">
   {{ p.name }}
 </div>
 
 <div *ngFor="let p of results">
   {{ p.name }}
+</div> -->
+<!-- 
+<button (click)="filterProduct('Mouse')">Mouse</button>
+<button (click)="filterProduct('Keyboard')">Keyboard</button> -->
+<div class="row text-center">
+  <div class="col-md-12">
+    <button mat-raised-button (click)="getSellers()">Get Seller</button>
+    <button mat-raised-button (click)="getProducts()">Get products</button>
+    <button mat-raised-button (click)="newSeller()">New Seller</button>
+    <button mat-raised-button (click)="newProduct()">Create New Product</button>
+  </div>
 </div>
 
-<button (click)="filterProduct('Mouse')">Mouse</button>
-<button (click)="filterProduct('Keyboard')">Keyboard</button>
-<button (click)="getSellers()">Get Seller</button>
-<button (click)="getProducts()">Get products</button>
-<button (click)="newSeller()">New Seller</button>
-<button (click)="newProduct()">Create New Product</button>
 <h1>seller</h1>
 
 <app-seller-product></app-seller-product>
+<div class="blank"></div>
