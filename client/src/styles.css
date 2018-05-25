@@ -26,7 +26,7 @@ main {
 }
 
 
-/* 
+
 .box {
   background: url('https://images.unsplash.com/photo-1519677100203-a0e668c92439') no-repeat center;
   background-size: cover;
@@ -35,6 +35,7 @@ main {
   margin: 0;
   padding: 0;
   overflow: hidden;
+}
 .social{
   height: 100px;
   background-color: #b99867;
