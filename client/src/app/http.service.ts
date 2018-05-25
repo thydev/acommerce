@@ -13,4 +13,13 @@ export class HttpService {
     activity: '',
     product: ''
   }
+
+
+
+  getAllProducts(){
+    return this._http.get('/products');
+  }
 }
+
+
+

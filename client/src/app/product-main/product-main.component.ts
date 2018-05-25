@@ -150,27 +150,25 @@ export class ProductMainComponent implements OnInit {
 //     console.log(this._httpservice.addToCart(id, price), 'AFTER AFTER AFTFER');
 //   }
 
-    onClick(id: string, price: number) {
+    onClick(productObject: any, subtotal: Number) {
     if (this._httpservice.cart.length === 0) {
-        this._httpservice.cart.push({product: id, qty: 1, price: price});
+        productObject['qty'] = 1;
+        productObject['price'] = productObject.sellprice;
+        this._httpservice.cart.push(productObject);
     } else {
         let exist = false;
         for (const i of this._httpservice.cart)
         {
-            console.log('i', i);
-            console.log('i.product', i.product);
-            console.log('Id', id);
-            if (i.product === id) {
+            if (i._id === productObject._id) {
                 exist = true;
-                console.log(i.product);
                 i.qty += 1;
-                console.log('product is the same');
                 break;
             }
         }
         if (!exist) {
-            this._httpservice.cart.push({product: id, qty: 1, price: price});
-            console.log('ELSE STATEMENT');
+            productObject['qty'] = 1;
+            productObject['price'] = productObject.sellprice;
+            this._httpservice.cart.push(productObject);
         }
     }
     return this._httpservice.cart;
