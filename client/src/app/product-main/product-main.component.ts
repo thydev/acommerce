@@ -129,7 +129,7 @@ export class ProductMainComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.productCart
+    //   this.productCart
   }
 
   filterProducts(keywords: any): void {
