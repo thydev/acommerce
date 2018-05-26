@@ -26,11 +26,11 @@ export class LandingComponent implements OnInit {
       if(params['id'] != null){
         this._httpService.setUserLoggedIn();
       }
-    });   
+    });
     this.getUserInfo();
   }
   productPage(){
-    this._router.navigate(['/productmain']);
+    this._router.navigate(['/products']);
 
   }
 
