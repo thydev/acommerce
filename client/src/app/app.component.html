@@ -1,27 +1,36 @@
-<nav class="navbar ">
+<nav class="navbar">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Wanderlust <i class="material-icons">
-        star
-        </i></a>
+    <a class="navbar-brand" [routerLink]="['/']">Wanderlust
+      <mat-icon>star</mat-icon>
+    </a>
     <form class="form-inline">
       <a class="my-2 my-sm-0 mr-2 menuletters" [routerLink]="['/']">Home</a>
-      <a class="my-2 my-sm-0 mr-2 menuletters" href="/">Home</a>
-      <a style="margin-right: 5px;" class="my-2 my-sm-0 menuletters" [matMenuTriggerFor]="loginMenu">Login</a>
-      <mat-menu #loginMenu="matMenu">
-        <a href="/login" role="button" mat-menu-item>Google/Email Login</a>
-        <button mat-menu-item [matMenuTriggerFor]="facialrecog">Facial Recognition</button>
-      </mat-menu>
-      <mat-menu #facialrecog="matMenu">
+      
+      <div *ngIf="!loggedIn">
+        <a style="margin-right: 5px;" class="my-2 my-sm-0 menuletters" [matMenuTriggerFor]="loginMenu">Login</a>
+        <mat-menu #loginMenu="matMenu">
+          <a href="/login" role="button" mat-menu-item>Google/Email Login</a>
+          <button mat-menu-item [matMenuTriggerFor]="facialrecog">Facial Recognition</button>
+        </mat-menu>
+        <mat-menu #facialrecog="matMenu">
           <a href="/facialrecogreg" role="button" mat-menu-item>Register</a>
           <a href="/facialrecoglogin" role="button" mat-menu-item>Login</a>
-      </mat-menu>
-      <a [routerLink]="['/logout']" class="my-2 my-sm-0 menuletters">Logout</a>
-      <span matBadge="{{sumQty}}" matBadgeColor="warn" matBadgeSize="medium"></span>
+        </mat-menu>
+      </div>
+      <div *ngIf="loggedIn">
+        <a [routerLink]="['/logout']" class="my-2 my-sm-0 menuletters">Logout</a>
+      </div>
+      <a [routerLink]="['/sellers']" class="my-2 my-sm-0 menuletters">Seller?</a>
+      <span matBadge="{{sumQty}}" matBadgeColor="warn" matBadgeSize="medium">
+        <button mat-mini-fab (click)="sidenav.open(); calculateSubtotal();">
+          <mat-icon>add_shopping_cart</mat-icon>
+        </button>
+      </span>
     </form>
   </div>
 </nav>
 
-<h1>{{magicnumber | json }}</h1>
+<!-- <app-landing (UserLoggedIn)="getUserInfo($event)"></app-landing> -->
 
 <mat-sidenav-container class="slides" (backdropClick)="close()">
   <mat-sidenav class="slide-container" position="end" #sidenav (keydown.escape)="close('escape')" disableClose>
@@ -34,50 +43,32 @@
 
     <div style="height: 450px; overflow: scroll;" class="scroll">
       <mat-grid-list cols="1" rowHeight="10em" style="margin: 0 15px;">
-        <mat-grid-tile>
+
+        <mat-grid-tile *ngFor="let product of cart">
           <mat-list>
-            <button mat-icon-button>
+            <button mat-icon-button (click) = "deleteFromCart(product._id)">
               <i class="material-icons delete">clear</i>
             </button>
             <mat-list-item>
-              <h4 mat-line>Product 1</h4>
-              <p mat-line> Qty:
+              <h4 mat-line>{{product.name}}</h4>
+              <p mat-line> Qty: 
                 <mat-form-field style="width: 41px;">
-                  <input type="number" matInput min="1">
+                  <input type="number" matInput min="1" value="{{qty}}" (click) = "updateQty(product._id)" [(ngModel)]="qty">
                 </mat-form-field>
               </p>
-              <p mat-line> $200 </p>
-              <img class="product-image" src="https://store.storeimages.cdn-apple.com/4980/as-images.apple.com/is/image/AppleInc/aos/published/images/m/ac/macbook/select/macbook-select-rose-gold-201706?wid=539&hei=444&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1505775432023">
+              <p mat-line> ${{product.price * product.qty}} </p>
+              <img class="product-image" src={{product.imgUrl}}>
             </mat-list-item>
             <mat-divider></mat-divider>
           </mat-list>
         </mat-grid-tile>
 
-
-        <mat-grid-tile>
-          <mat-list>
-            <button mat-icon-button>
-              <i class="material-icons delete">clear</i>
-            </button>
-            <mat-list-item>
-              <img class="product-image" src="https://store.storeimages.cdn-apple.com/4980/as-images.apple.com/is/image/AppleInc/aos/published/images/m/ac/macbook/select/macbook-select-rose-gold-201706?wid=539&hei=444&fmt=jpeg&qlt=95&op_usm=0.5,0.5&.v=1505775432023">
-              <h4 mat-line>Product 1</h4>
-              <p mat-line> Qty:
-                <mat-form-field style="width: 41px;">
-                  <input type="number" matInput min="1">
-                </mat-form-field>
-              </p>
-              <p mat-line> $200 </p>
-            </mat-list-item>
-            <mat-divider></mat-divider>
-          </mat-list>
-        </mat-grid-tile>
       </mat-grid-list>
     </div>
 
     <div>
       <h1 id="subtotal">Subtotal
-        <br> $600.00
+        <br> ${{subtotal}}
       </h1>
       <button id="large-button">View Cart</button>
     </div>

@@ -4,11 +4,11 @@
       <span color="primary">Sign up as a seller</span>
       <span class="icon-spacer"></span>
       <button mat-icon-button color="warn" [mat-dialog-close]="true">
-          <mat-icon aria-label="Close dialog">close</mat-icon>
+        <mat-icon aria-label="Close dialog">close</mat-icon>
       </button>
     </mat-toolbar-row>
   </mat-toolbar>
-  
+
   <mat-form-field appearance="outline">
     <mat-label>First name</mat-label>
     <input matInput placeholder="First name" formControlName="firstname" cdkFocusInitial>
@@ -27,19 +27,19 @@
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Password</mat-label>
-    <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"
-      formControlName="password">
+    <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" formControlName="password">
     <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
   </mat-form-field>
   <mat-form-field appearance="outline">
-      <mat-label>Confirm Password</mat-label>
-      <input matInput placeholder="Enter your confirm password" [type]="hide ? 'password' : 'text'"
-        formControlName="confirm_password">
-      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-    </mat-form-field>
+    <mat-label>Confirm Password</mat-label>
+    <input matInput placeholder="Enter your confirm password" [type]="hide ? 'password' : 'text'" formControlName="confirm_password">
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+  </mat-form-field>
 
-  <p>
-      <button mat-raised-button color="primary" [hidden]="isCreated" >Save</button> &nbsp;
-      <button mat-raised-button color="warn" [mat-dialog-close]="true">Close</button>
-  </p>
+    <div class="row buttonbox text-center">
+      <div class="col-md-12">
+        <button mat-raised-button color="primary" [hidden]="isCreated">Save</button> &nbsp;
+        <button mat-raised-button color="warn" [mat-dialog-close]="true">Close</button>
+      </div>
+    </div>
 </form>

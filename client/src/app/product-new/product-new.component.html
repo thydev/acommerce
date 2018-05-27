@@ -1,31 +1,26 @@
 <form [formGroup]="productForm" (submit)="onSubmit($event)">
-    <mat-toolbar>
-      <mat-toolbar-row>
-        <span color="primary">New product information</span>
-        <span class="icon-spacer"></span>
-        <button mat-icon-button color="warn" [mat-dialog-close]="true">
-            <mat-icon aria-label="Close dialog">close</mat-icon>
-        </button>
-      </mat-toolbar-row>
-    </mat-toolbar>
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <span color="primary">New product information</span>
+      <span class="icon-spacer"></span>
+      <button mat-icon-button color="warn" [mat-dialog-close]="true">
+        <mat-icon aria-label="Close dialog">close</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Product name</mat-label>
-      <input matInput placeholder="Product name" formControlName="name" cdkFocusInitial required>
-      <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
-      <mat-hint></mat-hint>
-    </mat-form-field>
- 
-    <mat-form-field appearance="outline">
-      <mat-label>Image Url</mat-label>
-      <input matInput placeholder="http://domain.com/image.png" formControlName="imgUrl">
-      <mat-hint></mat-hint>
-    </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Product name</mat-label>
+    <input matInput placeholder="Product name" formControlName="name" cdkFocusInitial required>
+    <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+    <mat-hint></mat-hint>
+  </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Description</mat-label>
-      <input matInput placeholder="Description" formControlName="description">
-    </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Image Url</mat-label>
+    <input matInput placeholder="http://domain.com/image.png" formControlName="imgUrl">
+    <mat-hint></mat-hint>
+  </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Keywords</mat-label>
@@ -41,9 +36,17 @@
       <mat-label>Sell Price</mat-label>
       <input type="number" matInput placeholder="Sell price" formControlName="sellprice">
     </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Description</mat-label>
+    <input matInput placeholder="Description" formControlName="description">
+  </mat-form-field>
 
-    <p>
-        <button mat-raised-button color="primary" [hidden]="isCreated" >Save</button> &nbsp;
-        <button mat-raised-button color="warn" [mat-dialog-close]="true">Close</button>
-    </p>
-  </form>
+
+  <div class="row buttonbox text-center">
+    <div class="col-md-12">
+      <button mat-raised-button color="primary" [hidden]="isCreated">Save</button> &nbsp;
+      <button mat-raised-button color="warn" [mat-dialog-close]="true">Close</button>
+    </div>
+  </div>
+
+</form>

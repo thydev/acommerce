@@ -65,12 +65,6 @@ if(url.includes("/facialrecogreg")){
           console.log("EmailCheck", emailcheck);
           if(emailcheck){
             clearInterval(picFunction);
-            let stream = video.srcObject;
-            let tracks = stream.getTracks();
-            tracks.forEach((track)=>{
-                console.log(track);
-                track.stop();
-            })
           }
           if(!emailcheck){
             picCount++;

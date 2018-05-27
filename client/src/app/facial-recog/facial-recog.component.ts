@@ -32,7 +32,7 @@ export class FacialRecogComponent implements OnInit {
         this.emailUsed = true;
       }
       if(data['message']=="Success"){
-        setTimeout(this.registrationSuccess(), 2600)
+        setTimeout(this.registrationSuccess.bind(this), 2600)
       }
     })
   }

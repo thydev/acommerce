@@ -41,6 +41,11 @@ export class MainmenuComponent implements OnInit {
       console.log(this._httpService.keywords);
       console.log('go to product main');
       this._router.navigate(['productmain']);
+      this._httpService.keywords.country = result;
+      this._httpService.keywords.city = result;
+      if(result != null){
+        this._router.navigate(['productmain']);
+      }
     });
   }
 
@@ -55,7 +60,9 @@ export class MainmenuComponent implements OnInit {
       console.log('The dialog was closed');
       this.activity = result;
       this._httpService.keywords.activity = result;
-      this._router.navigate(['productmain']);
+      if(result != null){
+        this._router.navigate(['productmain']);
+      }
     });
   }
   
@@ -68,7 +75,9 @@ export class MainmenuComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this._httpService.keywords.product = result;
       console.log('The dialog was closed');
-      this._router.navigate(['productmain']);
+      if(result != null){
+        this._router.navigate(['productmain']);
+      }
     });
   }
 

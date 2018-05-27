@@ -8,7 +8,7 @@ img{
     height: 250px;
     border-radius: 50%;
     margin-bottom: 40px;
-    margin-top: 80px;
+    /* margin-top: 50px; */
 }
 
 .box1, .box2, .box3{
@@ -32,12 +32,12 @@ img{
     display: block;
 }
 
-h5{
+h4{
     margin-top: 30px;
 
 }
 
-h4{
+h3{
    font-family: 'Dancing Script', cursive;
 }
 .searchbox{
@@ -47,3 +47,6 @@ h4{
     margin-top: 50px;
 }
 
+.header{
+    margin-top:50px;
+}

@@ -167,31 +167,30 @@ export class ProductMainComponent implements OnInit {
 //     console.log(this._httpService.addToCart(id, price), 'AFTER AFTER AFTFER');
 //   }
 
-    onClick(id: string, price: number) {
-        if (this._httpService.cart.length === 0) {
-            this._httpService.cart.push({product: id, qty: 1, price: price});
-        } else {
-            let exist = false;
-            for (const i of this._httpService.cart)
-            {
-                console.log('i', i);
-                console.log('i.product', i.product);
-                console.log('Id', id);
-                if (i.product === id) {
-                    exist = true;
-                    console.log(i.product);
-                    i.qty += 1;
-                    console.log('product is the same');
-                    break;
-                }
-            }
-            if (!exist) {
-                this._httpService.cart.push({product: id, qty: 1, price: price});
-                console.log('ELSE STATEMENT');
+    onClick(productObject: any, subtotal: Number) {
+    if (this._httpService.cart.length === 0) {
+        productObject['qty'] = 1;
+        productObject['price'] = productObject.sellprice;
+        this._httpService.cart.push(productObject);
+    } else {
+        let exist = false;
+        for (const i of this._httpService.cart)
+        {
+            if (i._id === productObject._id) {
+                exist = true;
+                i.qty += 1;
+                break;
             }
         }
-        this._httpService.updateCart();
+        // this._httpService.updateCart();
 
-        return this._httpService.cart;
+        // return this._httpService.cart;
+        if (!exist) {
+            productObject['qty'] = 1;
+            productObject['price'] = productObject.sellprice;
+            this._httpService.cart.push(productObject);
+        }
+    }
+    return this._httpService.cart;
     }
 }

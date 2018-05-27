@@ -22,6 +22,7 @@ export class HttpService {
   nameChange: Subject<string> = new Subject<string>();
 
   cartChange: Subject<any> = new Subject<any>();
+  currentUser = false;
 
   change() {
     // this.name = 'Jane';
@@ -33,7 +34,7 @@ export class HttpService {
   }
 
   constructor (private _http: HttpClient) {
-    this.name = 'Jack';
+    this.name = 'Jack'
   }
 
   getKeywords() {
@@ -48,4 +49,21 @@ export class HttpService {
     console.log(user.email);
     return this._http.get('/api/users/' + user.email)
   }
+
+  setUserLoggedIn(){
+    this.currentUser = true;
+  }
+
+  getUserLoggedIn(){
+    return this.currentUser;
+  }
+
+
+
+  getAllProducts(){
+    return this._http.get('/products');
+  }
 }
+
+
+
