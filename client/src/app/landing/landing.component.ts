@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router'
 
+declare var test: any;
 
 
 @Component({
@@ -10,12 +11,17 @@ import { ActivatedRoute, Params, Router } from '@angular/router'
 })
 export class LandingComponent implements OnInit {
   user;
+  f() {
+    test();
+  }
   constructor(private _router: Router,
-    private _route: ActivatedRoute) { }
+    private _route: ActivatedRoute) {
+      // this.f();
+    }
 
   ngOnInit() {
   }
-  productPage(){
+  productPage() {
     this._router.navigate(['/productmain']);
 
   }

@@ -190,6 +190,8 @@ export class ProductMainComponent implements OnInit {
                 console.log('ELSE STATEMENT');
             }
         }
+        this._httpService.updateCart();
+
         return this._httpService.cart;
     }
 }

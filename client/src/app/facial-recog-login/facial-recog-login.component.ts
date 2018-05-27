@@ -8,15 +8,17 @@ import { ActivatedRoute, Params, Router } from '@angular/router'
   styleUrls: ['./facial-recog-login.component.css']
 })
 export class FacialRecogLoginComponent implements OnInit {
+  user= {email: ""};
+  emailNotRegistered = false;
+  pictureTaken = false;
+  invalid = false;
+  
   constructor(
     private _httpService: HttpService,
     private _router: Router,
     private _route: ActivatedRoute
   ) { }
-  user= {email: ""};
-  emailNotRegistered = false;
-  pictureTaken = false;
-  invalid = false;
+  
   ngOnInit() {
   }
   checkUserCI(){
@@ -40,13 +42,14 @@ export class FacialRecogLoginComponent implements OnInit {
           this.emailNotRegistered = true;
         }
         if(data['message']=="Success"){
+
           this.pictureTaken = true;
-          let stream = video['srcObject'];
-          let tracks = stream.getTracks();
-          tracks.forEach((track)=>{
-              console.log(track);
-              track.stop();
-          })
+          // let stream = video['srcObject'];
+          // let tracks = stream.getTracks();
+          // tracks.forEach((track)=>{
+          //     console.log(track);
+          //     track.stop();
+          // })
         }
       })
     }

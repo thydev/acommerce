@@ -3,7 +3,7 @@ import { HttpService } from './http.service';
 import { ActivatedRoute, Params, Router } from '@angular/router'
 import { Component, ViewChild, OnInit } from '@angular/core';
 
-import {MatSidenav} from '@angular/material/sidenav'; 
+import {MatSidenav} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +12,23 @@ import {MatSidenav} from '@angular/material/sidenav';
 })
 
 export class AppComponent implements OnInit {
+  magicnumber = '20';
   @ViewChild('sidenav') sidenav: MatSidenav;
   sumQty;
   cart = this.displayUserCart();
   constructor(private _httpService: HttpService,
     private _router: Router) {
-      setInterval(()=> {this.displayUserCart();}, 1000);
+      // setInterval(() => { this.displayUserCart(); }, 1000);
+      this.magicnumber = this._httpService.name;
+      this._httpService.nameChange.subscribe((value) => {
+        this.magicnumber = value;
+      });
+
+      this.cart = this._httpService.cart;
+      this._httpService.cartChange.subscribe((data) => {
+        this.cart = data;
+        this.magicnumber = data;
+      });
   }
 
   ngOnInit() {
@@ -27,10 +38,10 @@ export class AppComponent implements OnInit {
   close(reason: string) {
     this.sidenav.close();
   }
-  
-  displayUserCart(){
+
+  displayUserCart() {
     let sum = 0;
-    for(let i of this._httpService.cart){
+    for (const i of this._httpService.cart){
       sum += i.qty;
     }
     this.sumQty = sum;
