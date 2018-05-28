@@ -3,6 +3,7 @@ import { ActivatedRoute, Params, Router, ParamMap } from '@angular/router'
 import { switchMap } from 'rxjs/operators';
 import { HttpService } from '../http.service';
 
+declare var test: any;
 
 
 @Component({
@@ -14,6 +15,9 @@ export class LandingComponent implements OnInit {
   @Output() UserLoggedIn = new EventEmitter();
   loggedIn: boolean;
   user;
+  f() {
+    test();
+  }
   constructor(private _router: Router,
     private _route: ActivatedRoute,
     private _httpService: HttpService

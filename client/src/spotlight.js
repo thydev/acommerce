@@ -1,6 +1,8 @@
-
 window.onload = () => {
     const spotlight = document.querySelector(".spotlight");
+    console.log(spotlight);
+ 
+    
     // var box = document.getElementsByClassName("box").style.backgroundImage ='url("https://images.unsplash.com/photo-1519677100203-a0e668c92439") no-repeat center;'
     // var box = document.getElementsByClassName("box").style.background ='red'
 

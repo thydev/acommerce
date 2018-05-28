@@ -8,6 +8,7 @@ import { MatDialog, MatDialogClose } from '@angular/material';
 import { SellerService } from '../services/seller.service';
 import { SellerNewComponent } from '../seller-new/seller-new.component';
 import { ProductNewComponent } from '../product-new/product-new.component';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-seller',
@@ -16,6 +17,7 @@ import { ProductNewComponent } from '../product-new/product-new.component';
 })
 export class SellerComponent implements OnInit {
 
+  name = '';
 
   products = [
     {name: 'Mouse', price: 232, keyword: 'Hardware, computer, accessory'},
@@ -27,9 +29,13 @@ export class SellerComponent implements OnInit {
 
   constructor(
     private _sellerService: SellerService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private _httpService: HttpService
   ) {
-
+    this.name = this._httpService.name;
+    this._httpService.nameChange.subscribe((value) => {
+      this.name = value;
+    });
   }
 
   ngOnInit() {
@@ -55,6 +61,11 @@ export class SellerComponent implements OnInit {
     });
   }
 
+
+  updateCart() {
+    this._httpService.name = 'toto';
+    this._httpService.change();
+  }
   filterProduct(keyword: string) {
 
     this.results = this.products.filter(x => x.name === keyword);

@@ -182,6 +182,9 @@ export class ProductMainComponent implements OnInit {
                 break;
             }
         }
+        // this._httpService.updateCart();
+
+        // return this._httpService.cart;
         if (!exist) {
             productObject['qty'] = 1;
             productObject['price'] = productObject.sellprice;
