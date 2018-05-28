@@ -55,9 +55,9 @@ export class FacialRecogLoginComponent implements OnInit {
     else if(y < .65 && y > 0){
       this.invalid = true;
     }
-    // else{
-    //   this.emailNotRegistered = true;
-    // }
+    else{
+      this.emailNotRegistered = true;
+    }
   }
   redirectHome(){
     this._router.navigate(['/'])
