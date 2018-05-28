@@ -52,12 +52,12 @@ export class FacialRecogLoginComponent implements OnInit {
         }
       })
     }
-    if(y < .65 && y > 0){
+    else if(y < .65 && y > 0){
       this.invalid = true;
     }
-    if(y == 0){
-      this.emailNotRegistered = true;
-    }
+    // else{
+    //   this.emailNotRegistered = true;
+    // }
   }
   redirectHome(){
     this._router.navigate(['/'])
