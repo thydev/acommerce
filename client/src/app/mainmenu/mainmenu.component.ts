@@ -66,7 +66,7 @@ export class MainmenuComponent implements OnInit {
       }
     });
   }
-  
+
   byProduct():void{
     let dialogRef = this.dialog.open(ProductsearchComponent, {
       width: '250px',

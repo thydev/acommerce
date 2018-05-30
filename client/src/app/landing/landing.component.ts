@@ -30,10 +30,10 @@ export class LandingComponent implements OnInit {
       if(params['id'] != null){
         this._httpService.setUserLoggedIn();
       }
-    });   
+    });
     this.getUserInfo();
   }
-  productPage() {
+  productPage(){
     this._router.navigate(['/products']);
 
   }

@@ -8,11 +8,6 @@ import { ActivatedRoute, Params, Router } from '@angular/router'
   styleUrls: ['./facial-recog-login.component.css']
 })
 export class FacialRecogLoginComponent implements OnInit {
-  user= {email: ""};
-  emailNotRegistered = false;
-  pictureTaken = false;
-  invalid = false;
-  
   constructor(
     private _httpService: HttpService,
     private _router: Router,
@@ -53,10 +48,10 @@ export class FacialRecogLoginComponent implements OnInit {
         }
       })
     }
-    if(y < .65 && y > 0){
+    else if(y < .65 && y > 0){
       this.invalid = true;
     }
-    if(y == 0){
+    else{
       this.emailNotRegistered = true;
     }
   }

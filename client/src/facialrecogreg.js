@@ -1,7 +1,7 @@
 var headers = {
   "Content-type"     : "application/json",
-  "app_id"          : "0b5610a3",
-  "app_key"         : "66ae3d988e76f7fe922eb80a415bd4b8"
+  "app_id"          : "",
+  "app_key"         : ""
 };
 //Need to adjust payload: subject_id name With Every new registration and alter for login
 var payload  = { "image" :  "", "subject_id": "", "gallery_name": "acommerce"};

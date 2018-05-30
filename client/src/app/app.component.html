@@ -5,7 +5,7 @@
     </a>
     <form class="form-inline">
       <a class="my-2 my-sm-0 mr-2 menuletters" [routerLink]="['/']">Home</a>
-      
+
       <div *ngIf="!loggedIn">
         <a style="margin-right: 5px;" class="my-2 my-sm-0 menuletters" [matMenuTriggerFor]="loginMenu">Login</a>
         <mat-menu #loginMenu="matMenu">
@@ -51,7 +51,7 @@
             </button>
             <mat-list-item>
               <h4 mat-line>{{product.name}}</h4>
-              <p mat-line> Qty: 
+              <p mat-line> Qty:
                 <mat-form-field style="width: 41px;">
                   <input type="number" matInput min="1" value="{{qty}}" (click) = "updateQty(product._id)" [(ngModel)]="qty">
                 </mat-form-field>
@@ -70,7 +70,7 @@
       <h1 id="subtotal">Subtotal
         <br> ${{subtotal}}
       </h1>
-      <button id="large-button">View Cart</button>
+      <button id="large-button" routerLink="products/order/product">View Cart</button>
     </div>
 
   </mat-sidenav>

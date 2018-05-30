@@ -34,9 +34,8 @@ export class AppComponent implements OnInit {
         this.cart = data;
         this.magicnumber = data;
       });
-
-      setInterval(()=> {this.displayUserCart();}, 1000);
-      this.getUserInfo(this.loggedIn);
+      // setInterval(()=> {this.displayUserCart();}, 1000);
+      // this.getUserInfo(this.loggedIn);
   }
 
   ngOnInit() {
