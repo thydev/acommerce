@@ -34,7 +34,7 @@ export class LandingComponent implements OnInit {
     this.getUserInfo();
   }
   productPage() {
-    this._router.navigate(['/productmain']);
+    this._router.navigate(['/products']);
 
   }
 

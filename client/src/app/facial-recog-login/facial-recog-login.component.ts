@@ -18,10 +18,6 @@ export class FacialRecogLoginComponent implements OnInit {
     private _router: Router,
     private _route: ActivatedRoute
   ) { }
-  user= {email: "", name: ""};
-  emailNotRegistered = false;
-  pictureTaken = false;
-  invalid = false;
   video: any;
   ngOnInit() {
   }
@@ -46,7 +42,7 @@ export class FacialRecogLoginComponent implements OnInit {
           this.emailNotRegistered = true;
         }
         if(data['message']=="Success"){
-          this.user.name = data['data']['name']
+          // this.user.name = data['data']['name']
           this.pictureTaken = true;
           let stream = this.video['srcObject'];
           let tracks = stream.getTracks();

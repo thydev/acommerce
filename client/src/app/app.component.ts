@@ -12,11 +12,8 @@ import {MatSidenav} from '@angular/material/sidenav';
 })
 
 export class AppComponent implements OnInit {
-<<<<<<< HEAD
   magicnumber = '20';
-=======
   loggedIn: boolean;
->>>>>>> 8abfe418f61b2ec218bc87abb38a1c51d1ff242c
   @ViewChild('sidenav') sidenav: MatSidenav;
   sumQty;
   cart = this._httpService.cart;
@@ -25,7 +22,7 @@ export class AppComponent implements OnInit {
   clicked = false;
   constructor(private _httpService: HttpService,
     private _router: Router) {
-<<<<<<< HEAD
+
       // setInterval(() => { this.displayUserCart(); }, 1000);
       this.magicnumber = this._httpService.name;
       this._httpService.nameChange.subscribe((value) => {
@@ -37,10 +34,9 @@ export class AppComponent implements OnInit {
         this.cart = data;
         this.magicnumber = data;
       });
-=======
+
       setInterval(()=> {this.displayUserCart();}, 1000);
       this.getUserInfo(this.loggedIn);
->>>>>>> 8abfe418f61b2ec218bc87abb38a1c51d1ff242c
   }
 
   ngOnInit() {
