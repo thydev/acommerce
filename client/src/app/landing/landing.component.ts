@@ -33,8 +33,8 @@ export class LandingComponent implements OnInit {
     });
     this.getUserInfo();
   }
-  productPage() {
-    this._router.navigate(['/productmain']);
+  productPage(){
+    this._router.navigate(['/products']);
 
   }
 

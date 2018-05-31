@@ -1,6 +1,5 @@
-
 import { HttpService } from './http.service';
-import { ActivatedRoute, Params, Router } from '@angular/router'
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Component, ViewChild, OnInit } from '@angular/core';
 
 import { MatSidenav } from '@angular/material/sidenav';
@@ -10,7 +9,6 @@ import { MatSidenav } from '@angular/material/sidenav';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-
 export class AppComponent implements OnInit {
   magicnumber = '20';
   loggedIn: boolean;
@@ -20,21 +18,22 @@ export class AppComponent implements OnInit {
   subtotal: number;
   qty: number;
   clicked = false;
-  constructor(private _httpService: HttpService,
-    private _router: Router) {
+  constructor(private _httpService: HttpService, private _router: Router) {
     // setInterval(() => { this.displayUserCart(); }, 1000);
     this.magicnumber = this._httpService.name;
-    this._httpService.nameChange.subscribe((value) => {
+    this._httpService.nameChange.subscribe(value => {
       this.magicnumber = value;
     });
 
     this.cart = this._httpService.cart;
-    this._httpService.cartChange.subscribe((data) => {
+    this._httpService.cartChange.subscribe(data => {
       this.cart = data;
       this.magicnumber = data;
     });
 
-    setInterval(() => { this.displayUserCart(); }, 1000);
+    setInterval(() => {
+      this.displayUserCart();
+    }, 1000);
     this.getUserInfo(this.loggedIn);
   }
 
@@ -58,7 +57,7 @@ export class AppComponent implements OnInit {
   getUserInfo(logged) {
     this.loggedIn = this._httpService.getUserLoggedIn();
     console.log(logged);
-    console.log(this.loggedIn)
+    console.log(this.loggedIn);
   }
   calculateSubtotal() {
     let total = 0;
@@ -67,7 +66,6 @@ export class AppComponent implements OnInit {
     }
     this.subtotal = total;
     console.log(this.subtotal);
-
   }
 
   deleteFromCart(productObjectid: string) {
@@ -100,5 +98,3 @@ export class AppComponent implements OnInit {
     return this.qty;
   }
 }
-
-

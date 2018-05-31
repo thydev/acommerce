@@ -40,11 +40,11 @@ export class MainmenuComponent implements OnInit {
       // this._httpService.keywords.city = result;
       console.log(this._httpService.keywords);
       console.log('go to product main');
-      this._router.navigate(['productmain']);
+      this._router.navigate(['products']);
       this._httpService.keywords.country = result;
       this._httpService.keywords.city = result;
       if(result != null){
-        this._router.navigate(['productmain']);
+        this._router.navigate(['products']);
       }
     });
   }
@@ -59,13 +59,14 @@ export class MainmenuComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.activity = result;
-      this._httpService.keywords.activity = result;
+      
       if(result != null){
-        this._router.navigate(['productmain']);
+        this._httpService.keywords.activity = result;
+        this._router.navigate(['products']);
       }
     });
   }
-  
+
   byProduct():void{
     let dialogRef = this.dialog.open(ProductsearchComponent, {
       width: '250px',
@@ -76,7 +77,7 @@ export class MainmenuComponent implements OnInit {
       this._httpService.keywords.product = result;
       console.log('The dialog was closed');
       if(result != null){
-        this._router.navigate(['productmain']);
+        this._router.navigate(['products']);
       }
     });
   }
