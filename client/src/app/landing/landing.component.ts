@@ -27,10 +27,10 @@ export class LandingComponent implements OnInit {
     this._route.params.subscribe((params: Params) => {
       console.log(params['id'])
       this.user = params['id'];
-      if(params['id'] != null){
+      if (params['id'] != null) {
         this._httpService.setUserLoggedIn();
       }
-    });   
+    });
     this.getUserInfo();
   }
   productPage() {
@@ -38,9 +38,9 @@ export class LandingComponent implements OnInit {
 
   }
 
-  getUserInfo(){
+  getUserInfo() {
     this.loggedIn = this._httpService.getUserLoggedIn();
-    if(this.loggedIn){
+    if (this.loggedIn) {
       this.UserLoggedIn.emit(this.loggedIn);
     }
   }

@@ -14,7 +14,7 @@ export class HttpService {
     product: '',
     lowprice: 0,
     highprice: 0
-  }
+  };
 
   name: any;
   // EventEmitter should not be used this way - only for `@Output()`s
@@ -33,8 +33,8 @@ export class HttpService {
     this.cartChange.next(this.cart);
   }
 
-  constructor (private _http: HttpClient) {
-    this.name = 'Jack'
+  constructor(private _http: HttpClient) {
+    this.name = 'Jack';
   }
 
   getKeywords() {
@@ -47,23 +47,18 @@ export class HttpService {
   }
   loginUser(user) {
     console.log(user.email);
-    return this._http.get('/api/users/' + user.email)
+    return this._http.get('/api/users/' + user.email);
   }
 
-  setUserLoggedIn(){
+  setUserLoggedIn() {
     this.currentUser = true;
   }
 
-  getUserLoggedIn(){
+  getUserLoggedIn() {
     return this.currentUser;
   }
 
-
-
-  getAllProducts(){
+  getAllProducts() {
     return this._http.get('/products');
   }
 }
-
-
-

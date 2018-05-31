@@ -3,7 +3,7 @@ import { HttpService } from './http.service';
 import { ActivatedRoute, Params, Router } from '@angular/router'
 import { Component, ViewChild, OnInit } from '@angular/core';
 
-import {MatSidenav} from '@angular/material/sidenav';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +12,8 @@ import {MatSidenav} from '@angular/material/sidenav';
 })
 
 export class AppComponent implements OnInit {
-<<<<<<< HEAD
   magicnumber = '20';
-=======
   loggedIn: boolean;
->>>>>>> 8abfe418f61b2ec218bc87abb38a1c51d1ff242c
   @ViewChild('sidenav') sidenav: MatSidenav;
   sumQty;
   cart = this._httpService.cart;
@@ -25,22 +22,20 @@ export class AppComponent implements OnInit {
   clicked = false;
   constructor(private _httpService: HttpService,
     private _router: Router) {
-<<<<<<< HEAD
-      // setInterval(() => { this.displayUserCart(); }, 1000);
-      this.magicnumber = this._httpService.name;
-      this._httpService.nameChange.subscribe((value) => {
-        this.magicnumber = value;
-      });
+    // setInterval(() => { this.displayUserCart(); }, 1000);
+    this.magicnumber = this._httpService.name;
+    this._httpService.nameChange.subscribe((value) => {
+      this.magicnumber = value;
+    });
 
-      this.cart = this._httpService.cart;
-      this._httpService.cartChange.subscribe((data) => {
-        this.cart = data;
-        this.magicnumber = data;
-      });
-=======
-      setInterval(()=> {this.displayUserCart();}, 1000);
-      this.getUserInfo(this.loggedIn);
->>>>>>> 8abfe418f61b2ec218bc87abb38a1c51d1ff242c
+    this.cart = this._httpService.cart;
+    this._httpService.cartChange.subscribe((data) => {
+      this.cart = data;
+      this.magicnumber = data;
+    });
+
+    setInterval(() => { this.displayUserCart(); }, 1000);
+    this.getUserInfo(this.loggedIn);
   }
 
   ngOnInit() {
@@ -53,60 +48,57 @@ export class AppComponent implements OnInit {
 
   displayUserCart() {
     let sum = 0;
-    for (const i of this._httpService.cart){
+    for (const i of this._httpService.cart) {
       sum += i.qty;
     }
     this.sumQty = sum;
     return this.sumQty;
   }
 
-  getUserInfo(logged){
+  getUserInfo(logged) {
     this.loggedIn = this._httpService.getUserLoggedIn();
     console.log(logged);
     console.log(this.loggedIn)
   }
-    calculateSubtotal(){
-      let total = 0;
-      for(let i of this._httpService.cart){
-        total += i.qty * i.price;
-      }
-      this.subtotal = total;
-      console.log(this.subtotal);
-
+  calculateSubtotal() {
+    let total = 0;
+    for (const i of this._httpService.cart) {
+      total += i.qty * i.price;
     }
+    this.subtotal = total;
+    console.log(this.subtotal);
 
+  }
 
-    deleteFromCart(productObjectid: string){
-      for(let i =0; i<this.cart.length; i++){
-        if(this.cart[i]._id === productObjectid){
-          this.cart.splice(i, 1);
-        }
-      }
-      this.calculateSubtotal();
-    }
-
-    updateQty(id:string){
-      console.log("HIIIIIII")
-      console.log('inside update function');
-      for(let i =0; i<this.cart.length; i++){
-        if(this.cart[i]._id === id){
-          this.cart[i].qty = this.qty;
-          console.log(this.cart[i].qty, 'new qty');
-          this.calculateSubtotal();
-          break;
-        }
+  deleteFromCart(productObjectid: string) {
+    for (let i = 0; i < this.cart.length; i++) {
+      if (this.cart[i]._id === productObjectid) {
+        this.cart.splice(i, 1);
       }
     }
+    this.calculateSubtotal();
+  }
 
-
-    getQty(id:string){
-      for(let i =0; i<this.cart.length; i++){
-        if(this.cart[i]._id === id){
-          this.qty = this.cart[i].qty;
-        }
+  updateQty(id: string) {
+    console.log('inside update function');
+    for (let i = 0; i < this.cart.length; i++) {
+      if (this.cart[i]._id === id) {
+        this.cart[i].qty = this.qty;
+        console.log(this.cart[i].qty, 'new qty');
+        this.calculateSubtotal();
+        break;
       }
-      return this.qty;
     }
+  }
+
+  getQty(id: string) {
+    for (let i = 0; i < this.cart.length; i++) {
+      if (this.cart[i]._id === id) {
+        this.qty = this.cart[i].qty;
+      }
+    }
+    return this.qty;
+  }
 }
 
 
