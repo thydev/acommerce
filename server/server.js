@@ -8,8 +8,6 @@ const path = require('path');
 const router = express.Router();
 const app = express();
 
-
-
 // Model Section
 require('./config/mongoose');
 // End of Model Section
@@ -40,6 +38,6 @@ app.get(baseUrl + 'messages', (req, res) => {
 // End of Testing Section
 
 // App routes
-require('./server/config/routes')(app);
+require('./config/routes')(app);
 
 app.listen(port, () => console.log(`Listening to port: ${port}`));
