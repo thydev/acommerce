@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgModel, FormControl, ReactiveFormsModule } from '@angular/forms';
-import { HttpService } from '../http.service';
+import { HttpService } from '../services/http.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
@@ -180,29 +180,29 @@ export class ProductMainComponent implements OnInit {
   //     console.log(this._httpService.addToCart(id, price), 'AFTER AFTER AFTFER');
   //   }
 
+  // Add a product to cart
   onClick(productObject: any, subtotal: Number) {
     if (this._httpService.cart.length === 0) {
       productObject['qty'] = 1;
-      productObject['price'] = productObject.sellprice;
+      // productObject['price'] = productObject.sellprice;
       this._httpService.cart.push(productObject);
     } else {
       let exist = false;
-      for (const i of this._httpService.cart) {
-        if (i._id === productObject._id) {
+      for (const p of this._httpService.cart) {
+        if (p._id === productObject._id) {
           exist = true;
-          i.qty += 1;
+          p.qty += 1;
           break;
         }
       }
-      // this._httpService.updateCart();
 
-      // return this._httpService.cart;
       if (!exist) {
         productObject['qty'] = 1;
-        productObject['price'] = productObject.sellprice;
+        // productObject['price'] = productObject.sellprice;
         this._httpService.cart.push(productObject);
       }
     }
-    return this._httpService.cart;
+    this._httpService.updateCart();
+    // return this._httpService.cart;
   }
 }

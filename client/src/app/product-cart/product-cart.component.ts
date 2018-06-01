@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
-import { ActivatedRoute, Params, Router } from '@angular/router'; 
-import {MatSidenav} from '@angular/material/sidenav'; 
-
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-product-cart',
@@ -11,21 +10,19 @@ import {MatSidenav} from '@angular/material/sidenav';
   styleUrls: ['./product-cart.component.css']
 })
 export class ProductCartComponent implements OnInit {
-
-
   handler: any;
 
   constructor(
-    // private _httpService: HttpService,  
+    // private _httpService: HttpService,
     private _route: ActivatedRoute,
     private _router: Router
-    ){}
+  ) {}
 
   ngOnInit() {
     this.handler = (<any>window).StripeCheckout.configure({
       key: 'pk_test_4QecyqPaZY78qGroYMbRUrYF',
       locale: 'auto',
-      token:  (token: any) => {
+      token: (token: any) => {
         console.log('***** token is here ', token);
         // let observable = this._httpService.getToken(token.id);      //change _httpService
         // observable.subscribe(data => {
@@ -34,14 +31,13 @@ export class ProductCartComponent implements OnInit {
         console.log(this);
       },
       opened: function() {
-        console.log("Form opened");
+        console.log('Form opened');
       },
       closed: function() {
-        console.log("Form closed");
+        console.log('Form closed');
       }
     });
   }
-
 
   openCheckout() {
     this.handler.open({
@@ -52,8 +48,8 @@ export class ProductCartComponent implements OnInit {
   }
 }
 
-//this method should be in the service.ts file
+// this method should be in the service.ts file
 // getToken(token:string){
 //   console.log('token function ');
-//   return this._http.post('/url', {token});   
+//   return this._http.post('/url', {token});
 // }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from '../http.service';
-import { ActivatedRoute, Params, Router } from '@angular/router'
+import { HttpService } from '../services/http.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-facial-recog',
@@ -12,34 +12,32 @@ export class FacialRecogComponent implements OnInit {
     private _httpService: HttpService,
     private _router: Router,
     private _route: ActivatedRoute
-  ) { }
-  newUser = {name: "", email: ""};
+  ) {}
+  newUser = { name: '', email: '' };
   emailUsed = false;
   pictureTaken = false;
-  ngOnInit() {
+  ngOnInit() {}
 
-  }
-
-  registerUser(){
+  registerUser() {
     this.emailUsed = false;
     console.log(this.newUser);
     let obs = this._httpService.createUser(this.newUser);
-    obs.subscribe(data=>{
-      console.log("Create Data", data);
+    obs.subscribe(data => {
+      console.log('Create Data', data);
       // console.log("Errors", data['error'])
-      if(data['message']=="Error"){
+      if (data['message'] == 'Error') {
         console.log(data['error']['errors']['email']['message']);
         this.emailUsed = true;
       }
-      if(data['message']=="Success"){
-        setTimeout(this.registrationSuccess.bind(this), 2600)
+      if (data['message'] == 'Success') {
+        setTimeout(this.registrationSuccess.bind(this), 2600);
       }
-    })
+    });
   }
-  registrationSuccess(){
+  registrationSuccess() {
     this.pictureTaken = true;
   }
-  redirectHome(){
-    this._router.navigate(['/'])
+  redirectHome() {
+    this._router.navigate(['/']);
   }
 }

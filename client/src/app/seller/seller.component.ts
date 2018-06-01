@@ -8,7 +8,7 @@ import { MatDialog, MatDialogClose } from '@angular/material';
 import { SellerService } from '../services/seller.service';
 import { SellerNewComponent } from '../seller-new/seller-new.component';
 import { ProductNewComponent } from '../product-new/product-new.component';
-import { HttpService } from '../http.service';
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-seller',
@@ -16,13 +16,16 @@ import { HttpService } from '../http.service';
   styleUrls: ['./seller.component.css']
 })
 export class SellerComponent implements OnInit {
-
   name = '';
 
   products = [
-    {name: 'Mouse', price: 232, keyword: 'Hardware, computer, accessory'},
-    {name: 'Keyboard', price: 23, keyword: 'Hardware, computer, accessory, what more'},
-  ]
+    { name: 'Mouse', price: 232, keyword: 'Hardware, computer, accessory' },
+    {
+      name: 'Keyboard',
+      price: 23,
+      keyword: 'Hardware, computer, accessory, what more'
+    }
+  ];
 
   results$: Observable<any>;
   results: any;
@@ -31,15 +34,9 @@ export class SellerComponent implements OnInit {
     private _sellerService: SellerService,
     public dialog: MatDialog,
     private _httpService: HttpService
-  ) {
-    this.name = this._httpService.name;
-    this._httpService.nameChange.subscribe((value) => {
-      this.name = value;
-    });
-  }
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   newSeller() {
     const dialogRef = this.dialog.open(SellerNewComponent, {
@@ -61,25 +58,15 @@ export class SellerComponent implements OnInit {
     });
   }
 
-
-  updateCart() {
-    this._httpService.name = 'toto';
-    this._httpService.change();
-  }
   filterProduct(keyword: string) {
-
     this.results = this.products.filter(x => x.name === keyword);
     const squareOdd2 = of(this.products);
-    const pfilter = pipe(
-      filter(x => x['price'] > 50),
-      map(n => n)
-    );
+    const pfilter = pipe(filter(x => x['price'] > 50), map(n => n));
     this.results$ = pfilter(of(this.products));
 
     console.log(keyword);
     // Subscribe to get values
-    const squareOdd = of(1, 2, 3, 4, 5)
-    .pipe(
+    const squareOdd = of(1, 2, 3, 4, 5).pipe(
       filter(n => n % 2 !== 0),
       map(n => n * n)
     );
@@ -89,7 +76,7 @@ export class SellerComponent implements OnInit {
     // squareOdd2.subscribe(x => console.log(x));
     this.results$.subscribe(x => {
       console.log(x);
-    })
+    });
   }
 
   getSellers() {
@@ -101,7 +88,6 @@ export class SellerComponent implements OnInit {
   getProducts() {
     this._sellerService.getSellerProducts().subscribe(data => {
       console.log(data);
-    })
+    });
   }
-
 }

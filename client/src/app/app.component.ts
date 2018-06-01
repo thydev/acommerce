@@ -1,4 +1,4 @@
-import { HttpService } from './http.service';
+import { HttpService } from './services/http.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Component, ViewChild, OnInit } from '@angular/core';
 
@@ -10,30 +10,20 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  magicnumber = '20';
   loggedIn: boolean;
-  @ViewChild('sidenav') sidenav: MatSidenav;
-  sumQty;
+  sumQty = 0;
   cart = this._httpService.cart;
   subtotal: number;
-  qty: number;
-  clicked = false;
-  constructor(private _httpService: HttpService, private _router: Router) {
-    // setInterval(() => { this.displayUserCart(); }, 1000);
-    this.magicnumber = this._httpService.name;
-    this._httpService.nameChange.subscribe(value => {
-      this.magicnumber = value;
-    });
 
+  clicked = false;
+  @ViewChild('sidenav') sidenav: MatSidenav;
+  constructor(private _httpService: HttpService, private _router: Router) {
     this.cart = this._httpService.cart;
     this._httpService.cartChange.subscribe(data => {
       this.cart = data;
-      this.magicnumber = data;
+      this.displayUserCart();
     });
 
-    setInterval(() => {
-      this.displayUserCart();
-    }, 1000);
     this.getUserInfo(this.loggedIn);
   }
 
@@ -62,10 +52,9 @@ export class AppComponent implements OnInit {
   calculateSubtotal() {
     let total = 0;
     for (const i of this._httpService.cart) {
-      total += i.qty * i.price;
+      total += i.qty * i.sellprice;
     }
     this.subtotal = total;
-    console.log(this.subtotal);
   }
 
   deleteFromCart(productObjectid: string) {
@@ -75,26 +64,17 @@ export class AppComponent implements OnInit {
       }
     }
     this.calculateSubtotal();
+    // Invoke the cart data to all subscribers
+    this._httpService.updateCart();
   }
 
-  updateQty(id: string) {
-    console.log('inside update function');
+  updateQty(id: string, qty: number) {
     for (let i = 0; i < this.cart.length; i++) {
       if (this.cart[i]._id === id) {
-        this.cart[i].qty = this.qty;
-        console.log(this.cart[i].qty, 'new qty');
+        this.cart[i].qty = qty;
         this.calculateSubtotal();
         break;
       }
     }
-  }
-
-  getQty(id: string) {
-    for (let i = 0; i < this.cart.length; i++) {
-      if (this.cart[i]._id === id) {
-        this.qty = this.cart[i].qty;
-      }
-    }
-    return this.qty;
   }
 }

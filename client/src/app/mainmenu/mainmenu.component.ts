@@ -5,7 +5,7 @@ import { LocationSearchComponent } from '../location-search/location-search.comp
 import { CountrysearchComponent } from '../countrysearch/countrysearch.component';
 import { ActivitysearchComponent } from '../activitysearch/activitysearch.component';
 import { ProductsearchComponent } from '../productsearch/productsearch.component';
-import { HttpService } from '../http.service';
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-mainmenu',

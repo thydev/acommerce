@@ -1,44 +1,36 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-        <div class="row filter">
-            <h3>Shop By</h3>
-            <br>
-            <mat-card class="expansion-panel" >
-                <mat-card-title><i class="material-icons">pin_drop</i></mat-card-title>
-                <app-location-search (filterChange) = "filterProducts()"></app-location-search><br>
-              </mat-card>
-          </div>
+      <div class="row filter">
+        <h3>Shop By</h3>
+        <br>
+        <mat-card class="expansion-panel">
+          <mat-card-title>
+            <i class="material-icons">pin_drop</i>
+          </mat-card-title>
+          <app-location-search (filterChange)="filterProducts()"></app-location-search>
+          <br>
+        </mat-card>
       </div>
-      <div class="col-md-9">
-        <div class="row">
-            <div *ngFor="let p of productsResult" class="col-md-4 mt-5">
-                <mat-card class="example-card">
-                    <img mat-card-image src={{p.imgUrl}} alt="Photo of a Shiba Inu" routerLink="/products/1">
-                    <mat-card-content>
-                        <p class="prod-name">{{p.name}}</p>
-                        <p class="prod-price">${{p.sellprice}}.00</p>
-                    </mat-card-content>
-                    <mat-card-actions>
-                        <div class="button-row">
-                            <a mat-fab routerLink="." class="button-link" (click)="onClick(p)">Add</a>
-                            <a mat-fab routerLink="." class="button-link">Order</a>
-                        </div>
-                    </mat-card-actions>
-                </mat-card>
-            </div>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div *ngFor="let p of productsResult" class="col-md-4 mt-5">
+          <mat-card class="example-card">
+            <img mat-card-image src={{p.imgUrl}} alt="Photo of a Shiba Inu" routerLink="/products/1">
+            <mat-card-content>
+              <p class="prod-name">{{p.name}}</p>
+              <p class="prod-price">${{p.sellprice}}.00</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <div class="button-row">
+                <a mat-fab routerLink="." class="button-link" (click)="onClick(p)">Add</a>
+                <a mat-fab routerLink="." class="button-link">Order</a>
+              </div>
+            </mat-card-actions>
+          </mat-card>
         </div>
       </div>
+    </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-

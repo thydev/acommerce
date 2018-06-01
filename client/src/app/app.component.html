@@ -1,3 +1,4 @@
+<!-- {{cart | json}} -->
 <nav class="navbar">
   <div class="container-fluid">
     <a class="navbar-brand" [routerLink]="['/']">Wanderlust
@@ -53,10 +54,10 @@
               <h4 mat-line>{{product.name}}</h4>
               <p mat-line> Qty:
                 <mat-form-field style="width: 41px;">
-                  <input type="number" matInput min="1" value="{{qty}}" (click)="updateQty(product._id)" [(ngModel)]="qty">
+                  <input type="number" matInput min="1" value="{{product.qty}}" (click)="updateQty(product._id, $event.target.value)">
                 </mat-form-field>
               </p>
-              <p mat-line> ${{product.price * product.qty}} </p>
+              <p mat-line> $ {{product.sellprice * product.qty}} </p>
               <img class="product-image" src={{product.imgUrl}}>
             </mat-list-item>
             <mat-divider></mat-divider>
@@ -77,6 +78,3 @@
 </mat-sidenav-container>
 
 <router-outlet></router-outlet>
-<main class="container">
-
-</main>

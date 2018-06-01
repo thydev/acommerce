@@ -16,26 +16,17 @@ export class HttpService {
     highprice: 0
   };
 
-  name: any;
   // EventEmitter should not be used this way - only for `@Output()`s
   // nameChange: EventEmitter<string> = new EventEmitter<string>();
-  nameChange: Subject<string> = new Subject<string>();
 
   cartChange: Subject<any> = new Subject<any>();
   currentUser = false;
-
-  change() {
-    // this.name = 'Jane';
-    this.nameChange.next(this.name);
-  }
 
   updateCart() {
     this.cartChange.next(this.cart);
   }
 
-  constructor(private _http: HttpClient) {
-    this.name = 'Jack';
-  }
+  constructor(private _http: HttpClient) {}
 
   getKeywords() {
     return this.keywords;

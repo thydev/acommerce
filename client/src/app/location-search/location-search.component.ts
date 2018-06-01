@@ -11,7 +11,7 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/do';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { HttpService } from '../http.service';
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-location-search',

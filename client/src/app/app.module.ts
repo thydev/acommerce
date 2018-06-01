@@ -4,16 +4,15 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, FormControl, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, FormControl, ReactiveFormsModule } from '@angular/forms';
 // Angular Flex
-import {FlexLayoutModule} from '@angular/flex-layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
 // Angular Bootstrap:
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpService } from './http.service';
-
+import { HttpService } from './services/http.service';
 
 // Material Components
-import {CdkTableModule} from '@angular/cdk/table';
+import { CdkTableModule } from '@angular/cdk/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatAutocompleteModule,
@@ -51,8 +50,8 @@ import {
   MatToolbarModule,
   MatTooltipModule,
   MatTreeModule,
-  MatOptionModule,
-  } from '@angular/material';
+  MatOptionModule
+} from '@angular/material';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -84,7 +83,6 @@ import { ActivitysearchComponent } from './activitysearch/activitysearch.compone
 import { ProductsearchComponent } from './productsearch/productsearch.component';
 import { FacialRecogComponent } from './facial-recog/facial-recog.component';
 import { FacialRecogLoginComponent } from './facial-recog-login/facial-recog-login.component';
-
 
 @NgModule({
   declarations: [
@@ -165,8 +163,14 @@ import { FacialRecogLoginComponent } from './facial-recog-login/facial-recog-log
     AppRoutingModule,
     MatAutocompleteModule
   ],
-  entryComponents: [SellerNewComponent, ProductNewComponent, CountrysearchComponent, ActivitysearchComponent, ProductsearchComponent],
+  entryComponents: [
+    SellerNewComponent,
+    ProductNewComponent,
+    CountrysearchComponent,
+    ActivitysearchComponent,
+    ProductsearchComponent
+  ],
   providers: [HttpService, SellerService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

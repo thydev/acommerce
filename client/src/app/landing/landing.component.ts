@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Params, Router, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import { HttpService } from '../http.service';
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-landing',
