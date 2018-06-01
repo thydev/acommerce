@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
   displayUserCart() {
     let sum = 0;
     for (const i of this._httpService.cart) {
-      sum += i.qty;
+      sum += parseInt(i.qty, 10);
     }
     this.sumQty = sum;
     return this.sumQty;
@@ -73,6 +73,8 @@ export class AppComponent implements OnInit {
       if (this.cart[i]._id === id) {
         this.cart[i].qty = qty;
         this.calculateSubtotal();
+        // Invoke the cart data to all subscribers
+        this._httpService.updateCart();
         break;
       }
     }
