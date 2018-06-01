@@ -49,43 +49,24 @@ module.exports = (app) => {
 
     // Seller Routes
     app.post(baseUrl + 'sellers/login', sellers.login);
-    app.get(baseUrl + 'sellers', sellers.sellerLoginRequired, (req, res) => {
-        sellers.getAll(req, res);
-    });
-    app.get(baseUrl + 'sellers/:id', (req, res) => {
-        sellers.getById(req, res);
-    });
-    app.post(baseUrl + 'sellers', (req, res) => {
-        sellers.create(req, res);
-    });
-    app.put(baseUrl + 'sellers/:id', (req, res) => {
-        sellers.updateById(req, res);
-    });
-    app.delete(baseUrl + 'sellers/:id', (req, res) => {
-        sellers.removeById(req, res);
-    });
+    app.get(baseUrl + 'sellers', sellers.sellerLoginRequired, sellers.getAll);
+    app.get(baseUrl + 'sellers/:id', sellers.sellerLoginRequired, sellers.getById);
+    app.post(baseUrl + 'sellers', sellers.create);
+    app.put(baseUrl + 'sellers/:id', sellers.updateById);
+    app.delete(baseUrl + 'sellers/:id', sellers.removeById);
 
     // Product Routes
-    app.get(baseUrl + 'products', (req, res) => {
-        products.getAll(req, res);
-    });
-    app.get(baseUrl + 'products/:id', (req, res) => {
-        products.getById(req, res);
-    });
+    app.get(baseUrl + 'products', products.getAll);
+    app.post(baseUrl + 'products/search', products.search);
+    app.get(baseUrl + 'products/:id', products.getById);
     // Need a permission to create a product
     // Use the params sellerid for testing now
-    app.post(baseUrl + ':sellerid/products', (req, res) => {
-        products.create(req, res);
-    });
+    app.post(baseUrl + ':sellerid/products', sellers.sellerLoginRequired, products.create);
     // Auth must be detected
-    app.put(baseUrl + ':sellerid/products/:id', (req, res) => {
-        products.updateById(req, res);
-    });
+    app.put(baseUrl + ':sellerid/products/:id', sellers.sellerLoginRequired, products.updateById);
     // Auth must be detected
-    app.delete(baseUrl + ':sellerid/products/:id', (req, res) => {
-        products.removeById(req, res);
-    });
-    // Create a review
+    app.delete(baseUrl + ':sellerid/products/:id', sellers.sellerLoginRequired, products.removeById);
+    // Create a review - public route
     app.post(baseUrl + 'products/reviews/:id', (req, res) => {
         console.log(req);
         products.createReview(req, res);

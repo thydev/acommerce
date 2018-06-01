@@ -8,12 +8,18 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   styleUrls: ['./facial-recog-login.component.css']
 })
 export class FacialRecogLoginComponent implements OnInit {
+  user: any;
+  video: any;
+  emailNotRegistered: boolean;
+  invalid: boolean;
+  pictureTaken: boolean;
+
   constructor(
     private _httpService: HttpService,
     private _router: Router,
     private _route: ActivatedRoute
   ) {}
-  video: any;
+
   ngOnInit() {}
   checkUserCI() {
     console.log(this.user);

@@ -25,8 +25,7 @@
               "src/styles.css"
             ],
             "scripts": [
-              "src/facialrecogreg.js",
-              "src/spotlight.js"
+              "src/facialrecogreg.js"
             ]
           },
           "configurations": {
@@ -40,12 +39,10 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ]
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.prod.ts"
+              }]
             }
           }
         },
