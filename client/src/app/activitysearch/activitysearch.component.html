@@ -1,15 +1,15 @@
 <form class="example-form">
   <mat-form-field class="example-full-width">
-    <input type="text" placeholder="Activity"  matInput [formControl]="activityControl" [matAutocomplete]="activeAuto" (ngModelChange)="activityChange($event)" [(ngModel)]="data.activity">
+    <input type="text" placeholder="Activity" matInput [formControl]="activityControl" [matAutocomplete]="activeAuto" (ngModelChange)="activityChange($event)">
     <mat-autocomplete #activeAuto="matAutocomplete">
       <mat-option *ngFor="let active of activityOption | async" [value]="active">
         {{ active }}
       </mat-option>
-    </mat-autocomplete> 
- </mat-form-field> 
- <div mat-dialog-actions>
+    </mat-autocomplete>
+  </mat-form-field>
+  <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Cancel</button>
-    <button mat-button [mat-dialog-close]="data.activity" cdkFocusInitial>Search</button>
+    <button mat-button mat-dialog-close="go" cdkFocusInitial>Search</button>
   </div>
- 
+
 </form>

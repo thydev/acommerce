@@ -30,9 +30,9 @@ export class ProductMainComponent implements OnInit {
       _id: '5b034d06540ca80bae3f3d23',
       name: 'Canon Black EOS Rebel SL1',
       imgUrlHead:
-        'https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF',
+        'https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg',
       imgUrl:
-        'https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF',
+        'https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg',
       description: 'best place to visit',
       keywords: 'Camping, rain, cloudy, cold, Korea, Seoul, Seoul',
       seller: '5b0341ce914da00957229ebb',
@@ -56,9 +56,9 @@ export class ProductMainComponent implements OnInit {
       _id: '5b034d06540ca80bae3f3d24',
       name: 'Canon Black EOS Rebel SL1',
       imgUrlHead:
-        'https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF',
+        'https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg',
       imgUrl:
-        'https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF',
+        'https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg',
       description: 'best place to visit',
       keywords: 'Swimming, rain, cloudy, cold, USA, washington, seattle',
       seller: '5b0341ce914da00957229ebb',
@@ -82,9 +82,9 @@ export class ProductMainComponent implements OnInit {
       _id: '5b034d06540ca80bae3f3d25',
       name: 'Canon Black EOS Rebel SL1',
       imgUrlHead:
-        'https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF',
+        'https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg',
       imgUrl:
-        'https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF',
+        'https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg',
       description: 'best place to visit',
       keywords: 'Hiking, rain, cloudy, cold, Cambodia, new york',
       seller: '5b0341ce914da00957229ebb',
@@ -108,9 +108,9 @@ export class ProductMainComponent implements OnInit {
       _id: '5b034d06540ca80bae3f3d26',
       name: 'Canon Black EOS Rebel SL1',
       imgUrlHead:
-        'https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF',
+        'https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg',
       imgUrl:
-        'https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg?odnHeight=560&odnWidth=560&odnBg=FFFFFF',
+        'https://i5.walmartimages.com/asr/155babc0-37af-4ef7-911d-33d08d1829a8_1.6cd8e941fe4186ed7cfca4219e4a7ded.jpeg',
       description: 'best place to visit',
       keywords: 'landscape, rain, cloudy, cold, USA, seattle',
       seller: '5b0341ce914da00957229ebb',
@@ -130,18 +130,15 @@ export class ProductMainComponent implements OnInit {
     }
   ];
 
-  constructor(private _httpService: HttpService) {
-    // this.filterProducts();
-  }
+  constructor(private _httpService: HttpService) {}
 
   ngOnInit() {
     this.filterProducts();
   }
 
   filterProducts(): void {
-    console.log(this._httpService.keywords, 'why is this inconsistent');
     const keywords = this._httpService.keywords;
-    // this._httpService.getKeywords().subscribe
+
     this.productsResult = this.products;
     if (this._httpService.keywords.country) {
       this.productsResult = this.productsResult.filter(option =>
@@ -175,7 +172,6 @@ export class ProductMainComponent implements OnInit {
         x => x.sellprice <= keywords.highprice
       );
     }
-    console.log(this.productsResult);
   }
 
   //   onClick(id:string, price:number){

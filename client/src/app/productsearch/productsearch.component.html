@@ -1,14 +1,9 @@
 <form class="example-form">
-    <mat-form-field class="example-full-width">
-      <input type="text" placeholder="Product"  matInput [formControl]="activityControl" [matAutocomplete]="activeAuto" (ngModelChange)="activityChange($event)" [(ngModel)]="data.product">
-      <mat-autocomplete #activeAuto="matAutocomplete">
-        <mat-option *ngFor="let active of activityOption | async" [value]="active">
-          {{ active }}
-        </mat-option>
-      </mat-autocomplete> 
-   </mat-form-field> 
-   <div mat-dialog-actions>
-      <button mat-button (click)="onNoClick()">Cancel</button>
-      <button mat-button [mat-dialog-close]="data.product" cdkFocusInitial>Search</button>
-    </div>
-  </form>
+  <mat-form-field class="example-full-width">
+    <input type="text" placeholder="Product" matInput (ngModelChange)="productChange($event.target.value)">
+  </mat-form-field>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button mat-dialog-close="go" cdkFocusInitial>Search</button>
+  </div>
+</form>

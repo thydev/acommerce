@@ -3,24 +3,15 @@ import { ActivatedRoute, Params, Router, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { HttpService } from '../http.service';
 
-declare var test: any;
-
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
-  @Output() UserLoggedIn = new EventEmitter();
-  loggedIn: boolean;
-  user;
-  // Fixing spotlight
+  // Spotlight Elements
   private spotlight: any;
   private spotlightSize = 'transparent 160px, rgba(0, 0, 0, 0.85) 200px)';
-
-  f() {
-    test();
-  }
 
   constructor(
     private _router: Router,
@@ -29,14 +20,6 @@ export class LandingComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this._route.params.subscribe((params: Params) => {
-      console.log(params['id']);
-      this.user = params['id'];
-      if (params['id'] != null) {
-        this._httpService.setUserLoggedIn();
-      }
-    });
-    this.getUserInfo();
     this.spotlight = document.querySelector('.spotlight');
     window.addEventListener('mousemove', e => {
       this.updateSpotlight(e);
@@ -62,12 +45,5 @@ export class LandingComponent implements OnInit {
 
   productPage() {
     this._router.navigate(['/products']);
-  }
-
-  getUserInfo() {
-    this.loggedIn = this._httpService.getUserLoggedIn();
-    if (this.loggedIn) {
-      this.UserLoggedIn.emit(this.loggedIn);
-    }
   }
 }
