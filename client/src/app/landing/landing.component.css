@@ -4,14 +4,12 @@ body {
 }
 
 .box {
-  background-image: url('https://images.pexels.com/photos/208213/pexels-photo-208213.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
-  background-size: cover;
-  /* width: 100%; */
+  background: url('https://images.pexels.com/photos/208213/pexels-photo-208213.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') no-repeat center;
+  width: 100vw;
   height: 450px;
-  margin: -55px -210px 0 -210px;
-  /* height: 100; */
   cursor: none;
-  overflow: hidden
+  overflow: hidden;
+  box-shadow: 4px 4px 4px rgb(119, 116, 116);
 }
 
 h1 {
@@ -32,14 +30,8 @@ h1 {
 }
 
 .spotlight {
-  /* position: absolute; */
   height: 450px;
-  width: 100%;
-  background-image: radial-gradient( circle, transparent 100px, rgba(0, 0, 0, 0.85) 160px);
-}
-
-.box {
-  box-shadow: 4px 4px 4px rgb(119, 116, 116);
+  background-image: radial-gradient(circle, transparent 100px, rgba(0, 0, 0, 0.85) 160px);
 }
 
 h1 {

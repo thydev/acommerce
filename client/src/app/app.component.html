@@ -46,14 +46,14 @@
 
         <mat-grid-tile *ngFor="let product of cart">
           <mat-list>
-            <button mat-icon-button (click) = "deleteFromCart(product._id)">
+            <button mat-icon-button (click)="deleteFromCart(product._id)">
               <i class="material-icons delete">clear</i>
             </button>
             <mat-list-item>
               <h4 mat-line>{{product.name}}</h4>
               <p mat-line> Qty:
                 <mat-form-field style="width: 41px;">
-                  <input type="number" matInput min="1" value="{{qty}}" (click) = "updateQty(product._id)" [(ngModel)]="qty">
+                  <input type="number" matInput min="1" value="{{qty}}" (click)="updateQty(product._id)" [(ngModel)]="qty">
                 </mat-form-field>
               </p>
               <p mat-line> ${{product.price * product.qty}} </p>
@@ -76,8 +76,7 @@
   </mat-sidenav>
 </mat-sidenav-container>
 
-
+<router-outlet></router-outlet>
 <main class="container">
 
-  <router-outlet></router-outlet>
 </main>
