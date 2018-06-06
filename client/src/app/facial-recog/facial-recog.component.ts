@@ -35,8 +35,9 @@ export class FacialRecogComponent implements OnInit {
     private _router: Router,
     private _route: ActivatedRoute
   ) {}
-  // Add on keydown event for email input as event for validations. Regex and remove red valid if valids met, run functions. Not for unique email. That must be on submit event.
-  //Cart have the cart update functions run to update back-end and front on click function. Use Outer?
+  // THINGS TO DO: Add on keydown event for email input as event for validations. Regex and remove red valid if valids met, run functions, not for unique email could be security issue. That must be on submit event.
+  //Cart have the cart update functions run to update back-end and front on click function Quantity update issues. Outer?
+  //Progress spinner while Registering/Login?
   ngOnInit() {
     this.startUp();
   }
@@ -149,7 +150,14 @@ export class FacialRecogComponent implements OnInit {
     //Redirect to previous page is goal
     this.redirectHome();
   }
+  //Redirect to previous page. Figure out
   redirectHome(){
+    let stream = this.video['srcObject'];
+    let tracks = stream.getTracks();
+    tracks.forEach((track)=>{
+        console.log(track);
+        track.stop();
+    })
     this._router.navigate(['/'])
   }
 }
