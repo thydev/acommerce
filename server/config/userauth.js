@@ -44,7 +44,7 @@ module.exports = (app) => {
             failureRedirect: '/'
         }),
         function (req, res) {
-            res.redirect(req.session.returnTo || '/user');
+            res.redirect(req.session.returnTo || '/' +user);
         }
     );
     // app.all("*", (req,res,next)=>{

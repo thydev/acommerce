@@ -78,7 +78,7 @@ router.get('/callback',
       req.session.email = newUser.email;
       console.log(req.session.email);
       console.log("creating users???")
-      return res.redirect(req.session.returnTo || '/landing/' + user);
+      return res.redirect(req.session.returnTo || '/' + user);
     })
   }
 );
