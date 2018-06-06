@@ -10,7 +10,7 @@
       <input matInput id="email" type="email" name="newUser.email" placeholder="Email.." value="" [(ngModel)]=newUser.email>
     </mat-form-field>
     <br><br>
-    <button *ngIf="!pictureTaken" onclick="ready()" [disabled]="newUser.email.length < 6 || newUser.name.length < 2" mat-raised-button color="primary" id="startbutton" type="submit" (click)="registerUser()">Take photo</button>
+    <button *ngIf="!pictureTaken" [disabled]="newUser.email.length < 6 || newUser.name.length < 2" mat-raised-button color="primary" id="startbutton" type="submit" (click)="registerUser()">Take photo</button>
   </form>
   <h5 class="text-success" *ngIf="pictureTaken">Registration Successful Welcome {{newUser.name}}</h5>
 </div>

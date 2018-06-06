@@ -13,8 +13,8 @@
           <button mat-menu-item [matMenuTriggerFor]="facialrecog">Facial Recognition</button>
         </mat-menu>
         <mat-menu #facialrecog="matMenu">
-          <a href="/facialrecogreg" role="button" mat-menu-item>Register</a>
-          <a href="/facialrecoglogin" role="button" mat-menu-item>Login</a>
+          <button routerLink='facialrecogreg' mat-menu-item>Register</button>
+          <button routerLink='facialrecoglogin' mat-menu-item>Login</button>
         </mat-menu>
       </div>
       <div *ngIf="loggedIn">

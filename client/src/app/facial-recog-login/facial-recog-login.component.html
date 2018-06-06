@@ -2,12 +2,12 @@
 <h3>Facial Recognition Login</h3>
 <div>
   <form>
-    <p>Enter Email: <span class="text-danger" *ngIf="user.email.length < 6">User Email is required</span><br><span id="emailNotRegistered" *ngIf="emailNotRegistered" class="text-danger">Email Not Registered</span><br><span class="text-danger" *ngIf="invalid">Invalid Login</span></p>
+    <p>Enter Email: <span class="text-danger" *ngIf="user.email.length < 6">User Email is required</span><br><span id="emailNotRegistered" *ngIf="emailNotRegistered" class="text-danger">Email Not Registered</span><br><span class="text-danger" *ngIf="invalid">Invalid Login: Picture not Recognized with this Email. Try Again</span></p>
     <mat-form-field>
       <input matInput id="email" type="email" name="user.email" placeholder="Email.." value="" [(ngModel)]=user.email>
     </mat-form-field>
     <br><br>
-    <button onclick="takepicture()" [disabled]="user.email.length < 6" mat-raised-button color="primary" id="startbutton" type="submit" (click)="checkUserCI()">Take photo</button>
+    <button [disabled]="user.email.length < 6" mat-raised-button color="primary" id="startbutton" type="submit" (click)=" takePicture(); checkUserCI()">Take photo</button>
   </form>
   <h5 class="text-success" *ngIf="pictureTaken">Login Successful Welcome {{user.name}}</h5>
 </div>
