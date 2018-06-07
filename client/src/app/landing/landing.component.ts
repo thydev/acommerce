@@ -32,10 +32,21 @@ export class LandingComponent implements OnInit {
       }
     });
     this.getUserInfo();
+    this.storeRoute();
   }
   productPage(){
     this._router.navigate(['/products']);
 
+  }
+  storeRoute(){
+    let route = ""
+    for(let i = 0; i<this._route.url['value'].length; i++){
+      route += this._route.url['value'][i]['path'];
+      route += "/";
+      console.log(this._route.url['value'][i]['path']);
+    }
+    console.log(route);
+    this._httpService.prevRoute = route;
   }
 
   getUserInfo() {

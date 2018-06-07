@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgModel, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { HttpService } from '../http.service';
+import { ActivatedRoute, Params, Router, ParamMap } from '@angular/router'
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
@@ -130,12 +131,24 @@ export class ProductMainComponent implements OnInit {
     }
   ];
 
-  constructor(private _httpService: HttpService) {
+  constructor(private _httpService: HttpService, private _router: Router, private _route: ActivatedRoute,) {
     // this.filterProducts();
   }
 
   ngOnInit() {
     this.filterProducts();
+    this.storeRoute();
+  }
+
+  storeRoute(){
+    let route = ""
+    for(let i = 0; i<this._route.url['value'].length; i++){
+      route += this._route.url['value'][i]['path'];
+      route += "/";
+      console.log(this._route.url['value'][i]['path']);
+    }
+    console.log(route);
+    this._httpService.prevRoute = route;
   }
 
   filterProducts(): void {

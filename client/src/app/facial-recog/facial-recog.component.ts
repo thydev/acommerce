@@ -21,7 +21,7 @@ export class FacialRecogComponent implements OnInit {
   video = null;
   canvas = null;
   photo = null;
-  startbutton = null;
+
   context = null;
   data = null;
   newUser = {name: "", email: ""};
@@ -36,6 +36,7 @@ export class FacialRecogComponent implements OnInit {
     private _route: ActivatedRoute
   ) {}
   // THINGS TO DO: Add on keydown event for email input as event for validations. Regex and remove red valid if valids met, run functions, not for unique email could be security issue. That must be on submit event.
+  //Store user id to user side http service ts file.
   //Cart have the cart update functions run to update back-end and front on click function Quantity update issues. Outer?
   //Progress spinner while Registering/Login?
   ngOnInit() {
@@ -46,7 +47,7 @@ export class FacialRecogComponent implements OnInit {
     this.video = document.getElementById('video');
     this.canvas = document.getElementById('canvas');
     this.photo = document.getElementById('photo');
-    this.startbutton = document.getElementById('startbutton');
+
     //Promise below to retrieve stream from getUserMedia function then assign to video property
     navigator.mediaDevices.getUserMedia({ video: true, audio: false})
     .then((stream)=>{
@@ -135,15 +136,20 @@ export class FacialRecogComponent implements OnInit {
       if(data['message']=="Success"){
         this.ready();
         this.pictureTaken = true;
+        //Need function to query for new registered user by email
         setTimeout(this.registrationSuccess.bind(this), 2600)
       }
     })
   }
-  registrationValids(e){
-    // Email REgex needed
-    if(e.keydown){
 
-      this.emailSum = this.newUser.email;
+  emailValids(e: any){
+    console.log(e.keyCode);
+    console.log(e.key);
+    this.emailSum = this.newUser.email;
+    console.log(this.emailSum);
+    // Email REgex needed
+    // cross match with regex
+    if(e.keydown){
     }
   }
   registrationSuccess(){
@@ -158,6 +164,6 @@ export class FacialRecogComponent implements OnInit {
         console.log(track);
         track.stop();
     })
-    this._router.navigate(['/'])
+    this._router.navigate([this._httpService.prevRoute])
   }
 }

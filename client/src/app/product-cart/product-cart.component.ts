@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
-
-import { ActivatedRoute, Params, Router } from '@angular/router'; 
-import {MatSidenav} from '@angular/material/sidenav'; 
+import { HttpService } from '../http.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import {MatSidenav} from '@angular/material/sidenav';
 
 
 @Component({
@@ -16,7 +16,7 @@ export class ProductCartComponent implements OnInit {
   handler: any;
 
   constructor(
-    // private _httpService: HttpService,  
+    private _httpService: HttpService,
     private _route: ActivatedRoute,
     private _router: Router
     ){}
@@ -40,6 +40,17 @@ export class ProductCartComponent implements OnInit {
         console.log("Form closed");
       }
     });
+    this.storeRoute();
+  }
+  storeRoute(){
+    let route = ""
+    for(let i = 0; i<this._route.url['value'].length; i++){
+      route += this._route.url['value'][i]['path'];
+      route += "/";
+      console.log(this._route.url['value'][i]['path']);
+    }
+    console.log(route);
+    this._httpService.prevRoute = route;
   }
 
 
@@ -55,5 +66,5 @@ export class ProductCartComponent implements OnInit {
 //this method should be in the service.ts file
 // getToken(token:string){
 //   console.log('token function ');
-//   return this._http.post('/url', {token});   
+//   return this._http.post('/url', {token});
 // }

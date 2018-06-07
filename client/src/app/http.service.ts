@@ -6,6 +6,8 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class HttpService {
+  userId: any;
+  prevRoute: any;
   cart = [];
   keywords = {
     country: '',

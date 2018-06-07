@@ -10,7 +10,7 @@
     <button [disabled]="user.email.length < 6" mat-raised-button color="primary" id="startbutton" type="submit" (click)=" takePicture(); checkUserCI()">Take photo</button>
     <button id="cancel" mat-raised-button color="warn" (click)="redirectHome()">Cancel</button>
   </form>
-  <h5 class="text-success" *ngIf="pictureTaken">Login Successful Welcome {{user.name}}</h5>
+  <h5 class="text-success" *ngIf="pictureTaken"><br>Login Successful Welcome {{user.name}}</h5>
 </div>
 <br>
 <div class="camera">

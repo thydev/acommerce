@@ -16,6 +16,7 @@ export class FacialRecogLoginComponent implements OnInit {
     "app_key"         : "66ae3d988e76f7fe922eb80a415bd4b8"
   };
   user= {email: "", name: ""};
+  emailSum = "";
   emailNotRegistered = false;
   pictureTaken = false;
   invalid = false;
@@ -25,7 +26,6 @@ export class FacialRecogLoginComponent implements OnInit {
   video = null;
   canvas = null;
   photo = null;
-  startbutton = null;
   context = null;
   data = null;
   newUser = {name: "", email: ""};
@@ -39,6 +39,7 @@ export class FacialRecogLoginComponent implements OnInit {
   ) { }
   ngOnInit() {
     this.startUp();
+    console.log(this._httpService.prevRoute)
   }
   checkUserCI(){
     console.log(this.user);
@@ -48,7 +49,7 @@ export class FacialRecogLoginComponent implements OnInit {
     this.video = document.getElementById('video');
     this.canvas = document.getElementById('canvas');
     this.photo = document.getElementById('photo');
-    this.startbutton = document.getElementById('startbutton');
+
     //Promise below to retrieve stream from getUserMedia function then assign to video property
     navigator.mediaDevices.getUserMedia({ video: true, audio: false})
     .then((stream)=>{
@@ -131,6 +132,7 @@ export class FacialRecogLoginComponent implements OnInit {
         if (data['message'] == 'Success') {
           // this.user.name = data['data']['name']
           this.pictureTaken = true;
+          this._httpService.userId = data['data']['_id']
           setTimeout(this.redirectHome.bind(this), 1000);
         }
       });
@@ -140,6 +142,16 @@ export class FacialRecogLoginComponent implements OnInit {
       this.emailNotRegistered = true;
     }
   }
+  emailValids(e: any){
+    console.log(e.keyCode);
+    console.log(e.key);
+    this.emailSum = this.user.email;
+    console.log(this.emailSum);
+    // Email REgex needed
+    // cross match with regex before photo allowed
+    if(e.keydown){
+    }
+  }
   redirectHome(){
     let stream = this.video['srcObject'];
     let tracks = stream.getTracks();
@@ -147,7 +159,7 @@ export class FacialRecogLoginComponent implements OnInit {
         console.log(track);
         track.stop();
     })
-    //Have route navigate to previous page prior to log in
-    this._router.navigate(['/'])
+    //Have route navigate to previous page prior to log in. Grab url from window of previous when directed to this route. Can store angular routes to HTTP SERVICE when user enters new component loaded, then retrieve from http service to here to redirect.
+    this._router.navigate([this._httpService.prevRoute])
   }
 }
